@@ -1291,8 +1291,8 @@ const components = [
   {
     id: 29,
     attributes: {
-      name: "Slideover",
-      slug: "slidover",
+      name: "Sheet",
+      slug: "sheet",
       description:
         "A component that allows you to display a panel on the side of the screen.",
       code: null,
