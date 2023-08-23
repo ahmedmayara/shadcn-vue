@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+html.dark {
+  color-scheme: dark;
+}
+
+@layer base {
+  :root {
+    --background: rgb(255 255 255);
+    --foreground: rgb(3 7 18);
+    --border: rgb(229 231 235);
+    --muted: rgb(113 113 122);
+    --primary: rgb(3 7 18);
+    --primary-foreground: rgb(255 255 255);
+    --primary-hover: rgb(31 41 55);
+    --secondary: rgb(229 231 235);
+    --secondary-foreground: rgb(3 7 18);
+    --secondary-hover: rgba(229, 231, 235, 0.8);
+    --accent: rgb(209 213 219);
+    --accent-foreground: rgb(3 7 18);
+    --destructive: rgb(239 68 68);
+    --destructive-foreground: rgb(255 255 255);
+    --destructive-hover: rgb(220 38 38);
+    --outline-hover: rgb(243 244 246);
+    --radius: 0.5rem;
+    --ring: rgba(3, 7, 18, 0.1);
+  }
+
+  .dark {
+    --background: rgb(3 7 18);
+    --foreground: rgb(255 255 255);
+    --border: rgb(31 41 55);
+    --muted: rgb(161 161 170);
+    --primary: rgb(243 244 246);
+    --primary-foreground: rgb(3 7 18);
+    --primary-hover: rgb(229 231 235);
+    --secondary: rgb(31 41 55);
+    --secondary-foreground: rgb(255 255 255);
+    --secondary-hover: rgba(31, 41, 55, 0.8);
+    --accent: rgb(55 65 81);
+    --accent-foreground: rgb(255 255 255);
+    --destructive: rgb(127 29 29);
+    --destructive-foreground: rgb(255 255 255);
+    --destructive-hover: rgb(153 27 27);
+    --outline-hover: rgb(31 41 55);
+    --ring: rgba(255, 255, 255, 0.1);
+  }
+}
