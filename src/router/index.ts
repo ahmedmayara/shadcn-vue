@@ -9,7 +9,7 @@ const router = createRouter({
       name: "home",
       component: HomeView,
       meta: {
-        title: "variance/ui",
+        title: "shadcn-vue",
       },
     },
     {
@@ -17,7 +17,7 @@ const router = createRouter({
       name: "docs",
       component: () => import("@/views/IntroductionView.vue"),
       meta: {
-        title: "Introduction - variance/ui",
+        title: "Introduction - shadcn-vue",
       },
     },
     {
@@ -25,7 +25,7 @@ const router = createRouter({
       name: "installation",
       component: () => import("@/views/InstallationView.vue"),
       meta: {
-        title: "Installation - variance/ui",
+        title: "Installation - shadcn-vue",
       },
     },
     {
@@ -33,7 +33,7 @@ const router = createRouter({
       name: "about",
       component: () => import("@/views/AboutView.vue"),
       meta: {
-        title: "About - variance/ui",
+        title: "About - shadcn-vue",
       },
     },
     {
@@ -82,7 +82,7 @@ const router = createRouter({
       name: "accordion",
       component: () => import("@/docs/AccordionView.vue"),
       meta: {
-        title: "Accordion - variance/ui",
+        title: "Accordion - shadcn-vue",
       },
     },
     {
@@ -90,7 +90,7 @@ const router = createRouter({
       name: "alert",
       component: () => import("@/docs/AlertView.vue"),
       meta: {
-        title: "Alert - variance/ui",
+        title: "Alert - shadcn-vue",
       },
     },
     {
@@ -98,7 +98,7 @@ const router = createRouter({
       name: "alert-dialog",
       component: () => import("@/docs/AlertDialogView.vue"),
       meta: {
-        title: "Alert Dialog - variance/ui",
+        title: "Alert Dialog - shadcn-vue",
       },
     },
     {
@@ -106,7 +106,7 @@ const router = createRouter({
       name: "aspect-ratio",
       component: () => import("@/docs/AspectRatioView.vue"),
       meta: {
-        title: "Aspect Ratio - variance/ui",
+        title: "Aspect Ratio - shadcn-vue",
       },
     },
     {
@@ -114,7 +114,7 @@ const router = createRouter({
       name: "avatar",
       component: () => import("@/docs/AvatarView.vue"),
       meta: {
-        title: "Avatar - variance/ui",
+        title: "Avatar - shadcn-vue",
       },
     },
     {
@@ -122,7 +122,7 @@ const router = createRouter({
       name: "badge",
       component: () => import("@/docs/BadgeView.vue"),
       meta: {
-        title: "Badge - variance/ui",
+        title: "Badge - shadcn-vue",
       },
     },
     {
@@ -130,7 +130,7 @@ const router = createRouter({
       name: "button",
       component: () => import("@/docs/ButtonView.vue"),
       meta: {
-        title: "Button - variance/ui",
+        title: "Button - shadcn-vue",
       },
     },
     {
@@ -138,7 +138,7 @@ const router = createRouter({
       name: "calendar",
       component: () => import("@/docs/CalendarView.vue"),
       meta: {
-        title: "Calendar - variance/ui",
+        title: "Calendar - shadcn-vue",
       },
     },
     {
@@ -146,7 +146,7 @@ const router = createRouter({
       name: "card",
       component: () => import("@/docs/CardView.vue"),
       meta: {
-        title: "Card - variance/ui",
+        title: "Card - shadcn-vue",
       },
     },
     {
@@ -154,7 +154,7 @@ const router = createRouter({
       name: "checkbox",
       component: () => import("@/docs/CheckboxView.vue"),
       meta: {
-        title: "Checkbox - variance/ui",
+        title: "Checkbox - shadcn-vue",
       },
     },
     {
@@ -162,7 +162,7 @@ const router = createRouter({
       name: "context-menu",
       component: () => import("@/docs/ContextMenuView.vue"),
       meta: {
-        title: "Context Menu - variance/ui",
+        title: "Context Menu - shadcn-vue",
       },
     },
     {
@@ -170,7 +170,7 @@ const router = createRouter({
       name: "data-table-docs",
       component: () => import("@/docs/DataTableView.vue"),
       meta: {
-        title: "Data Table - variance/ui",
+        title: "Data Table - shadcn-vue",
       },
     },
     {
@@ -178,7 +178,7 @@ const router = createRouter({
       name: "date-picker",
       component: () => import("@/docs/DatepickerView.vue"),
       meta: {
-        title: "Date Picker - variance/ui",
+        title: "Date Picker - shadcn-vue",
       },
     },
     {
@@ -186,7 +186,7 @@ const router = createRouter({
       name: "dropdown-menu",
       component: () => import("@/docs/DropdownMenuView.vue"),
       meta: {
-        title: "Dropdown Menu - variance/ui",
+        title: "Dropdown Menu - shadcn-vue",
       },
     },
     {
@@ -194,7 +194,7 @@ const router = createRouter({
       name: "hover-card",
       component: () => import("@/docs/HoverCardView.vue"),
       meta: {
-        title: "Hover Card - variance/ui",
+        title: "Hover Card - shadcn-vue",
       },
     },
     {
@@ -202,7 +202,7 @@ const router = createRouter({
       name: "table",
       component: () => import("@/docs/TableView.vue"),
       meta: {
-        title: "Table - variance/ui",
+        title: "Table - shadcn-vue",
       },
     },
     {
@@ -210,7 +210,7 @@ const router = createRouter({
       name: "tabs",
       component: () => import("@/docs/TabsView.vue"),
       meta: {
-        title: "Tabs - variance/ui",
+        title: "Tabs - shadcn-vue",
       },
     },
   ],
