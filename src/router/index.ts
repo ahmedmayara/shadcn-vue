@@ -182,6 +182,14 @@ const router = createRouter({
       },
     },
     {
+      path: "/docs/components/dialog",
+      name: "dialog",
+      component: () => import("@/docs/DialogView.vue"),
+      meta: {
+        title: "Dialog - shadcn-vue",
+      },
+    },
+    {
       path: "/docs/components/dropdown-menu",
       name: "dropdown-menu",
       component: () => import("@/docs/DropdownMenuView.vue"),

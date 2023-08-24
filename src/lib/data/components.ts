@@ -852,7 +852,98 @@ const components = [
       slug: "dialog",
       description:
         "A window overlaid on either the primary window or another dialog window, rendering the content underneath inert.",
-      code: null,
+      radixUrl: "https://www.radix-vue.com/components/dialog.html",
+      apiReference:
+        "https://www.radix-vue.com/components/dialog.html#api-reference",
+      code:
+        '<script lang="ts" setup>\n' +
+        "import {\n" +
+        "  Dialog,\n" +
+        "  DialogTrigger,\n" +
+        "  DialogContent,\n" +
+        "  DialogHeader,\n" +
+        "  DialogTitle,\n" +
+        "  DialogDescription,\n" +
+        "  DialogFooter,\n" +
+        '} from "@/components/ui/dialog";\n' +
+        'import { Button } from "@/components/ui/button";\n' +
+        'import { Input } from "@/components/ui/input";\n' +
+        'import { Label } from "@/components/ui/label";\n' +
+        "</script>\n" +
+        "\n" +
+        "<template>\n" +
+        "  <Dialog>\n" +
+        "    <DialogTrigger asChild>\n" +
+        '      <Button variant="outline"> Open Dialog </Button>\n' +
+        "    </DialogTrigger>\n" +
+        '    <DialogContent class="sm:max-w-[425px]">\n' +
+        "      <DialogHeader>\n" +
+        "        <DialogTitle> Edit profile </DialogTitle>\n" +
+        "        <DialogDescription>\n" +
+        "          Make changes to your profile here. Click save when you're done.\n" +
+        "        </DialogDescription>\n" +
+        "      </DialogHeader>\n" +
+        '      <div class="grid gap-4 py-4">\n' +
+        '        <div class="grid grid-cols-4 items-center gap-4">\n' +
+        "          <Label\n" +
+        '            for="name"\n' +
+        '            class="text-right"\n' +
+        "          >\n" +
+        "            Name\n" +
+        "          </Label>\n" +
+        "          <Input\n" +
+        '            id="name"\n' +
+        '            value="Pedro Duarte"\n' +
+        '            class="col-span-3"\n' +
+        "          />\n" +
+        "        </div>\n" +
+        '        <div class="grid grid-cols-4 items-center gap-4">\n' +
+        "          <Label\n" +
+        '            for="username"\n' +
+        '            class="text-right"\n' +
+        "          >\n" +
+        "            Username\n" +
+        "          </Label>\n" +
+        "          <Input\n" +
+        '            id="username"\n' +
+        '            value="@peduarte"\n' +
+        '            class="col-span-3"\n' +
+        "          />\n" +
+        "        </div>\n" +
+        "      </div>\n" +
+        "      <DialogFooter>\n" +
+        "        <Button> Submit </Button>\n" +
+        "      </DialogFooter>\n" +
+        "    </DialogContent>\n" +
+        "  </Dialog>\n" +
+        "</template>\n",
+      usageImportCode:
+        '<script lang="ts" setup>\n' +
+        "import {\n" +
+        "  Dialog,\n" +
+        "  DialogTrigger,\n" +
+        "  DialogContent,\n" +
+        "  DialogHeader,\n" +
+        "  DialogTitle,\n" +
+        "  DialogDescription,\n" +
+        '} from "@/components/ui/dialog";\n' +
+        "</script>\n",
+      usageCode:
+        "<template>\n" +
+        "  <Dialog>\n" +
+        "    <DialogTrigger> Open </DialogTrigger>\n" +
+        "    <DialogContent>\n" +
+        "      <DialogHeader>\n" +
+        "        <DialogTitle> Are you sure absolutely sure? </DialogTitle>\n" +
+        "        <DialogDescription>\n" +
+        "          This action cannot be undone. This will permanently\n" +
+        "          delete your account and remove your \n" +
+        "          data from our servers.\n" +
+        "        </DialogDescription>\n" +
+        "      </DialogHeader>\n" +
+        "    </DialogContent>\n" +
+        "  </Dialog>\n" +
+        "</template>",
     },
   },
   {
