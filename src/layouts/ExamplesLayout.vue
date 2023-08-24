@@ -2,42 +2,69 @@
 import MainLayout from "@/layouts/MainLayout.vue";
 import { ArrowRight } from "lucide-vue-next";
 import { Button } from "@/components/ui/button";
+import { computed } from "vue";
+import { useRouter } from "vue-router";
 
 interface Example {
   label: string;
   href: string;
+  githubLink?: string;
 }
+
+const router = useRouter();
 
 const examples: Example[] = [
   {
     label: "Dashboard",
     href: "/examples/dashboard",
+    githubLink:
+      "https://github.com/ahmedmayara/shadcn-vue/tree/master/src/examples/dashboard",
   },
   {
     label: "Cards",
     href: "/examples/cards",
+    githubLink:
+      "https://github.com/ahmedmayara/shadcn-vue/tree/master/src/examples/cards",
   },
   {
     label: "Tasks",
     href: "/examples/tasks",
+    githubLink:
+      "https://github.com/ahmedmayara/shadcn-vue/tree/master/src/examples/tasks",
   },
   {
     label: "Playground",
     href: "/examples/playground",
+    githubLink:
+      "https://github.com/ahmedmayara/shadcn-vue/tree/master/src/examples/playground",
   },
   {
     label: "Forms",
     href: "/examples/forms",
+    githubLink:
+      "https://github.com/ahmedmayara/shadcn-vue/tree/master/src/examples/forms",
   },
   {
     label: "Music",
     href: "/examples/music",
+    githubLink:
+      "https://github.com/ahmedmayara/shadcn-vue/tree/master/src/examples/music",
   },
   {
     label: "Authentication",
     href: "/examples/authentication",
+    githubLink:
+      "https://github.com/ahmedmayara/shadcn-vue/tree/master/src/examples/authentication",
   },
 ];
+
+const currentExample = computed(() => {
+  return examples.find(
+    (example) => example.href === router.currentRoute.value.path,
+  );
+});
+
+console.log(currentExample);
 </script>
 
 <template>
@@ -90,7 +117,13 @@ const examples: Example[] = [
           </RouterLink>
         </div>
 
-        <Button variant="ghost" class="h-9" as="a" href="" target="_blank">
+        <Button
+          variant="ghost"
+          class="h-9"
+          as="a"
+          :href="currentExample?.githubLink"
+          target="_blank"
+        >
           View on GitHub
           <ArrowRight class="w-4 h-4 ml-2" />
         </Button>
