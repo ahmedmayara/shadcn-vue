@@ -75,12 +75,7 @@ const links = [
         class="max-w-8xl flex h-[58px] items-center justify-between p-4 mx-auto"
       >
         <div class="flex gap-6 md:gap-8">
-          <RouterLink to="/" class="flex justify-center items-center space-x-2">
-            <span
-              class="bg-gray-300 dark:bg-gray-800 rounded-full w-5 h-5 flex justify-center items-center"
-            />
-            <span class="text-md font-bold"> shadcn-vue </span>
-          </RouterLink>
+          <span class="text-md font-bold"> shadcn-vue </span>
 
           <nav
             class="hidden gap-6 md:flex justify-center items-center"
@@ -152,10 +147,7 @@ const links = [
     <footer class="bg-background z-40 border-t border-border text-foreground">
       <div class="max-w-8xl h-20 flex items-center justify-between p-4 mx-auto">
         <div class="flex justify-center items-center">
-          <span
-            class="bg-gray-300 dark:bg-gray-800 rounded-full w-5 h-5 flex justify-center items-center"
-          />
-          <span class="text-sm ml-2">
+          <span class="text-sm">
             Built and designed by {{ " " }}
             <a
               href="https://twitter.com/shadcn"
