@@ -19,7 +19,7 @@ const emits = defineEmits<MenubarSubContentEmits>();
 </script>
 
 <template>
-  <MenubarPortal forceMount>
+  <MenubarPortal>
     <MenubarSubContent
       :loop="props.loop"
       :asChild="props.asChild"

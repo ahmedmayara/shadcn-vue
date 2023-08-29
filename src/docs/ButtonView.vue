@@ -5,7 +5,7 @@ import components from "@/lib/data/components";
 import DocsLayout from "@/layouts/DocsLayout.vue";
 import { BreadCrumbItem, BreadCrumb } from "@/components/ui/breadcrumb";
 import { Tabs, TabsTrigger, TabsList, TabsContent } from "@/components/ui/tabs";
-import { Mail } from "lucide-vue-next";
+import { Mail, Loader2 } from "lucide-vue-next";
 import SvgSpinners270Ring from "~icons/svg-spinners/270-ring";
 import Example from "@/components/example/Example.vue";
 import Preview from "@/components/example/Preview.vue";
@@ -140,7 +140,7 @@ const isLoading = ref(true);
                 v-if="example.name === 'Loading'"
                 variant="primary"
               >
-                <SvgSpinners270Ring class="w-4 h-4 mr-2" />
+                <Loader2 class="w-4 h-4 mr-2 animate-spin" />
                 Please wait
               </Button>
               <Button

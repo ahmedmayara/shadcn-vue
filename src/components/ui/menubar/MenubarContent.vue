@@ -17,7 +17,7 @@ const props = withDefaults(
 </script>
 
 <template>
-  <MenubarPortal forceMount>
+  <MenubarPortal>
     <MenubarContent
       :loop="props.loop"
       :asChild="props.asChild"
