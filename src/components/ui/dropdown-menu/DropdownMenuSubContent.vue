@@ -12,7 +12,7 @@ const emits = defineEmits<DropdownMenuSubContentEmits>();
 </script>
 
 <template>
-  <DropdownMenuPortal forceMount>
+  <DropdownMenuPortal>
     <DropdownMenuSubContent
       :loop="props.loop"
       :asChild="props.asChild"

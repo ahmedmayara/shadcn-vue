@@ -13,7 +13,7 @@ const emits = defineEmits<DropdownMenuSubContentEmits>();
 </script>
 
 <template>
-  <ContextMenuPortal forceMount>
+  <ContextMenuPortal>
     <ContextMenuSubContent
       :loop="props.loop"
       :align-offset="props.alignOffset"
