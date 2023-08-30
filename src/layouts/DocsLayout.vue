@@ -57,7 +57,7 @@ const docs: Documentation[] = [
               >
                 <RouterLink
                   :to="doc.href"
-                  class="text-muted hover:underline py-1.5 font-medium transition-colors"
+                  class="text-muted-foreground hover:underline py-1.5 font-medium transition-colors"
                   :class="{
                     '!font-semibold !text-foreground': $route.path === doc.href,
                   }"
@@ -81,7 +81,7 @@ const docs: Documentation[] = [
               >
                 <RouterLink
                   :to="`/docs/components/${component.attributes.slug}`"
-                  class="text-muted hover:underline py-1.5 font-medium transition-colors"
+                  class="text-muted-foreground hover:underline py-1.5 font-medium transition-colors"
                   :class="{
                     '!font-semibold !text-foreground':
                       $route.path ===

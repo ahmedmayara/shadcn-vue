@@ -19,7 +19,7 @@ const emits = defineEmits<ContextMenuRadioItemEmits>();
     @select="emits('select', $event)"
     :class="[
       cn(
-        'flex relative items-center rounded-md transition-colors data-[disabled]:opacity-50 data-[disabled]:pointer-events-none data-[highlighted]:bg-outline-hover pl-7 py-1.5 text-sm outline-none select-none cursor-default',
+        'flex relative items-center rounded-md transition-colors data-[disabled]:opacity-50 data-[disabled]:pointer-events-none data-[highlighted]:bg-accent pl-7 py-1.5 text-sm outline-none select-none cursor-default',
         props.class,
       ),
     ]"

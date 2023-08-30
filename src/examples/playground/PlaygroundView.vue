@@ -120,12 +120,12 @@ response = openai.Completion.create(
                 <input
                   v-model="searchQuery"
                   placeholder="Search presets..."
-                  class="w-full pl-8 focus:ring-0 bg-transparent border-b border-border outline-none px-3 h-9 text-sm text-foreground placeholder:text-muted"
+                  class="w-full pl-8 focus:ring-0 bg-transparent border-b border-border outline-none px-3 h-9 text-sm text-foreground placeholder:text-muted-foreground"
                 />
                 <div
                   class="absolute left-2.5 top-0 bottom-0 flex items-center pr-3"
                 >
-                  <Search class="w-3.5 h-3.5 text-muted" />
+                  <Search class="w-3.5 h-3.5 text-muted-foreground" />
                 </div>
               </div>
               <SelectGroup>
@@ -138,7 +138,7 @@ response = openai.Completion.create(
                     <p class="text-foreground font-medium">
                       {{ preset.name }}
                     </p>
-                    <span class="text-muted text-sm">
+                    <span class="text-muted-foreground text-sm">
                       {{ preset.description }}
                     </span>
                   </div>
@@ -215,7 +215,9 @@ response = openai.Completion.create(
               </DialogHeader>
 
               <div class="rounded-md bg-black p-6">
-                <code class="grid gap-1 text-sm text-muted [&_span]:h-4">
+                <code
+                  class="grid gap-1 text-sm text-muted-foreground [&_span]:h-4"
+                >
                   <span> <span class="text-sky-300">import</span> os </span>
                   <span> <span class="text-sky-300">import</span> openai </span>
                   <span />
@@ -261,7 +263,7 @@ response = openai.Completion.create(
                 </code>
               </div>
 
-              <p class="text-sm text-muted">
+              <p class="text-sm text-muted-foreground">
                 Your API Key can be found here. You should use environment
                 variables or a secret management tool to expose your key to your
                 applications.
@@ -278,7 +280,7 @@ response = openai.Completion.create(
                 <h3 class="text-lg font-semibold text-foreground">
                   Share preset
                 </h3>
-                <p class="text-sm text-muted">
+                <p class="text-sm text-muted-foreground">
                   Anyone who has this link and an OpenAI account will be able to
                   view this.
                 </p>
@@ -331,14 +333,16 @@ response = openai.Completion.create(
                 </DialogDescription>
               </DialogHeader>
               <div class="py-6">
-                <h4 class="text-sm text-muted">Playground Warnings</h4>
+                <h4 class="text-sm text-muted-foreground">
+                  Playground Warnings
+                </h4>
                 <div class="flex items-start justify-between space-x-4 pt-3">
                   <Switch id="warnings" v-model:checked="warningsSwitch" />
                   <div class="grid gap-1">
                     <Label for="warnings">
                       Show a warning when content is flagged
                     </Label>
-                    <span class="text-sm text-muted">
+                    <span class="text-sm text-muted-foreground">
                       A warning will be shown when sexual, hateful, violent or
                       self-harm content is detected.
                     </span>
@@ -730,7 +734,7 @@ response = openai.Completion.create(
                       class="min-h-[400px] flex-1 md:min-h-[700px] lg:min-h-[700px]"
                     />
                     <div
-                      class="rounded-md border border-border dark:border-none bg-outline-hover"
+                      class="rounded-md border border-border dark:border-none bg-accent"
                     ></div>
                   </div>
                   <div class="flex items-center space-x-2">
@@ -763,7 +767,7 @@ response = openai.Completion.create(
                       </div>
                     </div>
                     <div
-                      class="mt-[25px] min-h-[400px] rounded-md border border-border dark:border-none bg-outline-hover lg:min-h-[700px]"
+                      class="mt-[25px] min-h-[400px] rounded-md border border-border dark:border-none bg-accent lg:min-h-[700px]"
                     />
                   </div>
                   <div class="flex items-center space-x-2">

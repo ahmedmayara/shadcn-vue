@@ -45,7 +45,7 @@ function handleCopy() {
   <DropdownMenu>
     <DropdownMenuTrigger asChild>
       <Button variant="ghost" class="p-1.5">
-        <MoreHorizontal class="w-4 h-4 text-muted" />
+        <MoreHorizontal class="w-4 h-4 text-muted-foreground" />
       </Button>
     </DropdownMenuTrigger>
     <DropdownMenuContent align="end" class="w-[160px]">

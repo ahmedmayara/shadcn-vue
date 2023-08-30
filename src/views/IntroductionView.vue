@@ -20,7 +20,7 @@ import {
 
     <div class="grid space-y-1 pt-6">
       <h1 class="text-4xl font-heading text-foreground">Introduction</h1>
-      <p class="text-muted text-lg">
+      <p class="text-muted-foreground text-lg">
         Collection of accessible Vue components built with Tailwind CSS and
         Radix UI.
       </p>

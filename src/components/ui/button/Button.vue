@@ -30,15 +30,15 @@ const buttonClass = computed(() => {
       variants: {
         variant: {
           primary:
-            "bg-primary text-primary-foreground enabled:hover:bg-primary-hover",
+            "bg-primary text-primary-foreground enabled:hover:bg-primary/90",
           secondary:
-            "bg-secondary text-secondary-foreground enabled:hover:bg-secondary-hover",
+            "bg-secondary text-secondary-foreground enabled:hover:bg-secondary/90",
           destructive:
-            "bg-destructive text-destructive-foreground hover:bg-destructive-hover",
+            "bg-destructive text-destructive-foreground hover:bg-destructive/90",
           outline:
-            "border border-border text-foreground shadow-sm hover:bg-outline-hover",
-          ghost: "text-foreground hover:bg-outline-hover",
-          link: "text-foreground hover:underline hover:underline-offset-4",
+            "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
+          ghost: "hover:bg-accent hover:text-accent-foreground",
+          link: "text-primary underline-offset-4 hover:underline",
           neutral: "",
         },
         disabled: {

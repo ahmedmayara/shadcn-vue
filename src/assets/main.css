@@ -12,43 +12,66 @@ html.dark {
 
 @layer base {
   :root {
-    --background: rgb(255 255 255);
-    --foreground: rgb(3 7 18);
-    --border: rgb(229 231 235);
-    --muted: rgb(113 113 122);
-    --primary: rgb(3 7 18);
-    --primary-foreground: rgb(255 255 255);
-    --primary-hover: rgb(31 41 55);
-    --secondary: rgb(229 231 235);
-    --secondary-foreground: rgb(3 7 18);
-    --secondary-hover: rgba(229, 231, 235, 0.8);
-    --accent: rgb(209 213 219);
-    --accent-foreground: rgb(3 7 18);
-    --destructive: rgb(239 68 68);
-    --destructive-foreground: rgb(255 255 255);
-    --destructive-hover: rgb(220 38 38);
-    --outline-hover: rgb(243 244 246);
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --ring: 215 20.2% 65.1%;
+
     --radius: 0.5rem;
-    --ring: rgba(3, 7, 18, 0.1);
   }
 
   .dark {
-    --background: rgb(3 7 18);
-    --foreground: rgb(255 255 255);
-    --border: rgb(31 41 55);
-    --muted: rgb(161 161 170);
-    --primary: rgb(243 244 246);
-    --primary-foreground: rgb(3 7 18);
-    --primary-hover: rgb(229 231 235);
-    --secondary: rgb(31 41 55);
-    --secondary-foreground: rgb(255 255 255);
-    --secondary-hover: rgba(31, 41, 55, 0.8);
-    --accent: rgb(55 65 81);
-    --accent-foreground: rgb(255 255 255);
-    --destructive: rgb(127 29 29);
-    --destructive-foreground: rgb(255 255 255);
-    --destructive-hover: rgb(153 27 27);
-    --outline-hover: rgb(31 41 55);
-    --ring: rgba(255, 255, 255, 0.1);
+    --background: 224 71% 4%;
+    --foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 85.7% 97.3%;
+
+    --ring: 217.2 32.6% 17.5%;
   }
 }

@@ -63,8 +63,6 @@ const currentExample = computed(() => {
     (example) => example.href === router.currentRoute.value.path,
   );
 });
-
-console.log(currentExample);
 </script>
 
 <template>
@@ -76,7 +74,7 @@ console.log(currentExample);
         >
           Explore the possibilities with shadcn-vue
         </h1>
-        <p class="max-w-[650px] text-muted text-lg mt-4">
+        <p class="max-w-[650px] text-muted-foreground text-lg mt-4">
           Dashboard, forms, authentication, cards and more, all built with
           shadcn-vue. You can use these examples as a starting point for your
           own projects.
@@ -110,7 +108,7 @@ console.log(currentExample);
             :class="
               $route.path === example.href
                 ? 'font-semibold text-foreground border-b-2 border-primary'
-                : 'font-medium text-muted'
+                : 'font-medium text-muted-foreground'
             "
           >
             {{ example.label }}

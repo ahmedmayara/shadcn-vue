@@ -31,7 +31,7 @@ const onSubmit = () => {
             Create an account
           </h2>
 
-          <p class="text-muted mt-1 text-sm">
+          <p class="text-muted-foreground mt-1 text-sm">
             Enter your information below to create an account.
           </p>
 
@@ -56,7 +56,7 @@ const onSubmit = () => {
             </div>
 
             <div class="flex justify-between text-xs mb-4">
-              <p class="text-muted">
+              <p class="text-muted-foreground">
                 Already have an account?
                 <a href="#" class="text-foreground font-medium hover:underline">
                   Sign in
@@ -75,7 +75,7 @@ const onSubmit = () => {
               <span class="w-full border-t border-border"></span>
             </div>
             <div class="relative flex justify-center text-xs uppercase">
-              <span class="bg-background px-2 text-muted">
+              <span class="bg-background px-2 text-muted-foreground">
                 Or continue with
               </span>
             </div>
@@ -92,7 +92,7 @@ const onSubmit = () => {
             </Button>
           </div>
 
-          <p class="text-muted mt-4 text-xs">
+          <p class="text-muted-foreground mt-4 text-xs">
             By signing up, you agree to our
             <a href="#" class="text-foreground font-medium hover:underline">
               Terms of Service

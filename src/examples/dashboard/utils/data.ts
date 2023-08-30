@@ -25,7 +25,7 @@ export const options = {
       },
     },
   },
-  colors: ["#0077b6"],
+  colors: ["#fed811"],
   dataLabels: {
     enabled: false,
   },

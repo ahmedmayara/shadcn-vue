@@ -21,7 +21,6 @@ import {
   ArrowDownNarrowWide,
 } from "lucide-vue-next";
 import RadixIconsMixerHorizontal from "~icons/radix-icons/mixer-horizontal";
-import RadixIconsCheck from "~icons/radix-icons/check";
 import {
   Table,
   TableBody,
@@ -36,7 +35,6 @@ import {
   DropdownMenuTrigger,
   DropdownMenuContent,
   DropdownMenuGroup,
-  DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuLabel,
   DropdownMenuCheckboxItem,
@@ -196,20 +194,20 @@ const pageSize = computed({
                   v-if="
                     header.column.getCanSort() && !header.column.getIsSorted()
                   "
-                  class="w-3.5 h-3.5 ml-1.5 text-muted"
+                  class="w-3.5 h-3.5 ml-1.5 text-muted-foreground"
                 />
                 <ArrowUpNarrowWide
-                  class="w-3.5 h-3.5 ml-1.5 text-muted"
+                  class="w-3.5 h-3.5 ml-1.5 text-muted-foreground"
                   v-if="header.column.getIsSorted() === 'asc'"
                 />
                 <ArrowDownNarrowWide
-                  class="w-3.5 h-3.5 ml-1.5 text-muted"
+                  class="w-3.5 h-3.5 ml-1.5 text-muted-foreground"
                   v-if="header.column.getIsSorted() === 'desc'"
                 />
               </Button>
               <span
                 v-else
-                class="flex items-center justify-center h-8 text-foreground"
+                class="flex items-center justify-center h-8 text-muted-foreground"
               >
                 <FlexRender
                   :render="header.column.columnDef.header"
@@ -226,7 +224,7 @@ const pageSize = computed({
       <TableRow
         v-for="row in table.getRowModel().rows"
         :key="row.id"
-        :class="row.getIsSelected() ? 'bg-outline-hover' : ''"
+        :data-state="row.getIsSelected() ? 'selected' : ''"
       >
         <TableCell
           v-for="cell in row.getVisibleCells()"
@@ -250,7 +248,7 @@ const pageSize = computed({
   </Table>
 
   <div class="flex items-center justify-end px-2 my-6">
-    <div class="flex-1 text-sm text-muted">
+    <div class="flex-1 text-sm text-muted-foreground">
       <span>
         {{ table.getFilteredSelectedRowModel().rows.length }} of {{ " " }}
         {{ table.getFilteredRowModel().rows.length }} row(s) selected

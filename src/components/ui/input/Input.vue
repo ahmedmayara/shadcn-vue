@@ -4,7 +4,7 @@ import { AlertTriangle } from "lucide-vue-next";
 
 interface InputProps {
   id?: string;
-  value?: string;
+  value?: string | number;
   type?: string;
   placeholder?: string;
   required?: boolean;
@@ -48,7 +48,7 @@ function handleInput(event: Event) {
           : '',
         props.disabled ? 'cursor-not-allowed opacity-50' : '',
         cn(
-          'px-3 h-9 bg-transparent block w-full outline-none focus:ring-2 focus:ring-accent ring-secondary placeholder:text-muted rounded-md text-sm ring-1 text-foreground',
+          'flex h-9 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50',
           props.class,
         ),
       ]"

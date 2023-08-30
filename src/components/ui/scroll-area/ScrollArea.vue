@@ -33,7 +33,7 @@ const props = withDefaults(
           : 'h-2.5 border-t border-t-transparent p-[1px]',
       ]"
     >
-      <ScrollAreaThumb class="relative flex-1 rounded-full bg-secondary" />
+      <ScrollAreaThumb class="relative flex-1 rounded-full bg-border" />
     </ScrollAreaScrollbar>
   </ScrollAreaRoot>
 </template>

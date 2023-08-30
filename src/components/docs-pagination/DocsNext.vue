@@ -26,7 +26,7 @@ const props = defineProps<DocsPreviousProps>();
     <p class="mt-5 font-semibold">
       {{ props.title }}
     </p>
-    <span class="mt-1 text-sm text-muted">
+    <span class="mt-1 text-sm text-muted-foreground">
       {{ props.description }}
     </span>
   </RouterLink>

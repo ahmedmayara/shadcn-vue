@@ -101,7 +101,7 @@ const steps = [
       <h1 class="text-4xl font-heading text-foreground">
         {{ datePicker?.attributes.name }}
       </h1>
-      <p class="text-muted text-lg max-w-xl">
+      <p class="text-muted-foreground text-lg max-w-xl">
         {{ datePicker?.attributes.description }}
       </p>
     </div>
@@ -115,7 +115,7 @@ const steps = [
               class="w-full h-9 text-left flex justify-start items-center space-x-2"
             >
               <RadixIconsCalendar class="w-4 h-4 opacity-60" />
-              <p class="text-muted" v-if="!date">Pick a date</p>
+              <p class="text-muted-foreground" v-if="!date">Pick a date</p>
 
               <span class="text-foreground" v-if="date">
                 {{ format(date, "MMM dd, yyyy") }}

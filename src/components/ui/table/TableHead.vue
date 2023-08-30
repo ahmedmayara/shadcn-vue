@@ -10,7 +10,7 @@ const props = defineProps({
   <th
     :class="
       cn(
-        'px-4 h-12 text-left font-medium text-sm whitespace-nowrap text-muted',
+        'h-12 px-4 text-left align-middle font-medium whitespace-nowrap text-sm text-muted-foreground',
         props.class,
       )
     "

@@ -9,7 +9,7 @@ const props = defineProps<Props>();
 
 <template>
   <div class="flex items-center">
-    <component :is="props.icon" class="w-4 h-4 mr-2 text-muted" />
+    <component :is="props.icon" class="w-4 h-4 mr-2 text-muted-foreground" />
     <span>{{ props.label }}</span>
   </div>
 </template>

@@ -47,14 +47,12 @@ function handleInput(event: Event) {
           ? '!ring-destructive ring-2 placeholder:!text-destructive'
           : '',
         cn(
-          'py-3 px-4 block bg-transparent outline-none focus:ring-2 focus:ring-accent w-full ring-1 ring-secondary placeholder:text-muted rounded-md text-sm text-foreground',
+          'w-full rounded-md border border-input bg-background p-4 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50',
           props.class,
         ),
       ]"
     />
-    <div
-      class="absolute inset-y-0 right-0 bottom-6 flex items-center pr-3 pointer-events-none"
-    >
+    <div class="absolute top-4 right-4 flex items-center pointer-events-none">
       <AlertTriangle class="w-4 h-4 text-destructive" v-if="props.invalid" />
     </div>
   </div>

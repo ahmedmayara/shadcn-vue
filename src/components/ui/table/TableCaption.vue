@@ -1,5 +1,5 @@
 <template>
-  <caption class="text-sm mt-4 text-muted">
+  <caption class="mt-4 text-sm text-muted-foreground">
     <slot />
   </caption>
 </template>

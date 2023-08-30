@@ -164,7 +164,9 @@ const switchPayment = (payment: Payment) => {
                 <span class="w-full border-t border-border"></span>
               </div>
               <div class="relative flex justify-center text-xs uppercase">
-                <span class="bg-background px-2 text-muted"> Or </span>
+                <span class="bg-background px-2 text-muted-foreground">
+                  Or
+                </span>
               </div>
             </div>
             <div class="grid gap-2 pt-4">
@@ -257,8 +259,10 @@ const switchPayment = (payment: Payment) => {
             </ul>
 
             <div class="flex items-center space-x-2">
-              <ShieldQuestion class="w-3.5 h-3.5 text-muted" />
-              <span class="text-muted text-xs hover:underline cursor-pointer">
+              <ShieldQuestion class="w-3.5 h-3.5 text-muted-foreground" />
+              <span
+                class="text-muted-foreground text-xs hover:underline cursor-pointer"
+              >
                 Why connect my wallet?
               </span>
             </div>
@@ -290,7 +294,7 @@ const switchPayment = (payment: Payment) => {
                   <p class="text-foreground text-md font-semibold">
                     {{ teamMember.name }}
                   </p>
-                  <p class="text-muted text-sm">
+                  <p class="text-muted-foreground text-sm">
                     {{ teamMember.username }}
                   </p>
                 </div>
@@ -310,7 +314,7 @@ const switchPayment = (payment: Payment) => {
                         <span class="text-foreground font-semibold">
                           Actions
                         </span>
-                        <span class="text-muted font-normal">
+                        <span class="text-muted-foreground font-normal">
                           Manage team member permissions
                         </span>
                       </div>
@@ -321,7 +325,7 @@ const switchPayment = (payment: Payment) => {
                         <span class="text-foreground font-semibold">
                           {{ role.name }}
                         </span>
-                        <span class="text-muted text-sm">
+                        <span class="text-muted-foreground text-sm">
                           {{ role.description }}
                         </span>
                       </div>
@@ -346,7 +350,9 @@ const switchPayment = (payment: Payment) => {
             >
               <div class="space-y-1">
                 <h3 class="text-md font-semibold">shadcn-vue</h3>
-                <p class="text-muted text-sm">Vue port of shadcn/ui.</p>
+                <p class="text-muted-foreground text-sm">
+                  Vue port of shadcn/ui.
+                </p>
               </div>
               <div class="flex items-center space-x-1 rounded-md bg-secondary">
                 <Button
@@ -400,7 +406,7 @@ const switchPayment = (payment: Payment) => {
             </div>
           </CardContent>
           <CardFooter>
-            <div class="flex space-x-4 text-sm text-muted">
+            <div class="flex space-x-4 text-sm text-muted-foreground">
               <div class="flex items-center">
                 <span class="rounded-full bg-blue-500 w-2.5 h-2.5 mr-2" />
                 <span> Typescript </span>
@@ -426,7 +432,9 @@ const switchPayment = (payment: Payment) => {
               <div class="flex justify-between items-center space-x-2">
                 <Label for="email_notifications" class="flex flex-col">
                   Email notifications
-                  <span class="text-muted mt-1 text-sm max-w-[18rem]">
+                  <span
+                    class="text-muted-foreground mt-1 text-sm max-w-[18rem]"
+                  >
                     These notifications can be sent to your email address.
                   </span>
                 </Label>
@@ -438,7 +446,9 @@ const switchPayment = (payment: Payment) => {
               <div class="flex justify-between items-center space-x-2">
                 <Label for="web_notifications" class="flex flex-col">
                   Web push notifications
-                  <span class="text-muted mt-1 text-sm max-w-[18rem]">
+                  <span
+                    class="text-muted-foreground mt-1 text-sm max-w-[18rem]"
+                  >
                     These notifications will be sent to your browser or mobile
                     device.
                   </span>
@@ -451,7 +461,9 @@ const switchPayment = (payment: Payment) => {
               <div class="flex justify-between items-center space-x-2">
                 <Label for="sms_notifications" class="flex flex-col">
                   SMS notifications
-                  <span class="text-muted mt-1 text-sm max-w-[18rem]">
+                  <span
+                    class="text-muted-foreground mt-1 text-sm max-w-[18rem]"
+                  >
                     These notifications can be sent to your mobile phone.
                   </span>
                 </Label>
@@ -483,7 +495,7 @@ const switchPayment = (payment: Payment) => {
                 :class="[
                   selectedPayment.name === payment.name
                     ? 'border-2 border-primary'
-                    : 'border border-secondary hover:bg-outline-hover',
+                    : 'border border-border hover:bg-accent',
                 ]"
                 @click="switchPayment(payment)"
               >

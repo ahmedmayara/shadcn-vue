@@ -35,7 +35,9 @@ const tasks = Array.from({ length: 100 }, () => {
       <div class="flex items-center justify-between space-y-2 mb-6">
         <div>
           <h2 class="text-2xl font-bold text-foreground">Welcome back!</h2>
-          <p class="text-muted">Here is a list of your most recent tasks.</p>
+          <p class="text-muted-foreground">
+            Here is a list of your most recent tasks.
+          </p>
         </div>
 
         <DropdownMenu>
@@ -51,7 +53,7 @@ const tasks = Array.from({ length: 100 }, () => {
             <DropdownMenuGroup>
               <DropdownMenuLabel>
                 <span class="text-sm">ahmedmayara</span>
-                <p class="text-xs font-normal text-muted">
+                <p class="text-xs font-normal text-muted-foreground">
                   ahmedmayara@example.com
                 </p>
               </DropdownMenuLabel>

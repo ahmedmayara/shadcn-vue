@@ -64,8 +64,8 @@ const range = ref({
             class="w-72 h-9 hidden md:flex md:justify-between md:items-center"
           >
             <div class="flex items-center">
-              <Search class="w-4 h-4 mr-2 text-muted" />
-              <span class="text-muted">Search for anything...</span>
+              <Search class="w-4 h-4 mr-2 text-muted-foreground" />
+              <span class="text-muted-foreground">Search for anything...</span>
             </div>
             <div class="flex items-center gap-x-1">
               <Kbd>⌘</Kbd>
@@ -85,7 +85,7 @@ const range = ref({
               <DropdownMenuGroup>
                 <DropdownMenuLabel>
                   <span class="text-sm">ahmedmayara</span>
-                  <p class="text-xs font-normal text-muted">
+                  <p class="text-xs font-normal text-muted-foreground">
                     ahmedmayara@example.com
                   </p>
                 </DropdownMenuLabel>
@@ -126,7 +126,9 @@ const range = ref({
                     variant="outline"
                     class="w-full h-9 text-left flex justify-start items-center space-x-2"
                   >
-                    <span class="text-muted" v-if="!range"> Pick a date </span>
+                    <span class="text-muted-foreground" v-if="!range">
+                      Pick a date
+                    </span>
                     <RadixIconsCalendar class="w-4 h-4 opacity-60" />
 
                     <span class="text-foreground" v-if="range">
@@ -145,11 +147,17 @@ const range = ref({
         </div>
 
         <Tabs default-value="overview">
-          <TabsList>
-            <TabsTrigger value="overview"> Overview </TabsTrigger>
-            <TabsTrigger disabled value="analytics"> Analytics </TabsTrigger>
-            <TabsTrigger disabled value="products"> Products </TabsTrigger>
-            <TabsTrigger disabled value="tasks"> Tasks </TabsTrigger>
+          <TabsList class="h-9">
+            <TabsTrigger class="py-1" value="overview"> Overview </TabsTrigger>
+            <TabsTrigger class="py-1" disabled value="analytics">
+              Analytics
+            </TabsTrigger>
+            <TabsTrigger class="py-1" disabled value="products">
+              Products
+            </TabsTrigger>
+            <TabsTrigger class="py-1" disabled value="tasks">
+              Tasks
+            </TabsTrigger>
           </TabsList>
           <TabsContent value="overview">
             <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-4 mt-4">
@@ -158,13 +166,13 @@ const range = ref({
                   class="p-6 flex flex-row items-center justify-between space-y-0 pb-2"
                 >
                   <CardTitle class="text-sm"> Total Revenue </CardTitle>
-                  <DollarSign class="w-4 h-4 text-muted" />
+                  <DollarSign class="w-4 h-4 text-muted-foreground" />
                 </CardHeader>
                 <CardContent>
                   <p class="text-2xl font-bold tracking-tight text-foreground">
                     $ 1,250,000
                   </p>
-                  <span class="text-xs text-muted">
+                  <span class="text-xs text-muted-foreground">
                     +25.7% since last month
                   </span>
                 </CardContent>
@@ -175,13 +183,13 @@ const range = ref({
                   class="p-6 flex flex-row items-center justify-between space-y-0 pb-2"
                 >
                   <CardTitle class="text-sm"> Sales </CardTitle>
-                  <CreditCard class="w-4 h-4 text-muted" />
+                  <CreditCard class="w-4 h-4 text-muted-foreground" />
                 </CardHeader>
                 <CardContent>
                   <p class="text-2xl font-bold tracking-tight text-foreground">
                     +14,000
                   </p>
-                  <span class="text-xs text-muted">
+                  <span class="text-xs text-muted-foreground">
                     +5.7% since last month
                   </span>
                 </CardContent>
@@ -192,13 +200,13 @@ const range = ref({
                   class="p-6 flex flex-row items-center justify-between space-y-0 pb-2"
                 >
                   <CardTitle class="text-sm"> Customers </CardTitle>
-                  <Users class="w-4 h-4 text-muted" />
+                  <Users class="w-4 h-4 text-muted-foreground" />
                 </CardHeader>
                 <CardContent>
                   <p class="text-2xl font-bold tracking-tight text-foreground">
                     +2340
                   </p>
-                  <span class="text-xs text-muted">
+                  <span class="text-xs text-muted-foreground">
                     +3.85% since last month
                   </span>
                 </CardContent>
@@ -209,13 +217,13 @@ const range = ref({
                   class="p-6 flex flex-row items-center justify-between space-y-0 pb-2"
                 >
                   <CardTitle class="text-sm"> Orders </CardTitle>
-                  <Package class="w-4 h-4 text-muted" />
+                  <Package class="w-4 h-4 text-muted-foreground" />
                 </CardHeader>
                 <CardContent>
                   <p class="text-2xl font-bold tracking-tight text-foreground">
                     +6340
                   </p>
-                  <span class="text-xs text-muted">
+                  <span class="text-xs text-muted-foreground">
                     +17.85% since last month
                   </span>
                 </CardContent>
@@ -261,7 +269,7 @@ const range = ref({
                           >
                             {{ customer.name }}
                           </p>
-                          <span class="text-xs text-muted">
+                          <span class="text-xs text-muted-foreground">
                             {{ customer.email }}
                           </span>
                         </div>
@@ -282,3 +290,13 @@ const range = ref({
     </div>
   </ExamplesLayout>
 </template>
+
+<style>
+.apexcharts-text.apexcharts-xaxis-label {
+  fill: hsl(var(--muted-foreground)) !important;
+}
+
+.apexcharts-text.apexcharts-yaxis-label {
+  fill: hsl(var(--muted-foreground)) !important;
+}
+</style>

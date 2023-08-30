@@ -15,7 +15,7 @@ const props = defineProps<DialogContentProps & { class?: string }>();
 <template>
   <DialogPortal>
     <DialogOverlay
-      class="fixed inset-0 z-50 bg-white/80 dark:bg-gray-950/80 backdrop-blur-sm data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0"
+      class="fixed inset-0 z-50 bg-background/80 backdrop-blur-sm data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0"
     />
     <DialogContent
       :as-child="props.asChild"
@@ -31,7 +31,7 @@ const props = defineProps<DialogContentProps & { class?: string }>();
       <DialogClose
         class="absolute top-4 right-4 p-0.5 transition-colors rounded-md hover:bg-secondary"
       >
-        <X class="w-4 h-4 text-muted" />
+        <X class="w-4 h-4 text-muted-foreground" />
       </DialogClose>
     </DialogContent>
   </DialogPortal>

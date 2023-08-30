@@ -16,7 +16,7 @@ const props = defineProps<SelectItemProps & { class?: string }>();
       v-bind="props"
       :class="
         cn(
-          'flex w-full relative cursor-default select-none items-center rounded-sm py-1.5 px-2 text-sm outline-none focus:bg-outline-hover focus:text-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50',
+          'flex w-full relative cursor-default select-none items-center rounded-sm py-1.5 px-2 text-sm outline-none focus:bg-accent focus:text-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50',
           props.class,
         )
       "

@@ -84,7 +84,7 @@ const links = [
           >
             <RouterLink
               :to="route.path"
-              class="text-muted text-sm font-medium dark:hover:text-gray-300 transition-colors"
+              class="text-muted-foreground text-sm font-medium dark:hover:text-gray-300 transition-colors"
               :class="{
                 'font-semibold !text-foreground': $route.path === route.path,
               }"
@@ -100,8 +100,10 @@ const links = [
             class="w-72 h-8 px-3 hidden lg:flex lg:justify-between lg:items-center"
           >
             <div class="flex items-center">
-              <LucideSearch class="w-4 h-4 mr-2 text-muted" />
-              <span class="text-muted"> Search for anything... </span>
+              <LucideSearch class="w-4 h-4 mr-2 text-muted-foreground" />
+              <span class="text-muted-foreground">
+                Search for anything...
+              </span>
             </div>
             <div class="flex items-center gap-x-1">
               <Kbd>⌘</Kbd>

@@ -20,12 +20,12 @@ const badgeClass = computed(() => {
     {
       variants: {
         variant: {
-          primary: "bg-primary text-primary-foreground hover:bg-primary-hover",
-          secondary: "bg-secondary text-foreground hover:bg-secondary-hover",
+          primary: "bg-primary text-primary-foreground hover:bg-primary/90",
+          secondary: "bg-secondary text-foreground hover:bg-secondary/90",
           outline:
-            "border border-border text-foreground shadow-sm hover:bg-outline-hover",
+            "border border-border text-foreground shadow-sm hover:bg-muted",
           destructive:
-            "bg-destructive text-destructive-foreground hover:bg-destructive-hover",
+            "bg-destructive text-destructive-foreground hover:bg-destructive/90",
         },
       },
     },

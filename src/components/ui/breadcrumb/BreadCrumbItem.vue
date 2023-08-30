@@ -13,7 +13,7 @@ const props = withDefaults(defineProps<BreadCrumbItemProps>(), {
 </script>
 
 <template>
-  <li class="text-sm text-muted">
+  <li class="text-sm text-muted-foreground">
     <component
       :is="props.as"
       :to="props.path"
@@ -24,7 +24,7 @@ const props = withDefaults(defineProps<BreadCrumbItemProps>(), {
     >
       <slot />
       <ChevronRight
-        class="flex-shrink-0 h-3 w-3 text-muted mx-2"
+        class="flex-shrink-0 h-3 w-3 text-muted-foreground mx-2"
         v-if="!props.lastItem"
       />
     </component>

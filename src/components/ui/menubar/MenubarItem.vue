@@ -17,7 +17,7 @@ const emits = defineEmits<MenubarItemEmits>();
     @select="emits('select', $event)"
     :class="[
       cn(
-        'flex items-center rounded-md transition-colors data-[disabled]:opacity-50 data-[disabled]:pointer-events-none focus:bg-outline-hover px-2 py-1.5 text-sm outline-none select-none cursor-default',
+        'flex items-center rounded-md transition-colors data-[disabled]:opacity-50 data-[disabled]:pointer-events-none focus:bg-accent px-2 py-1.5 text-sm outline-none select-none cursor-default',
         props.class,
       ),
     ]"
