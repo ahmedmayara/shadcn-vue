@@ -22,7 +22,7 @@
     "date-fns": "^2.30.0",
     "lucide-vue-next": "^0.265.0",
     "pinia": "^2.1.4",
-    "radix-vue": "^0.1.27",
+    "radix-vue": "^0.1.29",
     "shiki-es": "^0.14.0",
     "tailwind-merge": "^1.14.0",
     "v-calendar": "^3.0.3",
