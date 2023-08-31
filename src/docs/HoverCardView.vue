@@ -43,7 +43,7 @@ const hoverCard = computed(() => {
       <h1 class="text-4xl font-heading text-foreground">
         {{ hoverCard?.attributes.name }}
       </h1>
-      <p class="text-muted text-lg max-w-xl">
+      <p class="text-muted-foreground text-lg max-w-xl">
         {{ hoverCard?.attributes.description }}
       </p>
     </div>
@@ -86,10 +86,14 @@ const hoverCard = computed(() => {
               </Avatar>
               <div class="space-y-1 text-sm">
                 <h4 class="font-semibold">@vuejs</h4>
-                <p class="text-muted">The Progressive JavaScript Framework.</p>
+                <p class="text-muted-foreground">
+                  The Progressive JavaScript Framework.
+                </p>
                 <div class="flex items-center pt-1">
                   <CalendarDays class="w-4 h-4 mr-2 opacity-70" />
-                  <span class="text-muted text-xs"> Joined January 2014 </span>
+                  <span class="text-muted-foreground text-xs">
+                    Joined January 2014
+                  </span>
                 </div>
               </div>
             </div>

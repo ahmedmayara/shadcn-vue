@@ -81,9 +81,9 @@ const selectedFramework = ref<string>("");
                 <SelectContent class="w-[335px]">
                   <SelectGroup>
                     <SelectLabel> Frameworks </SelectLabel>
-                    <SelectItem value="Vue"> Vue </SelectItem>
+                    <SelectItem value="Nuxt"> Nuxt </SelectItem>
                     <SelectItem value="Next.js"> Next.js </SelectItem>
-                    <SelectItem value="Svelte"> Svelte </SelectItem>
+                    <SelectItem value="Svelte Kit"> Svelte Kit </SelectItem>
                   </SelectGroup>
                 </SelectContent>
               </Select>

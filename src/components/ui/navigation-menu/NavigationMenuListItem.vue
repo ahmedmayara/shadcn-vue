@@ -13,12 +13,12 @@ const props = defineProps({
       <a
         :href="props.href"
         v-bind="$attrs"
-        class="focus:shadow-sm hover:bg-outline-hover block select-none rounded-sm p-3 text-sm leading-none no-underline outline-none transition-colors"
+        class="focus:shadow-sm hover:bg-accent block select-none rounded-sm p-3 text-sm leading-none no-underline outline-none transition-colors"
       >
         <div class="text-foreground mb-1 font-medium leading-4">
           {{ props.title }}
         </div>
-        <p class="text-muted my-0 leading-5">
+        <p class="text-muted-foreground my-0 leading-5">
           <slot />
         </p>
       </a>

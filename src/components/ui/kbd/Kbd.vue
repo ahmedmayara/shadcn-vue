@@ -14,7 +14,7 @@ const props = withDefaults(defineProps<KbdProps>(), {
 
 const kbdClass = computed(() => {
   return cva(
-    "inline-flex items-center font-sans justify-center text-foreground rounded font-semibold bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700",
+    "inline-flex items-center pointer-events-none h-5 select-none items-center gap-1 rounded border border-border bg-muted font-sans font-medium",
     {
       variants: {
         size: {

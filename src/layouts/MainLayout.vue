@@ -106,8 +106,7 @@ const links = [
               </span>
             </div>
             <div class="flex items-center gap-x-1">
-              <Kbd>⌘</Kbd>
-              <Kbd>K</Kbd>
+              <Kbd> <span>⌘</span>K </Kbd>
             </div>
           </Button>
 
