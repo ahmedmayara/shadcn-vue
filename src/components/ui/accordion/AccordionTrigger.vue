@@ -11,7 +11,7 @@ const props = defineProps<AccordionTriggerProps & { class?: string }>();
 </script>
 
 <template>
-  <AccordionHeader class="flex">
+  <AccordionHeader class="flex" as="div">
     <AccordionTrigger
       v-bind="props"
       :class="

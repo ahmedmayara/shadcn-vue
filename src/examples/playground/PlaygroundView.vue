@@ -429,8 +429,8 @@ response = openai.Completion.create(
                     </span>
                   </HoverCardContent>
                 </HoverCard>
-                <TabsList class="grid grid-cols-3">
-                  <TabsTrigger value="completion">
+                <TabsList class="grid grid-cols-3 h-9">
+                  <TabsTrigger value="completion" class="py-1">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 20 20"
@@ -495,7 +495,7 @@ response = openai.Completion.create(
                       ></rect>
                     </svg>
                   </TabsTrigger>
-                  <TabsTrigger value="insert">
+                  <TabsTrigger value="insert" class="py-1">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 20 20"
@@ -534,7 +534,7 @@ response = openai.Completion.create(
                       ></rect>
                     </svg>
                   </TabsTrigger>
-                  <TabsTrigger value="edit">
+                  <TabsTrigger value="edit" class="py-1">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 20 20"
@@ -640,71 +640,77 @@ response = openai.Completion.create(
                 </Select>
               </div>
               <div class="grid gap-4 pt-2">
-                <div class="flex justify-between items-center">
-                  <HoverCard :open-delay="200">
-                    <HoverCardTrigger asChild>
+                <HoverCard :open-delay="200">
+                  <HoverCardTrigger asChild>
+                    <div class="flex items-center justify-between">
                       <Label for="temperature">Temperature</Label>
-                    </HoverCardTrigger>
-                    <HoverCardContent
-                      align="start"
-                      class="w-[300px] text-sm text-foreground"
-                      side="left"
-                      :side-offset="8"
-                    >
-                      Controls randomness: lowering results in less random
-                      completions. As the temperature approaches zero, the model
-                      will become deterministic and repetitive.
-                    </HoverCardContent>
-                  </HoverCard>
-                  <span class="text-sm text-foreground">
-                    {{ temperature }}
-                  </span>
-                </div>
+                      <span
+                        class="w-12 rounded-md border border-transparent px-2 py-0.5 text-right text-sm text-muted-foreground hover:border-border"
+                      >
+                        {{ temperature }}
+                      </span>
+                    </div>
+                  </HoverCardTrigger>
+                  <HoverCardContent
+                    align="start"
+                    class="w-[300px] text-sm text-foreground"
+                    side="left"
+                    :side-offset="8"
+                  >
+                    Controls randomness: lowering results in less random
+                    completions. As the temperature approaches zero, the model
+                    will become deterministic and repetitive.
+                  </HoverCardContent>
+                </HoverCard>
                 <Slider v-model="temperature" :min="0" :max="1" step="0.1" />
               </div>
               <div class="grid gap-4 pt-2">
-                <div class="flex justify-between items-center">
-                  <HoverCard :open-delay="200">
-                    <HoverCardTrigger asChild>
-                      <Label for="maximum_tokens">Maximum Length</Label>
-                    </HoverCardTrigger>
-                    <HoverCardContent
-                      align="start"
-                      class="w-[300px] text-sm text-foreground"
-                      side="left"
-                      :side-offset="8"
-                    >
-                      The maximum number of tokens to generate. Requests can use
-                      up to 2,048 or 4,000 tokens, shared between prompt and
-                      completion. The exact limit varies by model.
-                    </HoverCardContent>
-                  </HoverCard>
-                  <span class="text-sm text-foreground">
-                    {{ maximumTokens }}
-                  </span>
-                </div>
+                <HoverCard :open-delay="200">
+                  <HoverCardTrigger asChild>
+                    <div class="flex items-center justify-between">
+                      <Label for="maximumTokens">Maximum Length</Label>
+                      <span
+                        class="w-12 rounded-md border border-transparent px-2 py-0.5 text-right text-sm text-muted-foreground hover:border-border"
+                      >
+                        {{ maximumTokens }}
+                      </span>
+                    </div>
+                  </HoverCardTrigger>
+                  <HoverCardContent
+                    align="start"
+                    class="w-[300px] text-sm text-foreground"
+                    side="left"
+                    :side-offset="8"
+                  >
+                    The maximum number of tokens to generate. Requests can use
+                    up to 2,048 or 4,000 tokens, shared between prompt and
+                    completion. The exact limit varies by model.
+                  </HoverCardContent>
+                </HoverCard>
                 <Slider v-model="maximumTokens" :min="0" :max="4000" />
               </div>
               <div class="grid gap-4 pt-2">
-                <div class="flex justify-between items-center">
-                  <HoverCard :open-delay="200">
-                    <HoverCardTrigger asChild>
+                <HoverCard :open-delay="200">
+                  <HoverCardTrigger asChild>
+                    <div class="flex items-center justify-between">
                       <Label for="top_p">Top P</Label>
-                    </HoverCardTrigger>
-                    <HoverCardContent
-                      align="start"
-                      class="w-[300px] text-sm text-foreground"
-                      side="left"
-                      :side-offset="8"
-                    >
-                      Control diversity via nucleus sampling: 0.5 means half of
-                      all likelihood-weighted options are considered.
-                    </HoverCardContent>
-                  </HoverCard>
-                  <span class="text-sm text-foreground">
-                    {{ topP }}
-                  </span>
-                </div>
+                      <span
+                        class="w-12 rounded-md border border-transparent px-2 py-0.5 text-right text-sm text-muted-foreground hover:border-border"
+                      >
+                        {{ topP }}
+                      </span>
+                    </div>
+                  </HoverCardTrigger>
+                  <HoverCardContent
+                    align="start"
+                    class="w-[300px] text-sm text-foreground"
+                    side="left"
+                    :side-offset="8"
+                  >
+                    Control diversity via nucleus sampling: 0.5 means half of
+                    all likelihood-weighted options are considered.
+                  </HoverCardContent>
+                </HoverCard>
                 <Slider v-model="topP" :min="0" :max="1" step="0.1" />
               </div>
             </div>
