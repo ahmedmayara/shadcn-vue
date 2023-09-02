@@ -12,6 +12,12 @@ import { cva } from "class-variance-authority";
 import { cn, useEmitAsProps } from "@/lib/utils";
 
 interface SheetContentProps extends DialogContentProps {
+  /**
+   * The side of the screen the sheet will appear from.
+   * @values left, right, top, bottom
+   * @default right
+   * @type string
+   */
   side?: "left" | "right" | "top" | "bottom";
 }
 

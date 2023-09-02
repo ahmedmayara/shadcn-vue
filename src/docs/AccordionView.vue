@@ -100,13 +100,17 @@ const accordion = computed(() => {
       </Preview>
 
       <Source>
-        <Code :code="accordion?.attributes.code!" language="vue" />
+        <Code
+          :code="accordion?.attributes.code!"
+          language="vue"
+          class="!mt-6"
+        />
       </Source>
     </Example>
 
     <div class="pt-8">
       <h1 class="text-2xl font-heading text-foreground">Installation</h1>
-      <Separator class="mt-2" />
+      <Separator class="mt-2 mb-6" />
 
       <Code
         code="npx shadcn-vue add accordion"
@@ -117,19 +121,21 @@ const accordion = computed(() => {
 
     <div class="pt-8">
       <h1 class="text-2xl font-heading text-foreground">Usage</h1>
-      <Separator class="mt-2" />
+      <Separator class="mt-2 mb-6" />
 
-      <Code
-        :code="accordion?.attributes.usageImportCode!"
-        language="vue"
-        :show-line-numbers="false"
-      />
+      <div class="space-y-6">
+        <Code
+          :code="accordion?.attributes.usageImportCode!"
+          language="vue"
+          :show-line-numbers="false"
+        />
 
-      <Code
-        :code="accordion?.attributes.usageCode!"
-        language="vue"
-        :show-line-numbers="false"
-      />
+        <Code
+          :code="accordion?.attributes.usageCode!"
+          language="vue"
+          :show-line-numbers="false"
+        />
+      </div>
     </div>
 
     <DocsPagination>

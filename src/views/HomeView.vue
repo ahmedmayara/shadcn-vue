@@ -16,6 +16,7 @@ import {
   MenubarSubContent,
   MenubarShortcut,
 } from "@/components/ui/menubar";
+import { ChevronRight } from "lucide-vue-next";
 
 const menuBarCheckboxOne = ref(false);
 const menuBarCheckboxTwo = ref(true);

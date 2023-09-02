@@ -35,7 +35,7 @@ import { Input } from "@/components/ui/input";
       <SheetTrigger asChild>
         <Button variant="outline">Open</Button>
       </SheetTrigger>
-      <SheetContent side="left">
+      <SheetContent>
         <SheetHeader>
           <SheetTitle>Edit profile</SheetTitle>
           <SheetDescription>

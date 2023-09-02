@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import {
   MenubarCheckboxItem,
-  type MenubarCheckboxItemProps,
   type MenubarCheckboxItemEmits,
+  type MenubarCheckboxItemProps,
   MenubarItemIndicator,
 } from "radix-vue";
 import { cn } from "@/lib/utils";
@@ -15,20 +15,20 @@ const emit = defineEmits<MenubarCheckboxItemEmits>();
 
 <template>
   <MenubarCheckboxItem
-    @update:checked="emit('update:checked', $event)"
-    @select="emit('select', $event)"
     v-bind="props"
     :class="[
       cn(
-        'flex relative items-center rounded-md transition-colors data-[disabled]:opacity-50 data-[disabled]:pointer-events-none data-[highlighted]:bg-outline-hover pl-7 py-1.5 text-sm outline-none select-none cursor-default',
+        'relative flex cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm outline-none focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50',
         props.class,
       ),
     ]"
+    @update:checked="emit('update:checked', $event)"
+    @select="emit('select', $event)"
   >
     <MenubarItemIndicator
-      class="absolute left-2 inline-flex w-3.5 h-3.5 items-center justify-center"
+      class="absolute left-2 flex h-3.5 w-3.5 items-center justify-center"
     >
-      <RadixIconsCheck class="text-foreground" />
+      <RadixIconsCheck class="w-4 h-4" />
     </MenubarItemIndicator>
     <slot />
   </MenubarCheckboxItem>

@@ -5,6 +5,12 @@ import { cn } from "@/lib/utils";
 
 interface ButtonProps {
   class?: string;
+  /**
+   * The variant of the button.
+   * @values primary, secondary, destructive, outline, ghost, link, neutral
+   * @default primary
+   * @type string
+   */
   variant?:
     | "primary"
     | "secondary"
@@ -13,7 +19,17 @@ interface ButtonProps {
     | "ghost"
     | "link"
     | "neutral";
+  /**
+   * Whether the button is disabled.
+   * @default false
+   * @type boolean
+   */
   disabled?: boolean | undefined;
+  /**
+   * The element the button should be rendered as.
+   * @default button
+   * @type string
+   */
   as?: string;
 }
 

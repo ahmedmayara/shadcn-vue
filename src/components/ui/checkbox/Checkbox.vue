@@ -3,10 +3,35 @@ import RadixIconsCheck from "~icons/radix-icons/check";
 
 interface CheckBoxProps {
   id?: string;
+  /**
+   * The value of the checkbox.
+   * @default false
+   * @type boolean
+   */
   modelValue?: boolean;
+  /**
+   * Whether the checkbox is required.
+   * @default false
+   * @type boolean
+   */
   required?: boolean;
+  /**
+   * Whether the checkbox is disabled.
+   * @default false
+   * @type boolean
+   */
   disabled?: boolean;
+  /**
+   * Whether the checkbox is invalid.
+   * @default false
+   * @type boolean
+   */
   invalid?: boolean;
+  /**
+   * Whether the checkbox is checked.
+   * @default false
+   * @type boolean
+   */
   checked?: boolean;
 }
 

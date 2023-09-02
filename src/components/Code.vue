@@ -4,6 +4,7 @@ import RadixIconsCopy from "~icons/radix-icons/copy";
 import RadixIconsCheck from "~icons/radix-icons/check";
 import { ref, computed, onMounted } from "vue";
 import { useClipboard } from "@vueuse/core";
+import { cn } from "@/lib/utils";
 
 interface CodeProps {
   code: string;
@@ -82,19 +83,13 @@ const copyCode = () => {
 
 <template>
   <div
-    class="flex items-center bg-transparent relative top-[43.5px] justify-end px-5"
-  >
-    <button
-      @click="copyCode"
-      class="flex items-center hover:bg-stone-700 text-gray-400 hover:text-white ease-in-out transition-colors duration-200 rounded-md p-1.5"
-    >
-      <RadixIconsCopy class="h-3.5 w-3.5" v-if="!copied" />
-      <RadixIconsCheck class="h-3.5 w-3.5" v-else />
-    </button>
-  </div>
-  <div
     v-html="html"
-    class="w-full rounded-lg [&_pre]:!my-0 [&_pre]:max-h-[450px] [&_pre]:overflow-auto overflow-hidden"
+    :class="
+      cn(
+        'w-full rounded-lg [&_pre]:max-h-[450px] [&_pre]:overflow-auto overflow-hidden',
+        $attrs.class,
+      )
+    "
   />
 </template>
 

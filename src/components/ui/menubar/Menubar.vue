@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import {
   MenubarRoot,
-  type MenubarRootProps,
   type MenubarRootEmits,
+  type MenubarRootProps,
 } from "radix-vue";
 import { cn } from "@/lib/utils";
 
@@ -14,13 +14,13 @@ const emits = defineEmits<MenubarRootEmits>();
 <template>
   <MenubarRoot
     v-bind="props"
-    @update:model-value="emits('update:modelValue', $event)"
     :class="
       cn(
         'flex h-10 items-center space-x-1 rounded-md border border-border p-1',
         props.class,
       )
     "
+    @update:model-value="emits('update:modelValue', $event)"
   >
     <slot />
   </MenubarRoot>
