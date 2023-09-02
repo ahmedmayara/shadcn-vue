@@ -24,11 +24,8 @@ const moreThanOneLine = computed(() =>
 );
 
 onMounted(async () => {
-  setCDN("http://127.0.0.1:3000/src/assets/shiki/");
-
-  const theme = await loadTheme("themes/monochrome.json");
   const highlighter = await getHighlighter({
-    theme: theme,
+    theme: "css-variables",
     langs: [
       "typescript",
       "javascript",
@@ -61,7 +58,7 @@ onMounted(async () => {
         const shallHighlight = props.highlights?.includes(index + 1) ?? false;
         const lineNumber =
           props.showLineNumbers && moreThanOneLine.value
-            ? `<div class="select-none px-6 text-[#aca7a1] text-xs leading-8">${
+            ? `<div class="select-none px-6 text-[#ffffff88] text-xs leading-8">${
                 index + 1
               }</div>`
             : "";
@@ -100,3 +97,19 @@ const copyCode = () => {
     class="w-full rounded-lg [&_pre]:!my-0 [&_pre]:max-h-[450px] [&_pre]:overflow-auto overflow-hidden"
   />
 </template>
+
+<style>
+:root {
+  --shiki-color-text: #eeeeee;
+  --shiki-color-background: #ffffff;
+  --shiki-token-constant: #ffffff;
+  --shiki-token-string: #ffffff88;
+  --shiki-token-comment: #880000;
+  --shiki-token-keyword: #ffffff88;
+  --shiki-token-parameter: #aa0000;
+  --shiki-token-function: #ffffff;
+  --shiki-token-string-expression: #ffffff88;
+  --shiki-token-punctuation: #ffffff;
+  --shiki-token-link: #ee0000;
+}
+</style>

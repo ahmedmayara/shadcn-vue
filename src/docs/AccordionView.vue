@@ -70,7 +70,12 @@ const accordion = computed(() => {
 
     <Example>
       <Preview>
-        <Accordion type="single" collapsible class="w-full max-w-lg">
+        <Accordion
+          type="single"
+          collapsible
+          default-value="item-1"
+          class="w-full max-w-lg"
+        >
           <AccordionItem value="item-1">
             <AccordionTrigger> Is it accessible? </AccordionTrigger>
             <AccordionContent>
