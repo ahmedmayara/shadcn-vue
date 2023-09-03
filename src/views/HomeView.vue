@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import MainLayout from "@/layouts/MainLayout.vue";
+import { useDark } from "@vueuse/core";
 import {
   Menubar,
   MenubarMenu,
@@ -21,7 +22,7 @@ import { ChevronRight } from "lucide-vue-next";
 const menuBarCheckboxOne = ref(false);
 const menuBarCheckboxTwo = ref(true);
 const person = ref("Pedro Duarte");
-const isDark = ref(false);
+const isDark = useDark();
 </script>
 
 <template>

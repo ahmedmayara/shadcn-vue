@@ -27,7 +27,7 @@ const datatable = computed(() => {
       <h1 class="text-4xl font-heading text-foreground">
         {{ datatable?.attributes.name }}
       </h1>
-      <p class="text-muted text-lg max-w-xl">
+      <p class="text-muted-foreground text-lg max-w-xl">
         {{ datatable?.attributes.description }}
       </p>
     </div>

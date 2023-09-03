@@ -34,7 +34,7 @@ const avatar = computed(() => {
       <h1 class="text-4xl font-heading text-foreground">
         {{ avatar?.attributes.name }}
       </h1>
-      <p class="text-muted text-lg max-w-xl">
+      <p class="text-muted-foreground text-lg max-w-xl">
         {{ avatar?.attributes.description }}
       </p>
     </div>
@@ -77,7 +77,7 @@ const avatar = computed(() => {
 
     <div class="pt-8">
       <h1 class="text-2xl font-heading text-foreground">Installation</h1>
-      <Separator class="mt-2" />
+      <Separator class="mt-2 mb-6" />
 
       <Code
         code="npx shadcn-vue add avatar"
@@ -88,19 +88,21 @@ const avatar = computed(() => {
 
     <div class="pt-8">
       <h1 class="text-2xl font-heading text-foreground">Usage</h1>
-      <Separator class="mt-2" />
+      <Separator class="mt-2 mb-6" />
 
-      <Code
-        :code="avatar?.attributes.usageImportCode!"
-        language="vue"
-        :show-line-numbers="false"
-      />
+      <div class="space-y-6">
+        <Code
+          :code="avatar?.attributes.usageImportCode!"
+          language="vue"
+          :show-line-numbers="false"
+        />
 
-      <Code
-        :code="avatar?.attributes.usageCode!"
-        language="vue"
-        :show-line-numbers="false"
-      />
+        <Code
+          :code="avatar?.attributes.usageCode!"
+          language="vue"
+          :show-line-numbers="false"
+        />
+      </div>
     </div>
 
     <DocsPagination>

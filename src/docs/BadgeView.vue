@@ -33,7 +33,7 @@ const badge = computed(() => {
       <h1 class="text-4xl font-heading text-foreground">
         {{ badge?.attributes.name }}
       </h1>
-      <p class="text-muted text-lg max-w-xl">
+      <p class="text-muted-foreground text-lg max-w-xl">
         {{ badge?.attributes.description }}
       </p>
     </div>
@@ -49,7 +49,7 @@ const badge = computed(() => {
 
     <div class="pt-8">
       <h1 class="text-2xl font-heading text-foreground">Installation</h1>
-      <Separator class="mt-2" />
+      <Separator class="mt-2 mb-6" />
 
       <Code
         code="npx shadcn-vue add badge"
@@ -60,19 +60,21 @@ const badge = computed(() => {
 
     <div class="pt-8">
       <h1 class="text-2xl font-heading text-foreground">Usage</h1>
-      <Separator class="mt-2" />
+      <Separator class="mt-2 mb-6" />
 
-      <Code
-        :code="badge?.attributes.usageImportCode!"
-        language="vue"
-        :show-line-numbers="false"
-      />
+      <div class="space-y-6">
+        <Code
+          :code="badge?.attributes.usageImportCode!"
+          language="vue"
+          :show-line-numbers="false"
+        />
 
-      <Code
-        :code="badge?.attributes.usageCode!"
-        language="vue"
-        :show-line-numbers="false"
-      />
+        <Code
+          :code="badge?.attributes.usageCode!"
+          language="vue"
+          :show-line-numbers="false"
+        />
+      </div>
     </div>
 
     <div class="pt-8">
@@ -124,7 +126,7 @@ const badge = computed(() => {
             </div>
           </TabsContent>
 
-          <TabsContent :value="`code-${example.name}`">
+          <TabsContent :value="`code-${example.name}`" class="mt-6">
             <Code :code="example.code" language="vue" />
           </TabsContent>
         </Tabs>

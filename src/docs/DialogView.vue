@@ -45,7 +45,7 @@ const dialog = computed(() => {
       <h1 class="text-4xl font-heading text-foreground">
         {{ dialog?.attributes.name }}
       </h1>
-      <p class="text-muted text-lg max-w-xl">
+      <p class="text-muted-foreground text-lg max-w-xl">
         {{ dialog?.attributes.description }}
       </p>
     </div>
@@ -108,7 +108,7 @@ const dialog = computed(() => {
 
     <div class="pt-8">
       <h1 class="text-2xl font-heading text-foreground">Installation</h1>
-      <Separator class="mt-2" />
+      <Separator class="mt-2 mb-6" />
 
       <Code
         code="npx shadcn-vue add dialog"
@@ -119,19 +119,21 @@ const dialog = computed(() => {
 
     <div class="pt-8">
       <h1 class="text-2xl font-heading text-foreground">Usage</h1>
-      <Separator class="mt-2" />
+      <Separator class="mt-2 mb-6" />
 
-      <Code
-        :code="dialog?.attributes.usageImportCode!"
-        language="vue"
-        :show-line-numbers="false"
-      />
+      <div class="space-y-6">
+        <Code
+          :code="dialog?.attributes.usageImportCode!"
+          language="vue"
+          :show-line-numbers="false"
+        />
 
-      <Code
-        :code="dialog?.attributes.usageCode!"
-        language="vue"
-        :show-line-numbers="false"
-      />
+        <Code
+          :code="dialog?.attributes.usageCode!"
+          language="vue"
+          :show-line-numbers="false"
+        />
+      </div>
     </div>
 
     <DocsPagination>

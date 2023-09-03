@@ -38,7 +38,7 @@ const terms = ref(false);
       <h1 class="text-4xl font-heading text-foreground">
         {{ checkbox?.attributes.name }}
       </h1>
-      <p class="text-muted text-lg max-w-xl">
+      <p class="text-muted-foreground text-lg max-w-xl">
         {{ checkbox?.attributes.description }}
       </p>
     </div>
@@ -59,7 +59,7 @@ const terms = ref(false);
 
     <div class="pt-8">
       <h1 class="text-2xl font-heading text-foreground">Installation</h1>
-      <Separator class="mt-2" />
+      <Separator class="mt-2 mb-6" />
 
       <Code
         code="npx shadcn-vue add checkbox"
@@ -70,18 +70,20 @@ const terms = ref(false);
 
     <div class="pt-8">
       <h1 class="text-2xl font-heading text-foreground">Usage</h1>
-      <Separator class="mt-2" />
+      <Separator class="mt-2 mb-6" />
 
-      <Code
-        :code="checkbox?.attributes.usageImportCode!"
-        language="vue"
-        :showLineNumbers="false"
-      />
-      <Code
-        :code="checkbox?.attributes.usageCode!"
-        language="vue"
-        :showLineNumbers="false"
-      />
+      <div class="space-y-6">
+        <Code
+          :code="checkbox?.attributes.usageImportCode!"
+          language="vue"
+          :showLineNumbers="false"
+        />
+        <Code
+          :code="checkbox?.attributes.usageCode!"
+          language="vue"
+          :showLineNumbers="false"
+        />
+      </div>
     </div>
 
     <div class="pt-8">
@@ -123,7 +125,7 @@ const terms = ref(false);
                   <Checkbox id="terms1" />
                   <Label for="terms1"> Accept terms and conditions </Label>
                 </div>
-                <p class="text-sm text-muted">
+                <p class="text-sm text-muted-foreground">
                   You agree to our Terms of Service and Privacy Policy.
                 </p>
               </div>
@@ -140,7 +142,7 @@ const terms = ref(false);
             </div>
           </TabsContent>
 
-          <TabsContent :value="`code-${example.name}`">
+          <TabsContent :value="`code-${example.name}`" class="mt-6">
             <Code :code="example.code" language="vue" />
           </TabsContent>
         </Tabs>

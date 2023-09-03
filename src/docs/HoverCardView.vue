@@ -79,9 +79,7 @@ const hoverCard = computed(() => {
           <HoverCardContent class="w-80">
             <div class="flex justify-between space-x-4">
               <Avatar size="sm">
-                <AvatarImage
-                  src="https://pbs.twimg.com/profile_images/875996174305472512/upM71pVR_400x400.jpg"
-                />
+                <AvatarImage src="https://github.com/vuejs.png" />
                 <AvatarFallback> VJ </AvatarFallback>
               </Avatar>
               <div class="space-y-1 text-sm">
@@ -107,7 +105,7 @@ const hoverCard = computed(() => {
 
     <div class="pt-8">
       <h1 class="text-2xl font-heading text-foreground">Installation</h1>
-      <Separator class="mt-2" />
+      <Separator class="mt-2 mb-6" />
 
       <Code
         code="npx shadcn-vue add hover-card"
@@ -118,19 +116,21 @@ const hoverCard = computed(() => {
 
     <div class="pt-8">
       <h1 class="text-2xl font-heading text-foreground">Usage</h1>
-      <Separator class="mt-2" />
+      <Separator class="mt-2 mb-6" />
 
-      <Code
-        :code="hoverCard?.attributes.usageImportCode!"
-        language="vue"
-        :show-line-numbers="false"
-      />
+      <div class="space-y-6">
+        <Code
+          :code="hoverCard?.attributes.usageImportCode!"
+          language="vue"
+          :show-line-numbers="false"
+        />
 
-      <Code
-        :code="hoverCard?.attributes.usageCode!"
-        language="vue"
-        :show-line-numbers="false"
-      />
+        <Code
+          :code="hoverCard?.attributes.usageCode!"
+          language="vue"
+          :show-line-numbers="false"
+        />
+      </div>
     </div>
 
     <DocsPagination>

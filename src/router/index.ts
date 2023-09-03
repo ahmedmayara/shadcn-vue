@@ -69,6 +69,14 @@ const router = createRouter({
       },
     },
     {
+      path: "/examples/music",
+      name: "music",
+      component: () => import("@/examples/music/MusicView.vue"),
+      meta: {
+        title: "Music App",
+      },
+    },
+    {
       path: "/examples/authentication",
       name: "authentication",
       component: () =>

@@ -125,13 +125,14 @@ const button = computed(() => {
             </p>
           </div>
 
-          <Code
-            :code="step.code"
-            :language="step.language"
-            :showLineNumbers="step.showLineNumbers"
-            :highlights="step.highlights"
-            class="mt-4"
-          />
+          <div class="mt-4">
+            <Code
+              :code="step.code"
+              :language="step.language"
+              :showLineNumbers="step.showLineNumbers"
+              :highlights="step.highlights"
+            />
+          </div>
 
           <div v-if="step.title === 'App structure'" class="mt-6">
             <ul class="list-disc leading-8 list-inside text-md text-foreground">
@@ -205,13 +206,14 @@ const button = computed(() => {
               component to your project. You can then import it like this :
             </p>
 
-            <Code
-              :code="button?.attributes.code!"
-              language="typescript"
-              :showLineNumbers="true"
-              class="mt-4"
-              :highlights="[2, 6]"
-            />
+            <div class="mt-4">
+              <Code
+                :code="button?.attributes.code!"
+                language="typescript"
+                :showLineNumbers="true"
+                :highlights="[2, 6]"
+              />
+            </div>
           </div>
         </li>
       </ol>

@@ -72,9 +72,9 @@ const contentDialogOpen = ref(false);
 const warningsSwitch = ref(true);
 const isDeleteDialogOpen = ref(false);
 const searchQuery = ref("");
-const temperature = ref(0.56);
-const maximumTokens = ref(256);
-const topP = ref(0.9);
+const temperature = ref([0.56]);
+const maximumTokens = ref([256]);
+const topP = ref([0.92]);
 
 const filtredPresets = computed(() => {
   return presets.filter((preset) =>
@@ -600,7 +600,7 @@ response = openai.Completion.create(
                       <span
                         class="w-12 rounded-md border border-transparent px-2 py-0.5 text-right text-sm text-muted-foreground hover:border-border"
                       >
-                        {{ temperature }}
+                        {{ temperature[0] }}
                       </span>
                     </div>
                   </HoverCardTrigger>
@@ -615,7 +615,7 @@ response = openai.Completion.create(
                     will become deterministic and repetitive.
                   </HoverCardContent>
                 </HoverCard>
-                <Slider v-model="temperature" :min="0" :max="1" step="0.1" />
+                <Slider v-model="temperature" :min="0" :max="1" :step="0.1" />
               </div>
               <div class="grid gap-4 pt-2">
                 <HoverCard :open-delay="200">
@@ -625,7 +625,7 @@ response = openai.Completion.create(
                       <span
                         class="w-12 rounded-md border border-transparent px-2 py-0.5 text-right text-sm text-muted-foreground hover:border-border"
                       >
-                        {{ maximumTokens }}
+                        {{ maximumTokens[0] }}
                       </span>
                     </div>
                   </HoverCardTrigger>
@@ -650,7 +650,7 @@ response = openai.Completion.create(
                       <span
                         class="w-12 rounded-md border border-transparent px-2 py-0.5 text-right text-sm text-muted-foreground hover:border-border"
                       >
-                        {{ topP }}
+                        {{ topP[0] }}
                       </span>
                     </div>
                   </HoverCardTrigger>
@@ -664,7 +664,7 @@ response = openai.Completion.create(
                     all likelihood-weighted options are considered.
                   </HoverCardContent>
                 </HoverCard>
-                <Slider v-model="topP" :min="0" :max="1" step="0.1" />
+                <Slider v-model="topP" :min="0" :max="1" :step="0.1" />
               </div>
             </div>
             <div class="md:order-1">

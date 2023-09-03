@@ -6,7 +6,6 @@ import DocsLayout from "@/layouts/DocsLayout.vue";
 import { BreadCrumbItem, BreadCrumb } from "@/components/ui/breadcrumb";
 import { Tabs, TabsTrigger, TabsList, TabsContent } from "@/components/ui/tabs";
 import { Mail, Loader2 } from "lucide-vue-next";
-import SvgSpinners270Ring from "~icons/svg-spinners/270-ring";
 import Example from "@/components/example/Example.vue";
 import Preview from "@/components/example/Preview.vue";
 import Source from "@/components/example/Source.vue";
@@ -53,7 +52,7 @@ const isLoading = ref(true);
 
     <div class="pt-8">
       <h1 class="text-2xl font-heading text-foreground">Installation</h1>
-      <Separator class="mt-2" />
+      <Separator class="mt-2 mb-6" />
 
       <Code
         code="npx shadcn-vue add button"
@@ -64,19 +63,21 @@ const isLoading = ref(true);
 
     <div class="pt-8">
       <h1 class="text-2xl font-heading text-foreground">Usage</h1>
-      <Separator class="mt-2" />
+      <Separator class="mt-2 mb-6" />
 
-      <Code
-        :code="button?.attributes.usageImportCode!"
-        language="vue"
-        :show-line-numbers="false"
-      />
+      <div class="space-y-6">
+        <Code
+          :code="button?.attributes.usageImportCode!"
+          language="vue"
+          :show-line-numbers="false"
+        />
 
-      <Code
-        :code="button?.attributes.usageCode!"
-        language="vue"
-        :show-line-numbers="false"
-      />
+        <Code
+          :code="button?.attributes.usageCode!"
+          language="vue"
+          :show-line-numbers="false"
+        />
+      </div>
     </div>
 
     <div class="pt-8">
@@ -155,7 +156,7 @@ const isLoading = ref(true);
             </div>
           </TabsContent>
 
-          <TabsContent :value="`code-${example.name}`">
+          <TabsContent :value="`code-${example.name}`" class="mt-6">
             <Code :code="example.code" language="vue" />
           </TabsContent>
         </Tabs>

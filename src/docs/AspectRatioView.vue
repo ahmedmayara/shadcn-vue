@@ -36,7 +36,7 @@ const aspectRatio = computed(() => {
       <h1 class="text-4xl font-heading text-foreground">
         {{ aspectRatio?.attributes.name }}
       </h1>
-      <p class="text-muted text-lg max-w-xl">
+      <p class="text-muted-foreground text-lg max-w-xl">
         {{ aspectRatio?.attributes.description }}
       </p>
     </div>

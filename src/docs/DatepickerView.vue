@@ -160,7 +160,7 @@ const steps = [
         <ol class="relative border-l border-border">
           <li class="mb-10 ml-8" v-for="(step, index) in steps" :key="index">
             <span
-              class="absolute flex text-sm items-center justify-center w-7 h-7 rounded-full -left-3.5 bg-outline-hover"
+              class="absolute flex text-sm items-center justify-center w-7 h-7 rounded-full -left-3.5 bg-accent"
             >
               {{ index + 1 }}
             </span>
@@ -174,13 +174,14 @@ const steps = [
               </p>
             </div>
 
-            <Code
-              :code="step.code"
-              :language="step.language"
-              :showLineNumbers="step.showLineNumbers"
-              :highlights="step.highlightedLines"
-              class="mt-4"
-            />
+            <div class="mt-4">
+              <Code
+                :code="step.code"
+                :language="step.language"
+                :show-line-numbers="step.showLineNumbers"
+                :highlighted-lines="step.highlightedLines"
+              />
+            </div>
           </li>
         </ol>
       </div>
@@ -188,19 +189,21 @@ const steps = [
 
     <div class="pt-8">
       <h1 class="text-2xl font-heading text-foreground">Usage</h1>
-      <Separator class="mt-2" />
+      <Separator class="mt-2 mb-6" />
 
-      <Code
-        :code="datePicker?.attributes.usageImportCode!"
-        language="vue"
-        :show-line-numbers="false"
-      />
+      <div class="space-y-6">
+        <Code
+          :code="datePicker?.attributes.usageImportCode!"
+          language="vue"
+          :show-line-numbers="false"
+        />
 
-      <Code
-        :code="datePicker?.attributes.usageCode!"
-        language="vue"
-        :show-line-numbers="false"
-      />
+        <Code
+          :code="datePicker?.attributes.usageCode!"
+          language="vue"
+          :show-line-numbers="false"
+        />
+      </div>
     </div>
 
     <DocsPagination>

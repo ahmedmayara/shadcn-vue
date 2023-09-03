@@ -77,7 +77,7 @@ const position = ref("bottom");
       <h1 class="text-4xl font-heading text-foreground">
         {{ dropdownMenu?.attributes.name }}
       </h1>
-      <p class="text-muted text-lg max-w-xl">
+      <p class="text-muted-foreground text-lg max-w-xl">
         {{ dropdownMenu?.attributes.description }}
       </p>
     </div>
@@ -204,7 +204,7 @@ const position = ref("bottom");
 
     <div class="pt-8">
       <h1 class="text-2xl font-heading text-foreground">Installation</h1>
-      <Separator class="mt-2" />
+      <Separator class="mt-2 mb-6" />
 
       <Code
         code="npx shadcn-vue add dropdown-menu"
@@ -215,19 +215,21 @@ const position = ref("bottom");
 
     <div class="pt-8">
       <h1 class="text-2xl font-heading text-foreground">Usage</h1>
-      <Separator class="mt-2" />
+      <Separator class="mt-2 mb-6" />
 
-      <Code
-        :code="dropdownMenu?.attributes.usageImportCode!"
-        language="vue"
-        :show-line-numbers="false"
-      />
+      <div class="space-y-6">
+        <Code
+          :code="dropdownMenu?.attributes.usageImportCode!"
+          language="vue"
+          :show-line-numbers="false"
+        />
 
-      <Code
-        :code="dropdownMenu?.attributes.usageCode!"
-        language="vue"
-        :show-line-numbers="false"
-      />
+        <Code
+          :code="dropdownMenu?.attributes.usageCode!"
+          language="vue"
+          :show-line-numbers="false"
+        />
+      </div>
     </div>
 
     <div class="pt-8">
@@ -317,7 +319,7 @@ const position = ref("bottom");
             </div>
           </TabsContent>
 
-          <TabsContent :value="`code-${example.name}`">
+          <TabsContent :value="`code-${example.name}`" class="mt-6">
             <Code :code="example.code" language="vue" />
           </TabsContent>
         </Tabs>
