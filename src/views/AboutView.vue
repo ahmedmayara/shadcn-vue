@@ -11,10 +11,10 @@ import {
   SheetDescription,
   SheetClose,
   SheetFooter,
-} from "@/components/ui/sheet";
-import { Button } from "@/components/ui/button";
-import { Label } from "@/components/ui/label";
-import { Input } from "@/components/ui/input";
+} from "@/components/ui/default/sheet";
+import { Button } from "@/components/ui/default/button";
+import { Label } from "@/components/ui/default/label";
+import { Input } from "@/components/ui/default/input";
 </script>
 
 <template>

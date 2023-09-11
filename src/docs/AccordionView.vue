@@ -4,15 +4,15 @@ import TablerBrandRadixUi from "~icons/tabler/brand-radix-ui";
 import components from "@/lib/data/components";
 import DocsLayout from "@/layouts/DocsLayout.vue";
 import { BreadCrumbItem, BreadCrumb } from "@/components/ui/breadcrumb";
-import { Badge } from "@/components/ui/badge";
+import { Badge } from "@/components/ui/default/badge";
 import {
   Accordion,
   AccordionTrigger,
   AccordionItem,
   AccordionContent,
-} from "@/components/ui/accordion";
+} from "@/components/ui/default/accordion";
 import Code from "@/components/Code.vue";
-import { Separator } from "@/components/ui/separator";
+import { Separator } from "@/components/ui/default/separator";
 import DocsPagination from "@/components/docs-pagination/DocsPagination.vue";
 import DocsPrevious from "@/components/docs-pagination/DocsPrevious.vue";
 import DocsNext from "@/components/docs-pagination/DocsNext.vue";

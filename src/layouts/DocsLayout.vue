@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ScrollArea } from "@/components/ui/scroll-area";
+import { ScrollArea } from "@/components/ui/default/scroll-area";
 import MainLayout from "./MainLayout.vue";
 import components from "@/lib/data/components";
 

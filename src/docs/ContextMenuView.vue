@@ -16,13 +16,13 @@ import {
   ContextMenuSubContent,
   ContextMenuSubTrigger,
   ContextMenuTrigger,
-} from "@/components/ui/context-menu";
+} from "src/components/ui/default/context-menu";
 import components from "@/lib/data/components";
 import DocsLayout from "@/layouts/DocsLayout.vue";
 import { BreadCrumbItem, BreadCrumb } from "@/components/ui/breadcrumb";
-import { Badge } from "@/components/ui/badge";
+import { Badge } from "src/components/ui/default/badge";
 import Code from "@/components/Code.vue";
-import { Separator } from "@/components/ui/separator";
+import { Separator } from "src/components/ui/default/separator";
 import DocsPagination from "@/components/docs-pagination/DocsPagination.vue";
 import DocsPrevious from "@/components/docs-pagination/DocsPrevious.vue";
 import DocsNext from "@/components/docs-pagination/DocsNext.vue";

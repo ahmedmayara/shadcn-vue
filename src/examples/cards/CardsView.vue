@@ -21,7 +21,7 @@ import {
   CardDescription,
   CardContent,
   CardFooter,
-} from "@/components/ui/card";
+} from "@/components/ui/default/card";
 import {
   DropdownMenu,
   DropdownMenuTrigger,
@@ -31,7 +31,7 @@ import {
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuCheckboxItem,
-} from "@/components/ui/dropdown-menu";
+} from "@/components/ui/default/dropdown-menu";
 import {
   Select,
   SelectTrigger,
@@ -39,13 +39,19 @@ import {
   SelectGroup,
   SelectItem,
   SelectValue,
-} from "@/components/ui/select";
-import { Label } from "@/components/ui/label";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
-import { Switch } from "@/components/ui/switch";
-import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+} from "@/components/ui/default/select";
+import { Label } from "@/components/ui/default/label";
+import { Input } from "@/components/ui/default/input";
+import { Button } from "@/components/ui/default/button";
+import { Separator } from "@/components/ui/default/separator";
+import { Switch } from "@/components/ui/new-york/switch";
+import {
+  Avatar,
+  AvatarImage,
+  AvatarFallback,
+} from "@/components/ui/default/avatar";
+import { Badge } from "@/components/ui/default/badge";
+import { getMonth } from "date-fns";
 
 const team = [
   {
@@ -349,7 +355,10 @@ const switchPayment = (payment: Payment) => {
               class="flex-col pt-6 grid grid-cols-[1fr_110px] items-start gap-4 space-y-0"
             >
               <div class="space-y-1">
-                <h3 class="text-md font-semibold">shadcn-vue</h3>
+                <div class="inline-flex space-x-2 items-center justify-center">
+                  <h3 class="text-md font-semibold">shadcn-vue</h3>
+                  <Badge variant="outline"> Public </Badge>
+                </div>
                 <p class="text-muted-foreground text-sm">
                   Vue port of shadcn/ui.
                 </p>
@@ -364,7 +373,7 @@ const switchPayment = (payment: Payment) => {
                 </Button>
                 <Separator
                   orientation="vertical"
-                  class="!h-[20px] bg-gray-300 dark:bg-gray-700"
+                  class="!h-[20px] bg-muted-foreground/20"
                 />
                 <DropdownMenu>
                   <DropdownMenuTrigger asChild>
@@ -408,11 +417,15 @@ const switchPayment = (payment: Payment) => {
           <CardFooter>
             <div class="flex space-x-4 text-sm text-muted-foreground">
               <div class="flex items-center">
-                <span class="rounded-full bg-blue-500 w-2.5 h-2.5 mr-2" />
-                <span> Typescript </span>
+                <span class="rounded-full bg-green-500 w-2.5 h-2.5 mr-2" />
+                <span> Vue </span>
               </div>
               <div class="flex items-center">
-                <span> Updated July 2023 </span>
+                <Star class="w-3 h-3 mr-1" />
+                <span> 1.2k </span>
+              </div>
+              <div class="flex items-center">
+                <span> Updated {{ getMonth(new Date()) }} days ago </span>
               </div>
             </div>
           </CardFooter>

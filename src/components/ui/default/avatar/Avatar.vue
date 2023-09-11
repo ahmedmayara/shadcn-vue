@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { AvatarRoot } from "radix-vue";
-import { avatarVariant } from ".";
+import { avatarVariant } from "./index";
 import { cn } from "@/lib/utils";
 
 interface AvatarRootProps {

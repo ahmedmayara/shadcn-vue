@@ -4,19 +4,19 @@ import {
   HoverCard,
   HoverCardTrigger,
   HoverCardContent,
-} from "@/components/ui/hover-card";
+} from "src/components/ui/default/hover-card";
 import components from "@/lib/data/components";
 import DocsLayout from "@/layouts/DocsLayout.vue";
 import TablerBrandRadixUi from "~icons/tabler/brand-radix-ui";
-import { Badge } from "@/components/ui/badge";
+import { Badge } from "src/components/ui/default/badge";
 import { BreadCrumbItem, BreadCrumb } from "@/components/ui/breadcrumb";
 import Code from "@/components/Code.vue";
-import { Separator } from "@/components/ui/separator";
+import { Separator } from "src/components/ui/default/separator";
 import DocsPagination from "@/components/docs-pagination/DocsPagination.vue";
 import DocsPrevious from "@/components/docs-pagination/DocsPrevious.vue";
 import DocsNext from "@/components/docs-pagination/DocsNext.vue";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Button } from "@/components/ui/button";
+import { Avatar, AvatarFallback, AvatarImage } from "src/components/ui/default/avatar";
+import { Button } from "src/components/ui/default/button";
 import { CalendarDays } from "lucide-vue-next";
 import Example from "@/components/example/Example.vue";
 import Preview from "@/components/example/Preview.vue";

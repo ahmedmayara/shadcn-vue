@@ -12,13 +12,16 @@ import {
   CreditCard,
   Users,
 } from "lucide-vue-next";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import {
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+} from "@/components/ui/default/avatar";
 import {
   Popover,
   PopoverTrigger,
   PopoverContent,
-} from "@/components/ui/popover";
-import { DatePicker } from "@/components/ui/date-picker";
+} from "@/components/ui/default/popover";
 import {
   DropdownMenu,
   DropdownMenuTrigger,
@@ -28,17 +31,23 @@ import {
   DropdownMenuItem,
   DropdownMenuShortcut,
   DropdownMenuSeparator,
-} from "@/components/ui/dropdown-menu";
+} from "@/components/ui/default/dropdown-menu";
 import {
   Card,
   CardHeader,
   CardTitle,
   CardDescription,
   CardContent,
-} from "@/components/ui/card";
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
-import { Button } from "@/components/ui/button";
-import { Kbd } from "@/components/ui/kbd";
+} from "@/components/ui/new-york/card";
+import {
+  Tabs,
+  TabsList,
+  TabsTrigger,
+  TabsContent,
+} from "@/components/ui/new-york/tabs";
+import { Button } from "@/components/ui/new-york/button";
+import { Kbd } from "@/components/ui/default/kbd";
+import { Calendar } from "@/components/ui/new-york/calendar";
 
 const range = ref({
   start: new Date(2023, 0, 20),
@@ -124,7 +133,7 @@ const range = ref({
                 <PopoverTrigger class="w-72">
                   <Button
                     variant="outline"
-                    class="w-full h-9 text-left flex justify-start items-center space-x-2"
+                    class="w-full text-left flex justify-start items-center space-x-2"
                   >
                     <span class="text-muted-foreground" v-if="!range">
                       Pick a date
@@ -137,27 +146,21 @@ const range = ref({
                     </span>
                   </Button>
                 </PopoverTrigger>
-                <PopoverContent class="w-auto p-2" align="end">
-                  <DatePicker v-model.range="range" :columns="2" />
+                <PopoverContent class="w-auto" align="end">
+                  <Calendar v-model.range="range" :columns="2" />
                 </PopoverContent>
               </Popover>
             </div>
-            <Button class="h-9"> Download </Button>
+            <Button> Download </Button>
           </div>
         </div>
 
         <Tabs default-value="overview">
-          <TabsList class="h-9">
-            <TabsTrigger class="py-1" value="overview"> Overview </TabsTrigger>
-            <TabsTrigger class="py-1" disabled value="analytics">
-              Analytics
-            </TabsTrigger>
-            <TabsTrigger class="py-1" disabled value="products">
-              Products
-            </TabsTrigger>
-            <TabsTrigger class="py-1" disabled value="tasks">
-              Tasks
-            </TabsTrigger>
+          <TabsList>
+            <TabsTrigger value="overview"> Overview </TabsTrigger>
+            <TabsTrigger disabled value="analytics"> Analytics </TabsTrigger>
+            <TabsTrigger disabled value="products"> Products </TabsTrigger>
+            <TabsTrigger disabled value="tasks"> Tasks </TabsTrigger>
           </TabsList>
           <TabsContent value="overview">
             <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-4 mt-4">

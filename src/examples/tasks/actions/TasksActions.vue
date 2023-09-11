@@ -13,8 +13,8 @@ import {
   DropdownMenuRadioGroup,
   DropdownMenuRadioItem,
   DropdownMenuShortcut,
-} from "@/components/ui/dropdown-menu";
-import { Button } from "@/components/ui/button";
+} from "@/components/ui/default/dropdown-menu";
+import { Button } from "@/components/ui/default/button";
 
 import { MoreHorizontal, ChevronRight } from "lucide-vue-next";
 

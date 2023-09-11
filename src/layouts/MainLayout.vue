@@ -1,8 +1,10 @@
 <script setup lang="ts">
+import { onMounted, computed } from "vue";
+import { useConfigStore } from "@/stores/config";
 import { RouterLink } from "vue-router";
 import { useDark, useToggle } from "@vueuse/core";
-import { Button } from "@/components/ui/button";
-import { Kbd } from "@/components/ui/kbd";
+import { Button } from "@/components/ui/default/button";
+import { Kbd } from "@/components/ui/default/kbd";
 import RadixIconsGithubLogo from "~icons/radix-icons/github-logo";
 import TablerBrandX from "~icons/tabler/brand-x";
 import RadixIconsMoon from "~icons/radix-icons/moon";
@@ -10,7 +12,25 @@ import RadixIconsSun from "~icons/radix-icons/sun";
 import LucidePanelRightOpen from "~icons/lucide/panel-right-open";
 import LucideSearch from "~icons/lucide/search";
 
+const configStore = useConfigStore();
+
+const radius = computed(() => configStore.radius);
+
+const theme = computed(() => configStore.theme);
+
 const isDark = useDark();
+
+// Whenever the component is mounted, update the document class list
+onMounted(() => {
+  document.documentElement.style.setProperty("--radius", radius.value + "rem");
+  document.documentElement.classList.add(`theme-${theme.value}`);
+});
+
+if (localStorage.getItem("config")) {
+  const config = JSON.parse(localStorage.getItem("config")!);
+  configStore.setTheme(config.theme);
+  configStore.setRadius(config.radius);
+}
 
 const toggleDark = useToggle(isDark);
 
@@ -30,10 +50,6 @@ const routes = [
   {
     name: "Examples",
     path: "/examples/dashboard",
-  },
-  {
-    name: "GitHub",
-    path: "https://github.com/ahmedmayara/shadcn-vue",
   },
 ];
 
@@ -75,7 +91,7 @@ const links = [
         class="max-w-8xl flex h-[58px] items-center justify-between p-4 mx-auto"
       >
         <div class="flex gap-6 md:gap-8">
-          <span class="text-md font-bold"> shadcn-vue </span>
+          <RouterLink to="/" class="text-md font-bold"> shadcn-vue </RouterLink>
 
           <nav
             class="hidden gap-6 md:flex justify-center items-center"
@@ -91,6 +107,15 @@ const links = [
             >
               {{ route.name }}
             </RouterLink>
+          </nav>
+          <nav class="hidden gap-6 md:flex justify-center items-center">
+            <a
+              href="https://github.com/ahmedmayara/shadcn-vue"
+              target="_blank"
+              class="text-muted-foreground text-sm font-medium dark:hover:text-gray-300 transition-colors"
+            >
+              Github
+            </a>
           </nav>
         </div>
 

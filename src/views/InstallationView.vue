@@ -3,7 +3,7 @@ import { computed } from "vue";
 import Code from "@/components/Code.vue";
 import { BreadCrumbItem, BreadCrumb } from "@/components/ui/breadcrumb";
 import components from "@/lib/data/components";
-import { Separator } from "@/components/ui/separator";
+import { Separator } from "@/components/ui/default/separator";
 import DocsLayout from "@/layouts/DocsLayout.vue";
 
 const steps = [

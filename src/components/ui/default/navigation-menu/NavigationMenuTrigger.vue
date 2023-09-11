@@ -4,7 +4,7 @@ import {
   type NavigationMenuTriggerProps,
 } from "radix-vue";
 import { ChevronDown } from "lucide-vue-next";
-import { navigationMenuTriggerStyle } from ".";
+import { navigationMenuTriggerStyle } from "./index";
 import { cn } from "@/lib/utils";
 
 const props = defineProps<NavigationMenuTriggerProps & { class?: string }>();

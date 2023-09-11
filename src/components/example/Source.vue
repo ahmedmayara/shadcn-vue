@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { TabsContent } from "@/components/ui/tabs";
+import { TabsContent } from "@/components/ui/default/tabs";
 </script>
 
 <template>

@@ -68,4 +68,16 @@ export const madeForYouAlbums: Album[] = [
     cover:
       "https://images.unsplash.com/photo-1490300472339-79e4adc6be4a?w=300&dpr=2&q=80",
   },
+  {
+    name: "The Functional Frontier",
+    artist: "Ethan Byte",
+    cover:
+      "https://images.unsplash.com/photo-1513745405825-efaf9a49315f?w=300&dpr=2&q=80",
+  },
+  {
+    name: "The State of Things",
+    artist: "Beth Binary",
+    cover:
+      "https://images.unsplash.com/photo-1446185250204-f94591f7d702?w=300&dpr=2&q=80",
+  },
 ];

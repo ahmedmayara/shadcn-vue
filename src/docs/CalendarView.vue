@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, ref } from "vue";
-import { Calendar } from "@/components/ui/calendar";
+import { Calendar } from "src/components/ui/default/calendar";
 import components from "@/lib/data/components";
 import DocsLayout from "@/layouts/DocsLayout.vue";
 import { BreadCrumbItem, BreadCrumb } from "@/components/ui/breadcrumb";
@@ -9,7 +9,7 @@ import Preview from "@/components/example/Preview.vue";
 import Source from "@/components/example/Source.vue";
 import { addDays, endOfMonth, startOfMonth, startOfToday } from "date-fns";
 import Code from "@/components/Code.vue";
-import { Separator } from "@/components/ui/separator";
+import { Separator } from "src/components/ui/default/separator";
 import DocsPagination from "@/components/docs-pagination/DocsPagination.vue";
 import DocsPrevious from "@/components/docs-pagination/DocsPrevious.vue";
 import DocsNext from "@/components/docs-pagination/DocsNext.vue";
@@ -19,64 +19,6 @@ const calendar = computed(() => {
     (component) => component.attributes.name === "Calendar",
   );
 });
-
-const attributes = ref([
-  {
-    highlight: "true",
-    popover: {
-      label: "Out of town bussiness trip",
-    },
-    dates: {
-      start: startOfMonth(startOfToday()).toString(),
-      end: addDays(startOfMonth(startOfToday()), 3).toString(),
-    },
-  },
-  {
-    popover: {
-      label: "Take the dog to the vet",
-    },
-    dot: "true",
-    dates: addDays(startOfMonth(startOfToday()), 5).toString(),
-  },
-  {
-    dot: "true",
-    popover: {
-      label: "Dinner with friends",
-    },
-    dates: addDays(startOfMonth(startOfToday()), 8).toString(),
-  },
-  {
-    dot: "true",
-    popover: {
-      label: "Take the car to the mechanic",
-    },
-    dates: addDays(startOfMonth(startOfToday()), 14).toString(),
-  },
-  {
-    highlight: "true",
-    popover: {
-      label: "Family vacation in Ibiza",
-    },
-    dates: {
-      start: addDays(startOfMonth(startOfToday()), 16).toString(),
-      end: addDays(startOfMonth(startOfToday()), 20).toString(),
-    },
-  },
-  {
-    dot: "true",
-    popover: {
-      label: "Take Noah to the football game",
-    },
-    dates: addDays(startOfMonth(startOfToday()), 22).toString(),
-  },
-  {
-    highlight: "true",
-    popover: {
-      label: "Visit the in-laws",
-    },
-    dates: endOfMonth(startOfToday()).toString(),
-  },
-]);
 
 const steps = [
   {
@@ -125,6 +67,8 @@ const steps = [
     showLineNumbers: false,
   },
 ];
+
+const date = ref(startOfToday());
 </script>
 
 <template>
@@ -149,7 +93,7 @@ const steps = [
     <Example>
       <Preview>
         <div class="p-2 border border-border rounded-xl w-full max-w-[350px]">
-          <Calendar :attributes="attributes" />
+          <Calendar v-model="date" />
         </div>
       </Preview>
       <Source>

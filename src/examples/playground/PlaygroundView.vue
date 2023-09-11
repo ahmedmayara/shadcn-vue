@@ -3,9 +3,9 @@ import { ref, computed, watch } from "vue";
 import ExamplesLayout from "@/layouts/ExamplesLayout.vue";
 import { presets, models, textModels } from "./utils/data";
 import { Command, Search, MoreHorizontal, Copy } from "lucide-vue-next";
-import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
-import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/new-york/textarea";
+import { Label } from "@/components/ui/new-york/label";
+import { Input } from "@/components/ui/new-york/input";
 import {
   Select,
   SelectTrigger,
@@ -15,8 +15,8 @@ import {
   SelectItem,
   SelectSeparator,
   SelectValue,
-} from "@/components/ui/select";
-import { Button } from "@/components/ui/button";
+} from "@/components/ui/default/select";
+import { Button } from "@/components/ui/new-york/button";
 import {
   Dialog,
   DialogTrigger,
@@ -25,7 +25,7 @@ import {
   DialogTitle,
   DialogDescription,
   DialogFooter,
-} from "@/components/ui/dialog";
+} from "@/components/ui/default/dialog";
 import {
   AlertDialog,
   AlertDialogContent,
@@ -35,19 +35,19 @@ import {
   AlertDialogFooter,
   AlertDialogCancel,
   AlertDialogAction,
-} from "@/components/ui/alert-dialog";
+} from "@/components/ui/default/alert-dialog";
 import {
   HoverCard,
   HoverCardTrigger,
   HoverCardContent,
-} from "@/components/ui/hover-card";
-import { Slider } from "@/components/ui/slider";
-import { Switch } from "@/components/ui/switch";
+} from "@/components/ui/default/hover-card";
+import { Slider } from "@/components/ui/new-york/slider";
+import { Switch } from "@/components/ui/new-york/switch";
 import {
   Popover,
   PopoverTrigger,
   PopoverContent,
-} from "@/components/ui/popover";
+} from "@/components/ui/default/popover";
 import {
   DropdownMenu,
   DropdownMenuTrigger,
@@ -55,9 +55,14 @@ import {
   DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuSeparator,
-} from "@/components/ui/dropdown-menu";
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
-import { Separator } from "@/components/ui/separator";
+} from "@/components/ui/default/dropdown-menu";
+import {
+  Tabs,
+  TabsList,
+  TabsTrigger,
+  TabsContent,
+} from "@/components/ui/new-york/tabs";
+import { Separator } from "@/components/ui/default/separator";
 import Code from "@/components/Code.vue";
 import RadixIconsCounterClockwiseClock from "~icons/radix-icons/counter-clockwise-clock";
 
@@ -155,7 +160,7 @@ response = openai.Completion.create(
 
           <Dialog v-model:open="isSaveDialogOpen">
             <DialogTrigger>
-              <Button variant="secondary" class="h-9"> Save </Button>
+              <Button variant="secondary"> Save </Button>
             </DialogTrigger>
             <DialogContent>
               <DialogHeader>
@@ -176,24 +181,15 @@ response = openai.Completion.create(
                     placeholder="Description"
                     id="description"
                     class="resize-none"
-                    :rows="4"
                   />
                 </div>
               </div>
               <DialogFooter>
                 <div class="ml-auto flex items-center space-x-2">
-                  <Button
-                    variant="outline"
-                    class="h-9"
-                    @click="isSaveDialogOpen = false"
-                  >
+                  <Button variant="outline" @click="isSaveDialogOpen = false">
                     Cancel
                   </Button>
-                  <Button
-                    variant="primary"
-                    class="h-9"
-                    @click="isSaveDialogOpen = false"
-                  >
+                  <Button variant="primary" @click="isSaveDialogOpen = false">
                     Save
                   </Button>
                 </div>
@@ -203,7 +199,7 @@ response = openai.Completion.create(
 
           <Dialog>
             <DialogTrigger>
-              <Button variant="secondary" class="h-9"> View code </Button>
+              <Button variant="secondary"> View code </Button>
             </DialogTrigger>
             <DialogContent class="sm:max-w-[625px]">
               <DialogHeader>
@@ -226,7 +222,7 @@ response = openai.Completion.create(
 
           <Popover>
             <PopoverTrigger asChild>
-              <Button variant="secondary" class="h-9"> Share </Button>
+              <Button variant="secondary"> Share </Button>
             </PopoverTrigger>
             <PopoverContent align="end" class="w-full p-4">
               <div class="flex flex-col space-y-1.5 text-center sm:text-left">
@@ -256,7 +252,7 @@ response = openai.Completion.create(
 
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="secondary" class="h-9">
+              <Button variant="secondary">
                 <MoreHorizontal class="w-4 h-4" />
               </Button>
             </DropdownMenuTrigger>
@@ -306,7 +302,6 @@ response = openai.Completion.create(
                 <div class="ml-auto flex items-center space-x-2">
                   <Button
                     variant="secondary"
-                    class="h-9"
                     @click="contentDialogOpen = false"
                   >
                     Close
@@ -327,18 +322,13 @@ response = openai.Completion.create(
               </AlertDialogHeader>
               <AlertDialogFooter>
                 <AlertDialogCancel asChild>
-                  <Button
-                    variant="outline"
-                    class="h-9"
-                    @click="isDeleteDialogOpen = false"
-                  >
+                  <Button variant="outline" @click="isDeleteDialogOpen = false">
                     Cancel
                   </Button>
                 </AlertDialogCancel>
                 <AlertDialogAction asChild>
                   <Button
                     variant="destructive"
-                    class="h-9"
                     @click="isDeleteDialogOpen = false"
                   >
                     Delete
@@ -382,8 +372,8 @@ response = openai.Completion.create(
                     </span>
                   </HoverCardContent>
                 </HoverCard>
-                <TabsList class="grid grid-cols-3 h-9">
-                  <TabsTrigger value="completion" class="py-1">
+                <TabsList class="grid grid-cols-3">
+                  <TabsTrigger value="completion">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 20 20"
@@ -448,7 +438,7 @@ response = openai.Completion.create(
                       ></rect>
                     </svg>
                   </TabsTrigger>
-                  <TabsTrigger value="insert" class="py-1">
+                  <TabsTrigger value="insert">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 20 20"
@@ -487,7 +477,7 @@ response = openai.Completion.create(
                       ></rect>
                     </svg>
                   </TabsTrigger>
-                  <TabsTrigger value="edit" class="py-1">
+                  <TabsTrigger value="edit">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 20 20"
@@ -675,8 +665,8 @@ response = openai.Completion.create(
                     class="min-h-[400px] flex-1 md:min-h-[700px] lg:min-h-[700px]"
                   />
                   <div class="flex items-center space-x-2">
-                    <Button class="h-9">Submit</Button>
-                    <Button variant="secondary" class="h-9">
+                    <Button>Submit</Button>
+                    <Button variant="secondary">
                       <span class="sr-only">Show history</span>
                       <RadixIconsCounterClockwiseClock class="h-4 w-4" />
                     </Button>

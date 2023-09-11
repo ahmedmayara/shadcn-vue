@@ -3,11 +3,11 @@ import { computed, ref } from "vue";
 import TablerBrandRadixUi from "~icons/tabler/brand-radix-ui";
 import components from "@/lib/data/components";
 import DocsLayout from "@/layouts/DocsLayout.vue";
-import { Badge } from "@/components/ui/badge";
+import { Badge } from "src/components/ui/default/badge";
 import { BreadCrumbItem, BreadCrumb } from "@/components/ui/breadcrumb";
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "src/components/ui/default/tabs";
 import Code from "@/components/Code.vue";
-import { Separator } from "@/components/ui/separator";
+import { Separator } from "src/components/ui/default/separator";
 import DocsPagination from "@/components/docs-pagination/DocsPagination.vue";
 import DocsPrevious from "@/components/docs-pagination/DocsPrevious.vue";
 import {
@@ -25,8 +25,8 @@ import {
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { Button } from "@/components/ui/button";
+} from "src/components/ui/default/dropdown-menu";
+import { Button } from "src/components/ui/default/button";
 import {
   ChevronRight,
   User,

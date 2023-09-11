@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import { computed } from "vue";
-import { Badge } from "@/components/ui/badge";
+import { Badge } from "src/components/ui/default/badge";
 import components from "@/lib/data/components";
 import DocsLayout from "@/layouts/DocsLayout.vue";
 import { BreadCrumbItem, BreadCrumb } from "@/components/ui/breadcrumb";
 import TablerBrandRadixUi from "~icons/tabler/brand-radix-ui";
 import Code from "@/components/Code.vue";
-import { Separator } from "@/components/ui/separator";
+import { Separator } from "src/components/ui/default/separator";
 import DocsPagination from "@/components/docs-pagination/DocsPagination.vue";
 import DocsPrevious from "@/components/docs-pagination/DocsPrevious.vue";
 import DocsNext from "@/components/docs-pagination/DocsNext.vue";
@@ -21,10 +21,10 @@ import {
   DialogTitle,
   DialogDescription,
   DialogFooter,
-} from "@/components/ui/dialog";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+} from "src/components/ui/default/dialog";
+import { Button } from "src/components/ui/default/button";
+import { Input } from "src/components/ui/default/input";
+import { Label } from "src/components/ui/default/label";
 
 const dialog = computed(() => {
   return components.find((component) => component.attributes.name === "Dialog");

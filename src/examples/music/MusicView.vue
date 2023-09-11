@@ -3,7 +3,7 @@ import { ref } from "vue";
 import ExamplesLayout from "@/layouts/ExamplesLayout.vue";
 import { listenNowAlbums, madeForYouAlbums } from "./utils/albums";
 import { sidebarItems } from "./utils/sidebar";
-import { cn } from "@/lib/utils";
+import AlbumArtwork from "./components/AlbumArtwork.vue";
 
 import {
   Menubar,
@@ -20,10 +20,16 @@ import {
   MenubarSubTrigger,
   MenubarSubContent,
   MenubarShortcut,
-} from "@/components/ui/menubar";
-import { Button } from "@/components/ui/button";
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
-import { Separator } from "@/components/ui/separator";
+} from "@/components/ui/default/menubar";
+import { Button } from "@/components/ui/new-york/button";
+import {
+  Tabs,
+  TabsList,
+  TabsTrigger,
+  TabsContent,
+} from "@/components/ui/new-york/tabs";
+import { Separator } from "@/components/ui/default/separator";
+import { ScrollBar, ScrollArea } from "@/components/ui/default/scroll-area";
 import {
   Dialog,
   DialogTrigger,
@@ -32,9 +38,9 @@ import {
   DialogTitle,
   DialogDescription,
   DialogFooter,
-} from "@/components/ui/dialog";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+} from "@/components/ui/default/dialog";
+import { Input } from "@/components/ui/new-york/input";
+import { Label } from "@/components/ui/new-york/label";
 
 import {
   ChevronRight,
@@ -47,7 +53,6 @@ import {
 const checkboxItemOne = ref(false);
 const checkboxItemTwo = ref(true);
 const radioItem = ref("vincent");
-const aspectRatio = ref("portrait");
 </script>
 
 <template>
@@ -236,7 +241,7 @@ const aspectRatio = ref("portrait");
                   :key="subItem.title"
                 >
                   <Button
-                    class="h-9 justify-start"
+                    class="justify-start"
                     variant="ghost"
                     :class="{ 'bg-secondary': subItem.selected }"
                   >
@@ -252,16 +257,10 @@ const aspectRatio = ref("portrait");
               <div class="h-full space-y-6">
                 <Tabs default-value="music" class="h-full space-y-6">
                   <div class="space-between flex items-center">
-                    <TabsList class="h-9">
-                      <TabsTrigger class="py-1" value="music">
-                        Music
-                      </TabsTrigger>
-                      <TabsTrigger class="py-1" value="podcasts">
-                        Podcasts
-                      </TabsTrigger>
-                      <TabsTrigger class="py-1" value="live" disabled>
-                        Live
-                      </TabsTrigger>
+                    <TabsList>
+                      <TabsTrigger value="music"> Music </TabsTrigger>
+                      <TabsTrigger value="podcasts"> Podcasts </TabsTrigger>
+                      <TabsTrigger value="live" disabled> Live </TabsTrigger>
                     </TabsList>
                     <div class="ml-auto mr-4">
                       <Button>
@@ -282,35 +281,21 @@ const aspectRatio = ref("portrait");
                       </div>
                     </div>
                     <Separator class="my-4" />
-                    <div class="grid grid-cols-4 gap-4">
-                      <div
-                        class="pb-4"
-                        v-for="album in listenNowAlbums"
-                        :key="album.name"
-                      >
-                        <div class="overflow-hidden rounded-md">
-                          <img
-                            :src="album.cover"
-                            :alt="album.name"
-                            :class="
-                              cn(
-                                'h-auto w-[250px] object-cover transition-all hover:scale-105',
-                                aspectRatio === 'portrait'
-                                  ? 'aspect-[3/4]'
-                                  : 'aspect-square',
-                              )
-                            "
+                    <div class="relative">
+                      <ScrollArea>
+                        <div class="flex space-x-4 pb-4">
+                          <AlbumArtwork
+                            v-for="album in listenNowAlbums"
+                            :key="album.name"
+                            :album="album"
+                            class="w-[250px]"
+                            aspect-ratio="portrait"
+                            :width="250"
+                            :height="330"
                           />
                         </div>
-                        <div class="space-y-1 text-sm pt-4">
-                          <h3 class="font-medium leading-none">
-                            {{ album.name }}
-                          </h3>
-                          <p class="text-xs text-muted-foreground">
-                            {{ album.artist }}
-                          </p>
-                        </div>
-                      </div>
+                        <ScrollBar orientation="horizontal" />
+                      </ScrollArea>
                     </div>
 
                     <div class="mt-6 space-y-1">
@@ -323,32 +308,21 @@ const aspectRatio = ref("portrait");
                     </div>
                     <Separator class="my-4" />
 
-                    <div class="grid grid-cols-6 gap-4">
-                      <div
-                        class="pb-4"
-                        v-for="album in madeForYouAlbums"
-                        :key="album.name"
-                      >
-                        <div class="overflow-hidden rounded-md">
-                          <img
-                            :src="album.cover"
-                            :alt="album.name"
-                            :class="
-                              cn(
-                                'h-auto w-[250px] object-cover transition-all hover:scale-105 aspect-square',
-                              )
-                            "
+                    <div class="relative">
+                      <ScrollArea>
+                        <div class="flex space-x-4 pb-4">
+                          <AlbumArtwork
+                            v-for="album in madeForYouAlbums"
+                            :key="album.name"
+                            :album="album"
+                            class="w-[150px]"
+                            aspect-ratio="square"
+                            :width="150"
+                            :height="150"
                           />
                         </div>
-                        <div class="space-y-1 text-sm pt-4">
-                          <h3 class="font-medium leading-none">
-                            {{ album.name }}
-                          </h3>
-                          <p class="text-xs text-muted-foreground">
-                            {{ album.artist }}
-                          </p>
-                        </div>
-                      </div>
+                        <ScrollBar orientation="horizontal" />
+                      </ScrollArea>
                     </div>
                   </TabsContent>
                   <TabsContent value="podcasts">
@@ -395,7 +369,7 @@ const aspectRatio = ref("portrait");
                               />
                             </div>
                             <DialogFooter>
-                              <Button class="h-9"> Import Podcast </Button>
+                              <Button> Import Podcast </Button>
                             </DialogFooter>
                           </DialogContent>
                         </Dialog>

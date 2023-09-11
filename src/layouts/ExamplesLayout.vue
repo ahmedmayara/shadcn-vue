@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import MainLayout from "@/layouts/MainLayout.vue";
 import { ArrowRight } from "lucide-vue-next";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/default/button";
 import { computed } from "vue";
 import { useRouter } from "vue-router";
 

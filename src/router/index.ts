@@ -21,6 +21,14 @@ const router = createRouter({
       },
     },
     {
+      path: "/themes",
+      name: "themes",
+      component: () => import("@/views/themes/ThemesView.vue"),
+      meta: {
+        title: "Themes - shadcn-vue",
+      },
+    },
+    {
       path: "/docs/installation",
       name: "installation",
       component: () => import("@/views/InstallationView.vue"),
@@ -66,6 +74,14 @@ const router = createRouter({
       component: () => import("@/examples/playground/PlaygroundView.vue"),
       meta: {
         title: "Playground",
+      },
+    },
+    {
+      path: "/examples/forms",
+      name: "forms",
+      component: () => import("@/examples/forms/FormsView.vue"),
+      meta: {
+        title: "Forms",
       },
     },
     {

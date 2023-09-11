@@ -4,7 +4,7 @@ import { TitleColumn, StatusColumn, PriorityColumn } from ".";
 import { labels, priorities, statuses } from "../utils/data";
 import { TasksActions } from "../actions";
 import type { ColumnDef } from "@tanstack/vue-table";
-import { Checkbox } from "@/components/ui/checkbox";
+import { Checkbox } from "@/components/ui/default/checkbox";
 
 export const columns: ColumnDef<Task>[] = [
   {

@@ -4,9 +4,9 @@ import ExamplesLayout from "@/layouts/ExamplesLayout.vue";
 import { Github } from "lucide-vue-next";
 import TablerBrandX from "~icons/tabler/brand-x";
 import SvgSpinners270Ring from "~icons/svg-spinners/270-ring";
-import { Button } from "@/components/ui/button";
-import { Label } from "@/components/ui/label";
-import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/default/button";
+import { Label } from "@/components/ui/default/label";
+import { Input } from "@/components/ui/default/input";
 
 const isLoading = ref(false);
 

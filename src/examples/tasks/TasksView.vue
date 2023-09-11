@@ -1,7 +1,11 @@
 <script setup lang="ts">
 import ExamplesLayout from "@/layouts/ExamplesLayout.vue";
 import { faker } from "@faker-js/faker";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import {
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+} from "@/components/ui/default/avatar";
 import { columns } from "./columns/columns";
 import { labels, statuses, priorities } from "./utils/data";
 import {
@@ -13,8 +17,8 @@ import {
   DropdownMenuItem,
   DropdownMenuShortcut,
   DropdownMenuSeparator,
-} from "@/components/ui/dropdown-menu";
-import { DataTable } from "@/components/ui/data-table";
+} from "@/components/ui/default/dropdown-menu";
+import { DataTable } from "@/components/ui/default/data-table";
 
 const tasks = Array.from({ length: 100 }, () => {
   return {

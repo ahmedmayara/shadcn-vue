@@ -1,14 +1,13 @@
 <script setup lang="ts">
-import { ref } from "vue";
 import DocsLayout from "@/layouts/DocsLayout.vue";
 import { BreadCrumb, BreadCrumbItem } from "@/components/ui/breadcrumb";
-import { Separator } from "@/components/ui/separator";
+import { Separator } from "@/components/ui/default/separator";
 import {
   Accordion,
   AccordionTrigger,
   AccordionItem,
   AccordionContent,
-} from "@/components/ui/accordion";
+} from "@/components/ui/default/accordion";
 </script>
 
 <template>

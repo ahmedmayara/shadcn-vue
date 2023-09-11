@@ -1,23 +1,22 @@
 <script setup lang="ts">
 import { computed, ref } from "vue";
 import { format } from "date-fns";
-import { DatePicker } from "@/components/ui/date-picker";
+import { Calendar } from "src/components/ui/default/calendar";
 import RadixIconsCalendar from "~icons/radix-icons/calendar";
 import components from "@/lib/data/components";
 import DocsLayout from "@/layouts/DocsLayout.vue";
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { BreadCrumbItem, BreadCrumb } from "@/components/ui/breadcrumb";
 import Code from "@/components/Code.vue";
-import { Separator } from "@/components/ui/separator";
+import { Separator } from "src/components/ui/default/separator";
 import DocsPagination from "@/components/docs-pagination/DocsPagination.vue";
 import DocsPrevious from "@/components/docs-pagination/DocsPrevious.vue";
 import DocsNext from "@/components/docs-pagination/DocsNext.vue";
-import { Button } from "@/components/ui/button";
+import { Button } from "src/components/ui/default/button";
 import {
   Popover,
   PopoverTrigger,
   PopoverContent,
-} from "@/components/ui/popover";
+} from "src/components/ui/default/popover";
 import Example from "@/components/example/Example.vue";
 import Preview from "@/components/example/Preview.vue";
 import Source from "@/components/example/Source.vue";
@@ -28,7 +27,7 @@ const datePicker = computed(() => {
   );
 });
 
-const date = ref<Date | null>(null);
+const date = ref<Date>();
 
 const steps = [
   {
@@ -123,7 +122,7 @@ const steps = [
             </Button>
           </PopoverTrigger>
           <PopoverContent class="p-2">
-            <DatePicker v-model="date" />
+            <Calendar v-model="date" />
           </PopoverContent>
         </Popover>
       </Preview>
