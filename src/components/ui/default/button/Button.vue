@@ -58,7 +58,7 @@ const buttonClass = computed(() => {
           neutral: "",
         },
         disabled: {
-          true: "!opacity-50 !cursor-not-allowed",
+          true: "!opacity-50 pointer-events-none",
         },
       },
     },
