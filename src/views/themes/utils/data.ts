@@ -7,7 +7,7 @@ import RiAppleFill from "~icons/ri/apple-fill";
 import RiPaypalFill from "~icons/ri/paypal-fill";
 import { CreditCard } from "lucide-vue-next";
 
-interface Payment {
+export interface Payment {
   status: string;
   email: string;
   amount: number;

@@ -17,6 +17,7 @@ import {
 import { Button } from "@/components/ui/new-york/button";
 import { Textarea } from "@/components/ui/new-york/textarea";
 import { Calendar } from "@/components/ui/new-york/calendar";
+import { Separator } from "@/components/ui/new-york/separator";
 import {
   DropdownMenu,
   DropdownMenuTrigger,
@@ -424,7 +425,11 @@ const range = ref({
               </CardContent>
               <CardFooter>
                 <div class="flex w-full space-x-2 items-center">
-                  <Input placeholder="Type a message..." class="flex-1" />
+                  <Input
+                    placeholder="Type a message..."
+                    class="flex-1"
+                    id="message"
+                  />
                   <Button class="p-2.5 flex items-center justify-center">
                     <Send class="w-4 h-4" />
                   </Button>

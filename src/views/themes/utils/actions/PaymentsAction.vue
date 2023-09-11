@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import type { Row } from "@tanstack/vue-table";
+import { type Payment } from "../data";
 import {
   DropdownMenu,
   DropdownMenuTrigger,
@@ -11,6 +13,12 @@ import {
 import { Button } from "@/components/ui/default/button";
 
 import { MoreHorizontal } from "lucide-vue-next";
+
+interface Props {
+  row: Row<Payment>;
+}
+
+const props = defineProps<Props>();
 </script>
 
 <template>

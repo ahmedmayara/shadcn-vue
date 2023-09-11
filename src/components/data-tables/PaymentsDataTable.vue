@@ -100,7 +100,11 @@ function toggleColumnVisibility(column: any) {
   <div class="flex items-center justify-between">
     <div class="flex flex-1 items-center space-x-2">
       <div class="w-full max-w-[24rem]">
-        <Input v-model:value="globalFilter" placeholder="Filter payements..." />
+        <Input
+          v-model:value="globalFilter"
+          placeholder="Filter payements..."
+          id="filter-payments"
+        />
       </div>
     </div>
     <DropdownMenu>

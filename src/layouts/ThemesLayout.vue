@@ -76,8 +76,6 @@ const radius = computed(() => configStore.radius);
 
 const theme = computed(() => configStore.theme);
 
-console.log(theme.value, radius.value);
-
 const isDark = useDark();
 
 // Store an object called config in local storage with the theme and radius values
