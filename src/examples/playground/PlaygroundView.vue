@@ -2,7 +2,7 @@
 import { ref, computed, watch } from "vue";
 import ExamplesLayout from "@/layouts/ExamplesLayout.vue";
 import { presets, models, textModels } from "./utils/data";
-import { Command, Search, MoreHorizontal, Copy } from "lucide-vue-next";
+import { CommandIcon, Search, MoreHorizontal, Copy } from "lucide-vue-next";
 import { Textarea } from "@/components/ui/new-york/textarea";
 import { Label } from "@/components/ui/new-york/label";
 import { Input } from "@/components/ui/new-york/input";
@@ -65,6 +65,15 @@ import {
 import { Separator } from "@/components/ui/default/separator";
 import Code from "@/components/Code.vue";
 import RadixIconsCounterClockwiseClock from "~icons/radix-icons/counter-clockwise-clock";
+import CaretSortIcon from "~icons/radix-icons/caret-sort";
+import CheckIcon from "~icons/radix-icons/check";
+import {
+  Command,
+  CommandList,
+  CommandInput,
+  CommandGroup,
+  CommandItem,
+} from "@/components/ui/default/command";
 
 const shareLink = ref(
   "https://platform.openai.com/playground/p/7bbKYQvsVkNmVb8NGcdUOLae?model=text-davinci-003",
@@ -76,20 +85,10 @@ const isSaveDialogOpen = ref(false);
 const contentDialogOpen = ref(false);
 const warningsSwitch = ref(true);
 const isDeleteDialogOpen = ref(false);
-const searchQuery = ref("");
 const temperature = ref([0.56]);
 const maximumTokens = ref([256]);
 const topP = ref([0.92]);
-
-const filtredPresets = computed(() => {
-  return presets.filter((preset) =>
-    preset.name.toLowerCase().includes(searchQuery.value.toLowerCase()),
-  );
-});
-
-watch(selectedPreset, () => {
-  searchQuery.value = "";
-});
+const isPopoverOpen = ref(false);
 
 const code = `import os
 import openai
@@ -103,6 +102,11 @@ response = openai.Completion.create(
  frequency_penalty=0,
  presence_penalty=0,
 )`;
+
+const selectPresetAndClosePopover = (preset: string) => {
+  selectedPreset.value = preset;
+  isPopoverOpen.value = false;
+};
 </script>
 
 <template>
@@ -111,52 +115,42 @@ response = openai.Completion.create(
       <div class="flex px-8">
         <div class="flex h-16 items-center">
           <div class="flex items-center space-x-2">
-            <Command class="w-5 h-5 text-foreground" />
+            <CommandIcon class="w-5 h-5 text-foreground" />
             <p class="text-foreground font-semibold">Acme Inc.</p>
           </div>
         </div>
         <div class="ml-auto flex items-center space-x-2">
-          <Select v-model="selectedPreset">
-            <SelectTrigger class="w-80">
-              <SelectValue placeholder="Select a preset" />
-            </SelectTrigger>
-            <SelectContent class="w-80">
-              <div class="relative">
-                <input
-                  v-model="searchQuery"
-                  placeholder="Search presets..."
-                  class="w-full pl-8 focus:ring-0 bg-transparent border-b border-border outline-none px-3 h-9 text-sm text-foreground placeholder:text-muted-foreground"
-                />
-                <div
-                  class="absolute left-2.5 top-0 bottom-0 flex items-center pr-3"
-                >
-                  <Search class="w-3.5 h-3.5 text-muted-foreground" />
-                </div>
-              </div>
-              <SelectGroup>
-                <SelectLabel v-if="!searchQuery">Presets</SelectLabel>
-                <SelectItem
-                  v-for="preset in filtredPresets"
-                  :value="preset.name"
-                >
-                  <div class="grid space-y-0.5">
-                    <p class="text-foreground font-medium">
-                      {{ preset.name }}
-                    </p>
-                    <span class="text-muted-foreground text-sm">
-                      {{ preset.description }}
-                    </span>
-                  </div>
-                </SelectItem>
-                <div
-                  v-if="!filtredPresets.length"
-                  class="py-4 px-6 flex flex-col items-center space-y-2"
-                >
-                  <p class="text-foreground text-sm">No presets found.</p>
-                </div>
-              </SelectGroup>
-            </SelectContent>
-          </Select>
+          <Popover v-model:open="isPopoverOpen">
+            <PopoverTrigger>
+              <Button variant="outline" class="w-[300px] justify-start">
+                <span v-if="!selectedPreset">Load a preset...</span>
+                <span v-if="selectedPreset">{{ selectedPreset }}</span>
+                <CaretSortIcon class="ml-auto h-4 w-4 shrink-0 opacity-50" />
+              </Button>
+            </PopoverTrigger>
+            <PopoverContent>
+              <Command>
+                <CommandList class="max-h-max">
+                  <CommandInput placeholder="Search presets..." />
+                  <CommandGroup heading="Presets">
+                    <CommandItem
+                      v-for="preset in presets"
+                      :key="preset.id"
+                      :value="preset.name"
+                      @select="selectPresetAndClosePopover(preset.name)"
+                      class="py-2"
+                    >
+                      <span>{{ preset.name }}</span>
+                      <CheckIcon
+                        class="ml-auto h-4 w-4 shrink-0 text-foreground"
+                        v-if="selectedPreset === preset.name"
+                      />
+                    </CommandItem>
+                  </CommandGroup>
+                </CommandList>
+              </Command>
+            </PopoverContent>
+          </Popover>
 
           <Dialog v-model:open="isSaveDialogOpen">
             <DialogTrigger>

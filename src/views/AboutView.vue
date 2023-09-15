@@ -3,18 +3,24 @@ import DocsLayout from "@/layouts/DocsLayout.vue";
 import { BreadCrumbItem, BreadCrumb } from "@/components/ui/breadcrumb";
 
 import {
-  Sheet,
-  SheetTrigger,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-  SheetDescription,
-  SheetClose,
-  SheetFooter,
-} from "@/components/ui/default/sheet";
-import { Button } from "@/components/ui/default/button";
-import { Label } from "@/components/ui/default/label";
-import { Input } from "@/components/ui/default/input";
+  Calculator,
+  Calendar,
+  CreditCard,
+  Settings,
+  Smile,
+  User,
+} from "lucide-vue-next";
+
+import {
+  Command,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+  CommandSeparator,
+  CommandShortcut,
+} from "@/components/ui/default/command";
 </script>
 
 <template>
@@ -31,33 +37,43 @@ import { Input } from "@/components/ui/default/input";
       </p>
     </div>
 
-    <Sheet>
-      <SheetTrigger asChild>
-        <Button variant="outline">Open</Button>
-      </SheetTrigger>
-      <SheetContent>
-        <SheetHeader>
-          <SheetTitle>Edit profile</SheetTitle>
-          <SheetDescription>
-            Make changes to your profile here. Click save when you're done.
-          </SheetDescription>
-        </SheetHeader>
-        <div class="grid gap-4 py-4">
-          <div class="grid grid-cols-4 items-center gap-4">
-            <Label for="name" class="text-right"> Name </Label>
-            <Input id="name" value="Pedro Duarte" class="col-span-3" />
-          </div>
-          <div class="grid grid-cols-4 items-center gap-4">
-            <Label for="username" class="text-right"> Username </Label>
-            <Input id="username" value="@peduarte" class="col-span-3" />
-          </div>
-        </div>
-        <SheetFooter>
-          <SheetClose asChild>
-            <Button type="submit">Save changes</Button>
-          </SheetClose>
-        </SheetFooter>
-      </SheetContent>
-    </Sheet>
+    <Command class="rounded-lg border border-border shadow-md">
+      <CommandInput placeholder="Type a command or search..." />
+      <CommandList>
+        <CommandEmpty>No results found.</CommandEmpty>
+        <CommandGroup heading="Suggestions">
+          <CommandItem value="Calendar">
+            <Calendar class="mr-2 h-4 w-4" />
+            <span>Calendar</span>
+          </CommandItem>
+          <CommandItem value="Search Emoji">
+            <Smile class="mr-2 h-4 w-4" />
+            <span>Search Emoji</span>
+          </CommandItem>
+          <CommandItem value="Calculator">
+            <Calculator class="mr-2 h-4 w-4" />
+            <span>Calculator</span>
+          </CommandItem>
+        </CommandGroup>
+        <CommandSeparator />
+        <CommandGroup heading="Settings">
+          <CommandItem value="Profile">
+            <User class="mr-2 h-4 w-4" />
+            <span>Profile</span>
+            <CommandShortcut>⌘P</CommandShortcut>
+          </CommandItem>
+          <CommandItem value="Billing">
+            <CreditCard class="mr-2 h-4 w-4" />
+            <span>Billing</span>
+            <CommandShortcut>⌘B</CommandShortcut>
+          </CommandItem>
+          <CommandItem value="Settings">
+            <Settings class="mr-2 h-4 w-4" />
+            <span>Settings</span>
+            <CommandShortcut>⌘S</CommandShortcut>
+          </CommandItem>
+        </CommandGroup>
+      </CommandList>
+    </Command>
   </DocsLayout>
 </template>

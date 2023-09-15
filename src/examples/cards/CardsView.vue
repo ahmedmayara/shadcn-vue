@@ -39,10 +39,11 @@ import {
   SelectGroup,
   SelectItem,
   SelectValue,
+  SelectItemText,
 } from "@/components/ui/default/select";
 import { Label } from "@/components/ui/default/label";
 import { Input } from "@/components/ui/default/input";
-import { Button } from "@/components/ui/default/button";
+import { Button } from "@/components/ui/new-york/button";
 import { Separator } from "@/components/ui/default/separator";
 import { Switch } from "@/components/ui/new-york/switch";
 import {
@@ -52,6 +53,20 @@ import {
 } from "@/components/ui/default/avatar";
 import { Badge } from "@/components/ui/default/badge";
 import { getMonth } from "date-fns";
+import {
+  Popover,
+  PopoverTrigger,
+  PopoverContent,
+} from "@/components/ui/default/popover";
+import {
+  Command,
+  CommandInput,
+  CommandList,
+  CommandGroup,
+  CommandItem,
+  CommandEmpty,
+} from "@/components/ui/default/command";
+import { roles } from "@/views/themes/utils/data";
 
 const team = [
   {
@@ -306,39 +321,39 @@ const switchPayment = (payment: Payment) => {
                 </div>
               </div>
 
-              <DropdownMenu>
-                <DropdownMenuTrigger>
-                  <Button variant="outline" class="h-9">
+              <Popover>
+                <PopoverTrigger asChild>
+                  <Button variant="outline">
                     {{ teamMember.role }}
                     <ChevronDown class="w-3 h-3 ml-2" />
                   </Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent class="w-[280px]" align="end">
-                  <DropdownMenuGroup>
-                    <DropdownMenuLabel>
-                      <div class="grid">
-                        <span class="text-foreground font-semibold">
-                          Actions
-                        </span>
-                        <span class="text-muted-foreground font-normal">
-                          Manage team member permissions
-                        </span>
-                      </div>
-                    </DropdownMenuLabel>
-                    <DropdownMenuSeparator />
-                    <DropdownMenuItem v-for="role in teamRoles">
-                      <div class="grid space-y-0.5">
-                        <span class="text-foreground font-semibold">
-                          {{ role.name }}
-                        </span>
-                        <span class="text-muted-foreground text-sm">
-                          {{ role.description }}
-                        </span>
-                      </div>
-                    </DropdownMenuItem>
-                  </DropdownMenuGroup>
-                </DropdownMenuContent>
-              </DropdownMenu>
+                </PopoverTrigger>
+                <PopoverContent class="w-[300px] p-0" align="end">
+                  <Command>
+                    <CommandList>
+                      <CommandInput placeholder="Select new role..." />
+                      <CommandEmpty>No role found.</CommandEmpty>
+                      <CommandGroup>
+                        <CommandItem
+                          v-for="role in roles"
+                          :key="role.name"
+                          :value="role.name"
+                          class="p-2.5"
+                        >
+                          <div class="grid gap-y-1">
+                            <h1 class="text-md font-semibold">
+                              {{ role.name }}
+                            </h1>
+                            <span class="text-muted-foreground text-sm">
+                              {{ role.description }}
+                            </span>
+                          </div>
+                        </CommandItem>
+                      </CommandGroup>
+                    </CommandList>
+                  </Command>
+                </PopoverContent>
+              </Popover>
             </div>
           </CardContent>
 
@@ -534,14 +549,14 @@ const switchPayment = (payment: Payment) => {
                   <SelectTrigger>
                     <SelectValue placeholder="Month" />
                   </SelectTrigger>
-                  <SelectContent side="top">
+                  <SelectContent>
                     <SelectGroup>
                       <SelectItem
                         v-for="month in months"
                         :key="month"
                         :value="month"
                       >
-                        {{ month }}
+                        <SelectItemText>{{ month }}</SelectItemText>
                       </SelectItem>
                     </SelectGroup>
                   </SelectContent>
@@ -553,14 +568,14 @@ const switchPayment = (payment: Payment) => {
                   <SelectTrigger>
                     <SelectValue placeholder="Year" />
                   </SelectTrigger>
-                  <SelectContent side="top">
+                  <SelectContent>
                     <SelectGroup>
                       <SelectItem
                         v-for="year in years"
                         :key="year"
                         :value="year"
                       >
-                        {{ year }}
+                        <SelectItemText>{{ year }}</SelectItemText>
                       </SelectItem>
                     </SelectGroup>
                   </SelectContent>

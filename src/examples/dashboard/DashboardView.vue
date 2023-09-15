@@ -4,14 +4,7 @@ import { format } from "date-fns";
 import ExamplesLayout from "@/layouts/ExamplesLayout.vue";
 import { series, options, customers } from "./utils/data";
 import RadixIconsCalendar from "~icons/radix-icons/calendar";
-import {
-  Command,
-  Search,
-  DollarSign,
-  Package,
-  CreditCard,
-  Users,
-} from "lucide-vue-next";
+import { DollarSign, Package, CreditCard, Users } from "lucide-vue-next";
 import {
   Avatar,
   AvatarFallback,
@@ -22,16 +15,6 @@ import {
   PopoverTrigger,
   PopoverContent,
 } from "@/components/ui/default/popover";
-import {
-  DropdownMenu,
-  DropdownMenuTrigger,
-  DropdownMenuContent,
-  DropdownMenuGroup,
-  DropdownMenuLabel,
-  DropdownMenuItem,
-  DropdownMenuShortcut,
-  DropdownMenuSeparator,
-} from "@/components/ui/default/dropdown-menu";
 import {
   Card,
   CardHeader,
@@ -46,8 +29,11 @@ import {
   TabsContent,
 } from "@/components/ui/new-york/tabs";
 import { Button } from "@/components/ui/new-york/button";
-import { Kbd } from "@/components/ui/default/kbd";
-import { Calendar } from "@/components/ui/new-york/calendar";
+import TeamSwitcher from "./components/TeamSwitcher.vue";
+import MainNav from "./components/MainNav.vue";
+import UserNav from "./components/UserNav.vue";
+import Search from "./components/Search.vue";
+import DateRangePicker from "./components/DateRangePicker.vue";
 
 const range = ref({
   start: new Date(2023, 0, 20),
@@ -57,68 +43,15 @@ const range = ref({
 
 <template>
   <ExamplesLayout>
-    <div
-      class="flex justify-center flex-col border border-border p-8 rounded-xl"
-    >
-      <div class="border-b flex border-border mx-6">
-        <div class="flex h-16 items-center">
-          <div class="flex items-center space-x-2">
-            <Command class="w-5 h-5 text-foreground" />
-            <p class="text-foreground font-semibold">Acme Inc.</p>
+    <div class="flex justify-center flex-col border border-border rounded-xl">
+      <div class="border-b border-border">
+        <div class="flex h-16 items-center px-4">
+          <TeamSwitcher />
+          <MainNav class="mx-6" />
+          <div class="ml-auto flex items-center space-x-4">
+            <Search />
+            <UserNav />
           </div>
-        </div>
-        <div class="ml-auto flex items-center space-x-4">
-          <Button
-            variant="outline"
-            class="w-72 h-9 hidden md:flex md:justify-between md:items-center"
-          >
-            <div class="flex items-center">
-              <Search class="w-4 h-4 mr-2 text-muted-foreground" />
-              <span class="text-muted-foreground">Search for anything...</span>
-            </div>
-            <div class="flex items-center gap-x-1">
-              <Kbd>⌘</Kbd>
-              <Kbd>K</Kbd>
-            </div>
-          </Button>
-          <DropdownMenu>
-            <DropdownMenuTrigger>
-              <Avatar size="sm">
-                <AvatarImage
-                  src="https://api.dicebear.com/6.x/lorelei/svg?seed=Buster"
-                />
-                <AvatarFallback>AM</AvatarFallback>
-              </Avatar>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end" class="w-[200px]" :side-offset="0">
-              <DropdownMenuGroup>
-                <DropdownMenuLabel>
-                  <span class="text-sm">ahmedmayara</span>
-                  <p class="text-xs font-normal text-muted-foreground">
-                    ahmedmayara@example.com
-                  </p>
-                </DropdownMenuLabel>
-                <DropdownMenuSeparator />
-                <DropdownMenuItem>
-                  <span>Profile</span>
-                  <DropdownMenuShortcut>⌘P</DropdownMenuShortcut>
-                </DropdownMenuItem>
-                <DropdownMenuItem>
-                  <span>Billing</span>
-                  <DropdownMenuShortcut>⌘B</DropdownMenuShortcut>
-                </DropdownMenuItem>
-                <DropdownMenuItem>
-                  <span>Settings</span>
-                  <DropdownMenuShortcut>⌘,</DropdownMenuShortcut>
-                </DropdownMenuItem>
-                <DropdownMenuSeparator />
-                <DropdownMenuItem>
-                  <span>Logout</span>
-                  <DropdownMenuShortcut>⌘⌫L</DropdownMenuShortcut>
-                </DropdownMenuItem>
-              </DropdownMenuGroup>
-            </DropdownMenuContent>
-          </DropdownMenu>
         </div>
       </div>
 
@@ -128,29 +61,7 @@ const range = ref({
             Dashboard
           </h3>
           <div class="flex items-center space-x-2">
-            <div class="grid gap-2">
-              <Popover>
-                <PopoverTrigger class="w-72">
-                  <Button
-                    variant="outline"
-                    class="w-full text-left flex justify-start items-center space-x-2"
-                  >
-                    <span class="text-muted-foreground" v-if="!range">
-                      Pick a date
-                    </span>
-                    <RadixIconsCalendar class="w-4 h-4 opacity-60" />
-
-                    <span class="text-foreground" v-if="range">
-                      {{ format(range.start, "MMM dd, yyyy") }} -
-                      {{ format(range.end, "MMM dd, yyyy") }}
-                    </span>
-                  </Button>
-                </PopoverTrigger>
-                <PopoverContent class="w-auto" align="end">
-                  <Calendar v-model.range="range" :columns="2" />
-                </PopoverContent>
-              </Popover>
-            </div>
+            <DateRangePicker />
             <Button> Download </Button>
           </div>
         </div>
@@ -159,8 +70,8 @@ const range = ref({
           <TabsList>
             <TabsTrigger value="overview"> Overview </TabsTrigger>
             <TabsTrigger disabled value="analytics"> Analytics </TabsTrigger>
-            <TabsTrigger disabled value="products"> Products </TabsTrigger>
-            <TabsTrigger disabled value="tasks"> Tasks </TabsTrigger>
+            <TabsTrigger disabled value="products"> Reports </TabsTrigger>
+            <TabsTrigger disabled value="tasks"> Notifications </TabsTrigger>
           </TabsList>
           <TabsContent value="overview">
             <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-4 mt-4">

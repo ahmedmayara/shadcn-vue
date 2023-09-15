@@ -64,7 +64,7 @@ import {
   columns,
   data,
 } from "./utils/data";
-import { addDays, startOfToday } from "date-fns";
+import { addDays } from "date-fns";
 import PaymentsDataTable from "@/components/data-tables/PaymentsDataTable.vue";
 
 const strictlyNecessarySwitch = ref<boolean>(true);
@@ -311,7 +311,7 @@ const range = ref({
                     <Label for="expires_month">Month</Label>
                     <Select v-model="selectedMonth">
                       <SelectTrigger>
-                        <SelectValue placeholder="Month" />
+                        {{ selectedMonth }}
                       </SelectTrigger>
                       <SelectContent side="top">
                         <SelectGroup>
@@ -330,7 +330,7 @@ const range = ref({
                     <Label for="expires_year"> Year </Label>
                     <Select v-model="selectedYear">
                       <SelectTrigger>
-                        <SelectValue placeholder="Year" />
+                        {{ selectedYear }}
                       </SelectTrigger>
                       <SelectContent side="top">
                         <SelectGroup>
@@ -490,7 +490,7 @@ const range = ref({
                     <Label for="area">Area</Label>
                     <Select v-model="selectedArea">
                       <SelectTrigger>
-                        {{ selectedArea || "Area" }}
+                        {{ selectedArea }}
                       </SelectTrigger>
                       <SelectContent class="w-[139px]">
                         <SelectGroup>
@@ -508,13 +508,19 @@ const range = ref({
                     <Label for="security">Security Level</Label>
                     <Select v-model="selectedSecurity">
                       <SelectTrigger>
-                        <SelectValue placeholder="Medium" />
+                        {{ selectedSecurity }}
                       </SelectTrigger>
                       <SelectContent class="w-[139px]">
                         <SelectGroup>
-                          <SelectItem value="Low">Low</SelectItem>
-                          <SelectItem value="Medium">Medium</SelectItem>
-                          <SelectItem value="High">High</SelectItem>
+                          <SelectItem value="Low">
+                            <SelectItemText> Low </SelectItemText>
+                          </SelectItem>
+                          <SelectItem value="Medium">
+                            <SelectItemText> Medium </SelectItemText>
+                          </SelectItem>
+                          <SelectItem value="High">
+                            <SelectItemText> High </SelectItemText>
+                          </SelectItem>
                         </SelectGroup>
                       </SelectContent>
                     </Select>
@@ -684,7 +690,7 @@ const range = ref({
 
                   <Select v-model="teamMember.access">
                     <SelectTrigger class="w-28">
-                      <SelectValue :placeholder="teamMember.access" />
+                      {{ teamMember.access }}
                     </SelectTrigger>
                     <SelectContent>
                       <SelectGroup>

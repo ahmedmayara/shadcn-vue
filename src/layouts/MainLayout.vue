@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, computed } from "vue";
+import { onMounted, computed, ref, onUnmounted } from "vue";
 import { useConfigStore } from "@/stores/config";
 import { RouterLink } from "vue-router";
 import { useDark, useToggle } from "@vueuse/core";
@@ -11,6 +11,22 @@ import RadixIconsMoon from "~icons/radix-icons/moon";
 import RadixIconsSun from "~icons/radix-icons/sun";
 import LucidePanelRightOpen from "~icons/lucide/panel-right-open";
 import LucideSearch from "~icons/lucide/search";
+import RadixIconsFile from "~icons/radix-icons/file";
+import RadixIconsCircle from "~icons/radix-icons/circle";
+
+import components from "@/lib/data/components";
+
+import {
+  CommandDialog,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+  CommandSeparator,
+  CommandShortcut,
+} from "@/components/ui/default/command";
+import { is } from "date-fns/locale";
 
 const configStore = useConfigStore();
 
@@ -20,10 +36,24 @@ const theme = computed(() => configStore.theme);
 
 const isDark = useDark();
 
+const onKeyDown = (event: KeyboardEvent) => {
+  if (isOpen.value) return;
+
+  if ((event.metaKey || event.ctrlKey) && event.key === "k") {
+    event.preventDefault();
+    isOpen.value = true;
+  }
+};
+
 // Whenever the component is mounted, update the document class list
 onMounted(() => {
   document.documentElement.style.setProperty("--radius", radius.value + "rem");
   document.documentElement.classList.add(`theme-${theme.value}`);
+  window.addEventListener("keydown", onKeyDown);
+});
+
+onUnmounted(() => {
+  window.removeEventListener("keydown", onKeyDown);
 });
 
 if (localStorage.getItem("config")) {
@@ -57,17 +87,42 @@ const pages = [
   {
     name: "Introduction",
     path: "/docs",
-    group: "Getting Started",
   },
   {
     name: "Installation",
     path: "/docs/installation",
-    group: "Getting Started",
+  },
+  {
+    name: "components.json",
+    path: "/docs/components-json",
+  },
+  {
+    name: "Theming",
+    path: "/docs/theming",
+  },
+  {
+    name: "Dark Mode",
+    path: "/docs/dark-mode",
+  },
+  {
+    name: "Typography",
+    path: "/docs/typography",
+  },
+  {
+    name: "Figma",
+    path: "/docs/figma",
+  },
+  {
+    name: "Changelog",
+    path: "/docs/changelog",
+  },
+  {
+    name: "About",
+    path: "/docs/about",
   },
   {
     name: "CLI",
     path: "/docs/cli",
-    group: "Getting Started",
   },
 ];
 
@@ -83,6 +138,8 @@ const links = [
     icon: TablerBrandX,
   },
 ];
+
+const isOpen = ref(false);
 </script>
 <template>
   <div class="flex min-h-screen flex-col bg-background">
@@ -121,6 +178,7 @@ const links = [
 
         <div class="md:flex flex-1 items-center justify-end space-x-4 hidden">
           <Button
+            @click="isOpen = true"
             variant="outline"
             class="w-72 h-8 px-3 hidden lg:flex lg:justify-between lg:items-center"
           >
@@ -209,4 +267,62 @@ const links = [
       </div>
     </footer>
   </div>
+
+  <CommandDialog v-model:open="isOpen">
+    <CommandInput placeholder="Type a command or search..." />
+    <CommandList>
+      <CommandEmpty>No results found.</CommandEmpty>
+      <CommandGroup heading="Links">
+        <CommandItem
+          v-for="link in routes"
+          :key="link.name"
+          :value="link.name"
+          @select="$router.push(link.path)"
+          class="py-3"
+        >
+          <RadixIconsFile class="mr-2 h-5 w-5" />
+          <span>{{ link.name }}</span>
+        </CommandItem>
+      </CommandGroup>
+      <CommandSeparator />
+      <CommandGroup heading="Getting Started">
+        <CommandItem
+          v-for="page in pages"
+          :key="page.name"
+          :value="page.name"
+          @select="$router.push(page.path)"
+          class="py-3"
+        >
+          <RadixIconsCircle class="mr-2 h-4 w-4" />
+          <span>{{ page.name }}</span>
+        </CommandItem>
+      </CommandGroup>
+
+      <CommandGroup heading="Components">
+        <CommandItem
+          v-for="component in components"
+          :key="component.attributes.name"
+          :value="component.attributes.name"
+          @select="
+            $router.push(`/docs/components/${component.attributes.slug}`)
+          "
+          class="py-3"
+        >
+          <RadixIconsCircle class="mr-2 h-4 w-4" />
+          <span>{{ component.attributes.name }}</span>
+        </CommandItem>
+      </CommandGroup>
+
+      <CommandGroup heading="Theme">
+        <CommandItem value="light-theme" @select="isDark = false" class="py-3">
+          <RadixIconsSun class="mr-2 h-5 w-5" />
+          <span>Light Theme</span>
+        </CommandItem>
+        <CommandItem value="dark-theme" @select="isDark = true" class="py-3">
+          <RadixIconsMoon class="mr-2 h-5 w-5" />
+          <span>Dark Theme</span>
+        </CommandItem>
+      </CommandGroup>
+    </CommandList>
+  </CommandDialog>
 </template>

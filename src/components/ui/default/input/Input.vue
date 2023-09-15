@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { cn } from "@/lib/utils";
 import { AlertTriangle } from "lucide-vue-next";
+import { inject } from "vue";
 
 interface InputProps {
   id?: string;
@@ -30,6 +31,8 @@ const emit = defineEmits(["update:value"]);
 function handleInput(event: Event) {
   emit("update:value", (event.target as HTMLInputElement).value);
 }
+
+const formFieldContext = inject("FormFieldContext", props);
 </script>
 
 <template>
@@ -38,12 +41,12 @@ function handleInput(event: Event) {
       :id="props.id"
       :value="props.value"
       :type="props.type"
-      :required="props.required"
+      :required="formFieldContext.required"
       :placeholder="props.placeholder"
       :disabled="props.disabled"
       @input="handleInput"
       :class="[
-        props.invalid
+        formFieldContext.invalid
           ? '!ring-destructive ring-2 placeholder:!text-destructive'
           : '',
         props.disabled ? 'cursor-not-allowed opacity-50' : '',
@@ -56,7 +59,10 @@ function handleInput(event: Event) {
     <div
       class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none"
     >
-      <AlertTriangle class="w-4 h-4 text-destructive" v-if="props.invalid" />
+      <AlertTriangle
+        class="w-4 h-4 text-destructive"
+        v-if="formFieldContext.invalid"
+      />
     </div>
   </div>
   <p
