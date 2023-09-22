@@ -3,10 +3,10 @@ import { ref } from "vue";
 import ExamplesLayout from "@/layouts/ExamplesLayout.vue";
 import { Github } from "lucide-vue-next";
 import TablerBrandX from "~icons/tabler/brand-x";
-import SvgSpinners270Ring from "~icons/svg-spinners/270-ring";
-import { Button } from "@/components/ui/default/button";
-import { Label } from "@/components/ui/default/label";
-import { Input } from "@/components/ui/default/input";
+import { Loader2 } from "lucide-vue-next";
+import { Button } from "@/components/ui/new-york/button";
+import { Label } from "@/components/ui/new-york/label";
+import { Input } from "@/components/ui/new-york/input";
 
 const isLoading = ref(false);
 
@@ -65,7 +65,7 @@ const onSubmit = () => {
             </div>
 
             <Button class="w-full" :disabled="isLoading" @click="onSubmit">
-              <SvgSpinners270Ring class="w-4 h-4 mr-2" v-if="isLoading" />
+              <Loader2 class="w-4 h-4 mr-2 animate-spin" v-if="isLoading" />
               Sign up
             </Button>
           </div>
@@ -104,13 +104,7 @@ const onSubmit = () => {
           </p>
         </div>
       </section>
-      <section class="items-start w-full bg-secondary hidden md:flex">
-        <img
-          src="https://images.unsplash.com/photo-1486551937199-baf066858de7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2133&q=80"
-          class="object-cover w-full h-full"
-          alt="Auth background"
-        />
-      </section>
+      <section class="items-start w-full bg-secondary hidden md:flex" />
     </div>
   </ExamplesLayout>
 </template>

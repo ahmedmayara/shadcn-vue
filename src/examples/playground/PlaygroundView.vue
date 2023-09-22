@@ -1,21 +1,14 @@
 <script setup lang="ts">
-import { ref, computed, watch } from "vue";
+import { ref } from "vue";
 import ExamplesLayout from "@/layouts/ExamplesLayout.vue";
-import { presets, models, textModels } from "./utils/data";
-import { CommandIcon, Search, MoreHorizontal, Copy } from "lucide-vue-next";
+import { presets, models } from "./utils/data";
+import { CommandIcon, MoreHorizontal, Copy } from "lucide-vue-next";
 import { Textarea } from "@/components/ui/new-york/textarea";
 import { Label } from "@/components/ui/new-york/label";
 import { Input } from "@/components/ui/new-york/input";
-import {
-  Select,
-  SelectTrigger,
-  SelectContent,
-  SelectLabel,
-  SelectGroup,
-  SelectItem,
-  SelectSeparator,
-  SelectValue,
-} from "@/components/ui/default/select";
+
+import ModelSelector from "./components/ModelSelector.vue";
+
 import { Button } from "@/components/ui/new-york/button";
 import {
   Dialog,
@@ -73,7 +66,7 @@ import {
   CommandInput,
   CommandGroup,
   CommandItem,
-} from "@/components/ui/default/command";
+} from "@/components/ui/new-york/command";
 
 const shareLink = ref(
   "https://platform.openai.com/playground/p/7bbKYQvsVkNmVb8NGcdUOLae?model=text-davinci-003",
@@ -111,12 +104,12 @@ const selectPresetAndClosePopover = (preset: string) => {
 
 <template>
   <ExamplesLayout>
-    <div class="flex justify-center flex-col border border-border rounded-xl">
+    <div class="flex flex-col justify-center rounded-xl border border-border">
       <div class="flex px-8">
         <div class="flex h-16 items-center">
           <div class="flex items-center space-x-2">
-            <CommandIcon class="w-5 h-5 text-foreground" />
-            <p class="text-foreground font-semibold">Acme Inc.</p>
+            <CommandIcon class="h-5 w-5 text-foreground" />
+            <p class="font-semibold text-foreground">Acme Inc.</p>
           </div>
         </div>
         <div class="ml-auto flex items-center space-x-2">
@@ -238,7 +231,7 @@ const selectPresetAndClosePopover = (preset: string) => {
                   />
                 </div>
                 <Button variant="primary">
-                  <Copy class="w-4 h-4" />
+                  <Copy class="h-4 w-4" />
                 </Button>
               </div>
             </PopoverContent>
@@ -247,7 +240,7 @@ const selectPresetAndClosePopover = (preset: string) => {
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="secondary">
-                <MoreHorizontal class="w-4 h-4" />
+                <MoreHorizontal class="h-4 w-4" />
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
@@ -336,7 +329,7 @@ const selectPresetAndClosePopover = (preset: string) => {
 
       <Separator />
 
-      <Tabs default-value="completion" class="flex-1 mx-6">
+      <Tabs default-value="completion" class="mx-6 flex-1">
         <div class="container h-full py-6">
           <div class="grid h-full items-stretch gap-6 md:grid-cols-[1fr_200px]">
             <div class="hidden flex-col space-y-4 sm:flex md:order-2">
@@ -354,13 +347,13 @@ const selectPresetAndClosePopover = (preset: string) => {
                     Choose the interface that best suits your task. You can
                     provide: a system message and a user message to
                     <span
-                      class="font-medium text-green-600 cursor-pointer hover:underline decoration-green-600"
+                      class="cursor-pointer font-medium text-green-600 decoration-green-600 hover:underline"
                     >
                       chat
                     </span>
                     or a simple prompt to
                     <span
-                      class="font-medium text-green-600 cursor-pointer hover:underline decoration-green-600"
+                      class="cursor-pointer font-medium text-green-600 decoration-green-600 hover:underline"
                     >
                       complete.
                     </span>
@@ -526,56 +519,8 @@ const selectPresetAndClosePopover = (preset: string) => {
                   </TabsTrigger>
                 </TabsList>
               </div>
-              <div class="grid gap-2">
-                <HoverCard :open-delay="200">
-                  <HoverCardTrigger asChild>
-                    <Label for="model">Model</Label>
-                  </HoverCardTrigger>
-                  <HoverCardContent
-                    align="start"
-                    class="w-[300px] text-sm text-foreground"
-                    side="left"
-                    :side-offset="8"
-                  >
-                    The model which will generate the completion. Some models
-                    are suitable for natural language tasks, others specialize
-                    in code.
-                    <span
-                      class="font-medium text-green-600 cursor-pointer hover:underline decoration-green-600"
-                    >
-                      Learn more.
-                    </span>
-                  </HoverCardContent>
-                </HoverCard>
-                <Select v-model="selectedModel">
-                  <SelectTrigger>
-                    {{ selectedModel || "Select a model" }}
-                  </SelectTrigger>
-                  <SelectContent class="w-[200px]">
-                    <SelectGroup>
-                      <SelectLabel> GPT-3.5 </SelectLabel>
-                      <SelectItem
-                        v-for="model in models"
-                        :key="model.name"
-                        :value="model.name"
-                      >
-                        {{ model.name }}
-                      </SelectItem>
-                    </SelectGroup>
-                    <SelectSeparator />
-                    <SelectGroup>
-                      <SelectLabel> Text </SelectLabel>
-                      <SelectItem
-                        v-for="model in textModels"
-                        :key="model.name"
-                        :value="model.name"
-                      >
-                        {{ model.name }}
-                      </SelectItem>
-                    </SelectGroup>
-                  </SelectContent>
-                </Select>
-              </div>
+
+              <ModelSelector />
               <div class="grid gap-4 pt-2">
                 <HoverCard :open-delay="200">
                   <HoverCardTrigger asChild>
@@ -677,7 +622,7 @@ const selectPresetAndClosePopover = (preset: string) => {
                       class="min-h-[400px] flex-1 md:min-h-[700px] lg:min-h-[700px]"
                     />
                     <div
-                      class="rounded-md border border-border dark:border-none bg-accent"
+                      class="rounded-md border border-border bg-accent dark:border-none"
                     ></div>
                   </div>
                   <div class="flex items-center space-x-2">
@@ -710,7 +655,7 @@ const selectPresetAndClosePopover = (preset: string) => {
                       </div>
                     </div>
                     <div
-                      class="mt-[25px] min-h-[400px] rounded-md border border-border dark:border-none bg-accent lg:min-h-[700px]"
+                      class="mt-[25px] min-h-[400px] rounded-md border border-border bg-accent dark:border-none lg:min-h-[700px]"
                     />
                   </div>
                   <div class="flex items-center space-x-2">

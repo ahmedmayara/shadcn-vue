@@ -18,7 +18,7 @@ const emit = defineEmits<MenubarCheckboxItemEmits>();
     v-bind="props"
     :class="[
       cn(
-        'flex relative items-center rounded-md transition-colors data-[disabled]:opacity-50 data-[disabled]:pointer-events-none data-[highlighted]:bg-accent pl-7 py-1.5 text-sm outline-none select-none cursor-default',
+        'relative flex cursor-default select-none items-center rounded-md py-1.5 pl-7 text-sm outline-none transition-colors data-[disabled]:pointer-events-none data-[highlighted]:bg-accent data-[disabled]:opacity-50',
         props.class,
       ),
     ]"
@@ -28,7 +28,7 @@ const emit = defineEmits<MenubarCheckboxItemEmits>();
     <MenubarItemIndicator
       class="absolute left-2 flex h-3.5 w-3.5 items-center justify-center"
     >
-      <RadixIconsCheck class="w-4 h-4" />
+      <RadixIconsCheck class="h-4 w-4" />
     </MenubarItemIndicator>
     <slot />
   </MenubarCheckboxItem>

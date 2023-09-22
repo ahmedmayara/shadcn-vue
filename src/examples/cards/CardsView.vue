@@ -21,7 +21,7 @@ import {
   CardDescription,
   CardContent,
   CardFooter,
-} from "@/components/ui/default/card";
+} from "@/components/ui/new-york/card";
 import {
   DropdownMenu,
   DropdownMenuTrigger,
@@ -31,7 +31,7 @@ import {
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuCheckboxItem,
-} from "@/components/ui/default/dropdown-menu";
+} from "@/components/ui/new-york/dropdown-menu";
 import {
   Select,
   SelectTrigger,
@@ -40,24 +40,24 @@ import {
   SelectItem,
   SelectValue,
   SelectItemText,
-} from "@/components/ui/default/select";
-import { Label } from "@/components/ui/default/label";
-import { Input } from "@/components/ui/default/input";
+} from "@/components/ui/new-york/select";
+import { Label } from "@/components/ui/new-york/label";
+import { Input } from "@/components/ui/new-york/input";
 import { Button } from "@/components/ui/new-york/button";
-import { Separator } from "@/components/ui/default/separator";
+import { Separator } from "@/components/ui/new-york/separator";
 import { Switch } from "@/components/ui/new-york/switch";
 import {
   Avatar,
   AvatarImage,
   AvatarFallback,
-} from "@/components/ui/default/avatar";
-import { Badge } from "@/components/ui/default/badge";
+} from "@/components/ui/new-york/avatar";
+import { Badge } from "@/components/ui/new-york/badge";
 import { getMonth } from "date-fns";
 import {
   Popover,
   PopoverTrigger,
   PopoverContent,
-} from "@/components/ui/default/popover";
+} from "@/components/ui/new-york/popover";
 import {
   Command,
   CommandInput,
@@ -159,7 +159,7 @@ const switchPayment = (payment: Payment) => {
 <template>
   <ExamplesLayout>
     <div
-      class="border border-border items-start justify-center gap-6 rounded-lg p-8 md:grid lg:grid-cols-2 xl:grid-cols-3"
+      class="items-start justify-center gap-6 rounded-lg border border-border p-8 md:grid lg:grid-cols-2 xl:grid-cols-3"
     >
       <div class="col-span-2 grid items-start gap-6 lg:col-span-1">
         <Card>
@@ -172,11 +172,11 @@ const switchPayment = (payment: Payment) => {
           <CardContent>
             <div class="grid grid-cols-2 gap-6">
               <Button variant="outline">
-                <Github class="w-4 h-4 mr-2" />
+                <Github class="mr-2 h-4 w-4" />
                 Github
               </Button>
               <Button variant="outline">
-                <TablerBrandGoogle class="w-4 h-4 mr-2" />
+                <TablerBrandGoogle class="mr-2 h-4 w-4" />
                 Google
               </Button>
             </div>
@@ -217,21 +217,21 @@ const switchPayment = (payment: Payment) => {
               <span class="text-6xl font-bold">70</span>
               <span class="text-xl">/mo</span>
             </div>
-            <ul class="space-y-5 my-7">
-              <li class="flex space-x-3 items-center">
-                <CheckCircle class="w-5 h-5" />
+            <ul class="my-7 space-y-5">
+              <li class="flex items-center space-x-3">
+                <CheckCircle class="h-5 w-5" />
                 <span class="text-foreground"> Unlimited projects </span>
               </li>
-              <li class="flex space-x-3 items-center">
-                <CheckCircle class="w-5 h-5" />
+              <li class="flex items-center space-x-3">
+                <CheckCircle class="h-5 w-5" />
                 <span class="text-foreground"> Unlimited collaborators </span>
               </li>
-              <li class="flex space-x-3 items-center">
-                <CheckCircle class="w-5 h-5" />
+              <li class="flex items-center space-x-3">
+                <CheckCircle class="h-5 w-5" />
                 <span class="text-foreground"> Unlimited Cloud storage </span>
               </li>
-              <li class="flex space-x-3 items-center">
-                <CheckCircle class="w-5 h-5" />
+              <li class="flex items-center space-x-3">
+                <CheckCircle class="h-5 w-5" />
                 <span class="text-foreground"> Complete Documentation </span>
               </li>
             </ul>
@@ -245,7 +245,7 @@ const switchPayment = (payment: Payment) => {
       <div class="col-span-2 grid items-start gap-6 lg:col-span-1">
         <Card>
           <CardHeader>
-            <CardTitle class="text-lg"> Connect wallet </CardTitle>
+            <CardTitle> Connect wallet </CardTitle>
             <CardDescription>
               Connect with one of our available wallet providers or create a new
               one.
@@ -254,35 +254,35 @@ const switchPayment = (payment: Payment) => {
           <CardContent>
             <ul class="my-4 space-y-3">
               <li>
-                <Button variant="outline" class="w-full flex justify-start">
-                  <CreditCard class="w-4 h-4 mr-2" />
+                <Button variant="outline" class="flex w-full justify-start">
+                  <CreditCard class="mr-2 h-4 w-4" />
                   Credit Card
                 </Button>
               </li>
               <li>
-                <Button variant="outline" class="w-full flex justify-start">
-                  <RiPaypalFill class="w-4 h-4 mr-2" />
+                <Button variant="outline" class="flex w-full justify-start">
+                  <RiPaypalFill class="mr-2 h-4 w-4" />
                   Paypal
                 </Button>
               </li>
               <li>
-                <Button variant="outline" class="w-full flex justify-start">
-                  <RiAppleFill class="w-4 h-4 mr-2" />
+                <Button variant="outline" class="flex w-full justify-start">
+                  <RiAppleFill class="mr-2 h-4 w-4" />
                   Apple Pay
                 </Button>
               </li>
               <li>
-                <Button variant="outline" class="w-full flex justify-start">
-                  <RiOperaFill class="w-4 h-4 mr-2" />
+                <Button variant="outline" class="flex w-full justify-start">
+                  <RiOperaFill class="mr-2 h-4 w-4" />
                   Opera Wallet
                 </Button>
               </li>
             </ul>
 
             <div class="flex items-center space-x-2">
-              <ShieldQuestion class="w-3.5 h-3.5 text-muted-foreground" />
+              <ShieldQuestion class="h-3.5 w-3.5 text-muted-foreground" />
               <span
-                class="text-muted-foreground text-xs hover:underline cursor-pointer"
+                class="cursor-pointer text-xs text-muted-foreground hover:underline"
               >
                 Why connect my wallet?
               </span>
@@ -292,7 +292,7 @@ const switchPayment = (payment: Payment) => {
 
         <Card>
           <CardHeader>
-            <CardTitle class="text-xl"> Team members </CardTitle>
+            <CardTitle> Team members </CardTitle>
             <CardDescription>
               Invite your team members to collaborate.
             </CardDescription>
@@ -300,10 +300,10 @@ const switchPayment = (payment: Payment) => {
 
           <CardContent>
             <div
-              class="flex justify-between items-center"
+              class="flex items-center justify-between"
               v-for="teamMember in team"
             >
-              <div class="flex items-center space-x-3 my-2">
+              <div class="my-2 flex items-center space-x-3">
                 <Avatar size="sm">
                   <AvatarImage :src="teamMember.avatar" />
                   <AvatarFallback>
@@ -312,10 +312,10 @@ const switchPayment = (payment: Payment) => {
                 </Avatar>
 
                 <div class="flex flex-col">
-                  <p class="text-foreground text-md font-semibold">
+                  <p class="text-md font-semibold text-foreground">
                     {{ teamMember.name }}
                   </p>
-                  <p class="text-muted-foreground text-sm">
+                  <p class="text-sm text-muted-foreground">
                     {{ teamMember.username }}
                   </p>
                 </div>
@@ -325,7 +325,7 @@ const switchPayment = (payment: Payment) => {
                 <PopoverTrigger asChild>
                   <Button variant="outline">
                     {{ teamMember.role }}
-                    <ChevronDown class="w-3 h-3 ml-2" />
+                    <ChevronDown class="ml-2 h-3 w-3" />
                   </Button>
                 </PopoverTrigger>
                 <PopoverContent class="w-[300px] p-0" align="end">
@@ -344,7 +344,7 @@ const switchPayment = (payment: Payment) => {
                             <h1 class="text-md font-semibold">
                               {{ role.name }}
                             </h1>
-                            <span class="text-muted-foreground text-sm">
+                            <span class="text-sm text-muted-foreground">
                               {{ role.description }}
                             </span>
                           </div>
@@ -367,14 +367,14 @@ const switchPayment = (payment: Payment) => {
         <Card>
           <CardContent>
             <div
-              class="flex-col pt-6 grid grid-cols-[1fr_110px] items-start gap-4 space-y-0"
+              class="grid grid-cols-[1fr_110px] flex-col items-start gap-4 space-y-0 pt-6"
             >
               <div class="space-y-1">
-                <div class="inline-flex space-x-2 items-center justify-center">
+                <div class="inline-flex items-center justify-center space-x-2">
                   <h3 class="text-md font-semibold">shadcn-vue</h3>
                   <Badge variant="outline"> Public </Badge>
                 </div>
-                <p class="text-muted-foreground text-sm">
+                <p class="text-sm text-muted-foreground">
                   Vue port of shadcn/ui.
                 </p>
               </div>
@@ -383,7 +383,7 @@ const switchPayment = (payment: Payment) => {
                   variant="secondary"
                   class="h-9 px-3 enabled:hover:bg-secondary"
                 >
-                  <Star class="w-4 h-4 mr-2" />
+                  <Star class="mr-2 h-4 w-4" />
                   Star
                 </Button>
                 <Separator
@@ -396,7 +396,7 @@ const switchPayment = (payment: Payment) => {
                       variant="secondary"
                       class="h-9 px-3 enabled:hover:bg-secondary"
                     >
-                      <ChevronDown class="w-3.5 h-3.5" />
+                      <ChevronDown class="h-3.5 w-3.5" />
                     </Button>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent align="end" class="w-[200px]">
@@ -420,7 +420,7 @@ const switchPayment = (payment: Payment) => {
                       </DropdownMenuCheckboxItem>
                       <DropdownMenuSeparator />
                       <DropdownMenuItem>
-                        <PlusCircle class="w-4 h-4 mr-2" />
+                        <PlusCircle class="mr-2 h-4 w-4" />
                         Create List
                       </DropdownMenuItem>
                     </DropdownMenuGroup>
@@ -432,11 +432,11 @@ const switchPayment = (payment: Payment) => {
           <CardFooter>
             <div class="flex space-x-4 text-sm text-muted-foreground">
               <div class="flex items-center">
-                <span class="rounded-full bg-green-500 w-2.5 h-2.5 mr-2" />
+                <span class="mr-2 h-2.5 w-2.5 rounded-full bg-green-500" />
                 <span> Vue </span>
               </div>
               <div class="flex items-center">
-                <Star class="w-3 h-3 mr-1" />
+                <Star class="mr-1 h-3 w-3" />
                 <span> 1.2k </span>
               </div>
               <div class="flex items-center">
@@ -457,11 +457,11 @@ const switchPayment = (payment: Payment) => {
           </CardHeader>
           <CardContent>
             <div class="grid grid-rows-3 gap-y-5">
-              <div class="flex justify-between items-center space-x-2">
+              <div class="flex items-center justify-between space-x-2">
                 <Label for="email_notifications" class="flex flex-col">
                   Email notifications
                   <span
-                    class="text-muted-foreground mt-1 text-sm max-w-[18rem]"
+                    class="mt-1 max-w-[18rem] text-sm text-muted-foreground"
                   >
                     These notifications can be sent to your email address.
                   </span>
@@ -471,11 +471,11 @@ const switchPayment = (payment: Payment) => {
                   v-model:checked="emailNotificationsSwitch"
                 />
               </div>
-              <div class="flex justify-between items-center space-x-2">
+              <div class="flex items-center justify-between space-x-2">
                 <Label for="web_notifications" class="flex flex-col">
                   Web push notifications
                   <span
-                    class="text-muted-foreground mt-1 text-sm max-w-[18rem]"
+                    class="mt-1 max-w-[18rem] text-sm text-muted-foreground"
                   >
                     These notifications will be sent to your browser or mobile
                     device.
@@ -486,11 +486,11 @@ const switchPayment = (payment: Payment) => {
                   v-model:checked="pushNotificationsSwitch"
                 />
               </div>
-              <div class="flex justify-between items-center space-x-2">
+              <div class="flex items-center justify-between space-x-2">
                 <Label for="sms_notifications" class="flex flex-col">
                   SMS notifications
                   <span
-                    class="text-muted-foreground mt-1 text-sm max-w-[18rem]"
+                    class="mt-1 max-w-[18rem] text-sm text-muted-foreground"
                   >
                     These notifications can be sent to your mobile phone.
                   </span>
@@ -517,7 +517,7 @@ const switchPayment = (payment: Payment) => {
           <CardContent>
             <div class="grid grid-cols-3 gap-x-4">
               <div
-                class="flex flex-col justify-center items-center p-4 rounded-lg cursor-pointer transition-colors ease-in-out duration-200"
+                class="flex cursor-pointer flex-col items-center justify-center rounded-lg p-4 transition-colors duration-200 ease-in-out"
                 v-for="payment in payments"
                 :key="payment.name"
                 :class="[
@@ -527,8 +527,8 @@ const switchPayment = (payment: Payment) => {
                 ]"
                 @click="switchPayment(payment)"
               >
-                <component :is="payment.icon" class="w-8 h-8" />
-                <span class="text-foreground text-sm font-medium mt-1.5">
+                <component :is="payment.icon" class="h-8 w-8" />
+                <span class="mt-1.5 text-sm font-medium text-foreground">
                   {{ payment.name }}
                 </span>
               </div>

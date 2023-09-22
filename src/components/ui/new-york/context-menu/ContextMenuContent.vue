@@ -4,11 +4,11 @@ import {
   type ContextMenuContentEmits,
   type ContextMenuContentProps,
   ContextMenuPortal,
-} from 'radix-vue'
-import { cn, useEmitAsProps } from '@/lib/utils'
+} from "radix-vue";
+import { cn, useEmitAsProps } from "@/lib/utils";
 
-const props = defineProps<ContextMenuContentProps & { class?: string }>()
-const emits = defineEmits<ContextMenuContentEmits>()
+const props = defineProps<ContextMenuContentProps & { class?: string }>();
+const emits = defineEmits<ContextMenuContentEmits>();
 </script>
 
 <template>

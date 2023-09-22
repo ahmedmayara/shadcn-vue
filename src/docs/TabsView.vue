@@ -1,6 +1,11 @@
 <script setup lang="ts">
 import { computed } from "vue";
-import { Tabs, TabsTrigger, TabsList, TabsContent } from "src/components/ui/default/tabs";
+import {
+  Tabs,
+  TabsTrigger,
+  TabsList,
+  TabsContent,
+} from "@/components/ui/default/tabs";
 import {
   Card,
   CardHeader,
@@ -8,18 +13,18 @@ import {
   CardDescription,
   CardContent,
   CardFooter,
-} from "src/components/ui/default/card";
+} from "@/components/ui/default/card";
 import components from "@/lib/data/components";
 import DocsLayout from "@/layouts/DocsLayout.vue";
 import { BreadCrumbItem, BreadCrumb } from "@/components/ui/breadcrumb";
 import Code from "@/components/Code.vue";
-import { Separator } from "src/components/ui/default/separator";
+import { Separator } from "@/components/ui/default/separator";
 import DocsPagination from "@/components/docs-pagination/DocsPagination.vue";
 import DocsPrevious from "@/components/docs-pagination/DocsPrevious.vue";
 import DocsNext from "@/components/docs-pagination/DocsNext.vue";
-import { Button } from "src/components/ui/default/button";
-import { Input } from "src/components/ui/default/input";
-import { Label } from "src/components/ui/default/label";
+import { Button } from "@/components/ui/default/button";
+import { Input } from "@/components/ui/default/input";
+import { Label } from "@/components/ui/default/label";
 import Example from "@/components/example/Example.vue";
 import Preview from "@/components/example/Preview.vue";
 import Source from "@/components/example/Source.vue";

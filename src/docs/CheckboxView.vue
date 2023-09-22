@@ -1,16 +1,21 @@
 <script setup lang="ts">
 import { computed, ref } from "vue";
-import { Checkbox } from "src/components/ui/default/checkbox";
-import { Label } from "src/components/ui/default/label";
+import { Checkbox } from "@/components/ui/default/checkbox";
+import { Label } from "@/components/ui/default/label";
 import components from "@/lib/data/components";
 import DocsLayout from "@/layouts/DocsLayout.vue";
 import { BreadCrumbItem, BreadCrumb } from "@/components/ui/breadcrumb";
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "src/components/ui/default/tabs";
+import {
+  Tabs,
+  TabsList,
+  TabsTrigger,
+  TabsContent,
+} from "@/components/ui/default/tabs";
 import Example from "@/components/example/Example.vue";
 import Preview from "@/components/example/Preview.vue";
 import Source from "@/components/example/Source.vue";
 import Code from "@/components/Code.vue";
-import { Separator } from "src/components/ui/default/separator";
+import { Separator } from "@/components/ui/default/separator";
 import DocsPagination from "@/components/docs-pagination/DocsPagination.vue";
 import DocsPrevious from "@/components/docs-pagination/DocsPrevious.vue";
 import DocsNext from "@/components/docs-pagination/DocsNext.vue";
@@ -35,10 +40,10 @@ const terms = ref(false);
     </BreadCrumb>
 
     <div class="grid space-y-1 pt-6">
-      <h1 class="text-4xl font-heading text-foreground">
+      <h1 class="font-heading text-4xl text-foreground">
         {{ checkbox?.attributes.name }}
       </h1>
-      <p class="text-muted-foreground text-lg max-w-xl">
+      <p class="max-w-xl text-lg text-muted-foreground">
         {{ checkbox?.attributes.description }}
       </p>
     </div>
@@ -58,8 +63,8 @@ const terms = ref(false);
     </Example>
 
     <div class="pt-8">
-      <h1 class="text-2xl font-heading text-foreground">Installation</h1>
-      <Separator class="mt-2 mb-6" />
+      <h1 class="font-heading text-2xl text-foreground">Installation</h1>
+      <Separator class="mb-6 mt-2" />
 
       <Code
         code="npx shadcn-vue add checkbox"
@@ -69,8 +74,8 @@ const terms = ref(false);
     </div>
 
     <div class="pt-8">
-      <h1 class="text-2xl font-heading text-foreground">Usage</h1>
-      <Separator class="mt-2 mb-6" />
+      <h1 class="font-heading text-2xl text-foreground">Usage</h1>
+      <Separator class="mb-6 mt-2" />
 
       <div class="space-y-6">
         <Code
@@ -87,7 +92,7 @@ const terms = ref(false);
     </div>
 
     <div class="pt-8">
-      <h1 class="text-2xl font-heading text-foreground">Examples</h1>
+      <h1 class="font-heading text-2xl text-foreground">Examples</h1>
       <Separator class="mt-2" />
 
       <div
@@ -100,16 +105,16 @@ const terms = ref(false);
         </h2>
         <Tabs class="pt-4" :default-value="`preview-${example.name}`">
           <TabsList
-            class="inline-flex h-9 items-center w-full justify-start rounded-none border-b border-border dark:bg-transparent bg-transparent p-0"
+            class="inline-flex h-9 w-full items-center justify-start rounded-none border-b border-border bg-transparent p-0 dark:bg-transparent"
           >
             <TabsTrigger
-              class="inline-flex items-center justify-center whitespace-nowrap py-1 text-sm focus-visible:outline-none data-[state=active]:border-b-primary data-[state=active]:bg-transparent data-[state=active]:text-foreground relative h-9 rounded-none border-b-2 border-b-transparent bg-transparent px-4 pb-3 pt-2 font-semibold shadow-none transition-none data-[state=active]:shadow-none"
+              class="relative inline-flex h-9 items-center justify-center whitespace-nowrap rounded-none border-b-2 border-b-transparent bg-transparent px-4 py-1 pb-3 pt-2 text-sm font-semibold shadow-none transition-none focus-visible:outline-none data-[state=active]:border-b-primary data-[state=active]:bg-transparent data-[state=active]:text-foreground data-[state=active]:shadow-none"
               :value="`preview-${example.name}`"
             >
               Preview
             </TabsTrigger>
             <TabsTrigger
-              class="inline-flex items-center justify-center whitespace-nowrap py-1 text-sm focus-visible:outline-none data-[state=active]:border-b-primary data-[state=active]:bg-transparent data-[state=active]:text-foreground relative h-9 rounded-none border-b-2 border-b-transparent bg-transparent px-4 pb-3 pt-2 font-semibold shadow-none transition-none data-[state=active]:shadow-none"
+              class="relative inline-flex h-9 items-center justify-center whitespace-nowrap rounded-none border-b-2 border-b-transparent bg-transparent px-4 py-1 pb-3 pt-2 text-sm font-semibold shadow-none transition-none focus-visible:outline-none data-[state=active]:border-b-primary data-[state=active]:bg-transparent data-[state=active]:text-foreground data-[state=active]:shadow-none"
               :value="`code-${example.name}`"
             >
               Code
@@ -118,7 +123,7 @@ const terms = ref(false);
 
           <TabsContent :value="`preview-${example.name}`">
             <div
-              class="flex mt-8 w-full min-h-[450px] justify-center items-center flex-col rounded-lg p-8 border border-border"
+              class="mt-8 flex min-h-[450px] w-full flex-col items-center justify-center rounded-lg border border-border p-8"
             >
               <div class="space-y-1.5" v-if="example.name === 'With Text'">
                 <div class="flex items-center space-x-2">

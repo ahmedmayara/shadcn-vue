@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import ThemesLayout from "@/layouts/ThemesLayout.vue";
+import { CheckIcon } from "lucide-vue-next";
 import {
   Card,
   CardContent,
@@ -9,6 +10,22 @@ import {
   CardDescription,
   CardFooter,
 } from "@/components/ui/new-york/card";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+  DialogFooter,
+} from "@/components/ui/new-york/dialog";
+import {
+  Command,
+  CommandInput,
+  CommandList,
+  CommandEmpty,
+  CommandGroup,
+  CommandItem,
+} from "@/components/ui/default/command";
 import {
   Avatar,
   AvatarFallback,
@@ -35,8 +52,9 @@ import {
   SelectContent,
   SelectGroup,
   SelectValue,
+  SelectItemText,
   SelectItem,
-} from "@/components/ui/default/select";
+} from "@/components/ui/new-york/select";
 import { Input } from "@/components/ui/new-york/input";
 import {
   TooltipProvider,
@@ -64,7 +82,10 @@ import {
   columns,
   data,
 } from "./utils/data";
+
+import { users, type User } from "./utils/users";
 import { addDays } from "date-fns";
+
 import PaymentsDataTable from "@/components/data-tables/PaymentsDataTable.vue";
 
 const strictlyNecessarySwitch = ref<boolean>(true);
@@ -72,10 +93,13 @@ const functionalCookiesSwitch = ref<boolean>(false);
 const performanceCookiesSwitch = ref<boolean>(false);
 const selectedArea = ref("Billing");
 const selectedSecurity = ref("Medium");
-const selectedMonth = ref<string | null>(months[0]);
-const selectedYear = ref<string | null>(years[0]);
+const selectedMonth = ref<string>(months[0]);
+const selectedYear = ref<string>(years[0]);
 const selectedPayment = ref(payments[0]);
 const goal = ref(350);
+
+const isOpen = ref<boolean>(false);
+const selectedUsers = ref<User[]>([]);
 
 const switchPayment = (payment: any) => {
   selectedPayment.value = payment;
@@ -90,7 +114,7 @@ const range = ref({
 <template>
   <ThemesLayout>
     <div
-      class="items-start justify-center gap-6 rounded-lg md:grids-col-2 grid md:gap-4 lg:grid-cols-10 xl:grid-cols-11 xl:gap-4"
+      class="md:grids-col-2 grid items-start justify-center gap-6 rounded-lg md:gap-4 lg:grid-cols-10 xl:grid-cols-11 xl:gap-4"
     >
       <div class="space-y-4 lg:col-span-4 xl:col-span-6 xl:space-y-4">
         <div class="grid gap-4 sm:grid-cols-2 xl:grid-cols-2">
@@ -106,7 +130,7 @@ const range = ref({
 
               <div class="h-24">
                 <apexchart
-                  class="mt-8 mb-0 pb-0"
+                  class="mb-0 mt-8 pb-0"
                   :series="totalRevenueChartSeries"
                   :options="totalRevenueChartOptions"
                 />
@@ -127,7 +151,7 @@ const range = ref({
               <div class="h-24">
                 <apexchart
                   height="100%"
-                  class="mt-8 mb-0 pb-0"
+                  class="mb-0 mt-8 pb-0"
                   :series="subscriptionsChartSeries"
                   :options="subscriptionsChartOptions"
                 />
@@ -146,10 +170,10 @@ const range = ref({
               </CardHeader>
               <CardContent>
                 <div
-                  class="flex justify-between items-center"
+                  class="flex items-center justify-between"
                   v-for="teamMember in teamMembers"
                 >
-                  <div class="flex items-center space-x-3 my-4">
+                  <div class="my-4 flex items-center space-x-3">
                     <Avatar size="sm">
                       <AvatarImage :src="teamMember.avatar" />
                       <AvatarFallback>
@@ -158,10 +182,10 @@ const range = ref({
                     </Avatar>
 
                     <div class="flex flex-col">
-                      <p class="text-foreground text-sm font-semibold">
+                      <p class="text-sm font-semibold text-foreground">
                         {{ teamMember.name }}
                       </p>
-                      <p class="text-muted-foreground text-sm">
+                      <p class="text-sm text-muted-foreground">
                         {{ teamMember.username }}
                       </p>
                     </div>
@@ -171,18 +195,18 @@ const range = ref({
                     <DropdownMenuTrigger>
                       <Button variant="outline" class="h-9">
                         {{ teamMember.role }}
-                        <ChevronDown class="w-3 h-3 ml-2" />
+                        <ChevronDown class="ml-2 h-3 w-3" />
                       </Button>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent class="w-[280px]" align="end">
                       <DropdownMenuGroup>
                         <DropdownMenuLabel>
                           <div class="grid">
-                            <span class="text-foreground font-semibold">
+                            <span class="font-semibold text-foreground">
                               Actions
                             </span>
                             <span
-                              class="text-muted-foreground text-sm font-normal"
+                              class="text-sm font-normal text-muted-foreground"
                             >
                               Manage team member permissions
                             </span>
@@ -191,10 +215,10 @@ const range = ref({
                         <DropdownMenuSeparator />
                         <DropdownMenuItem v-for="role in roles">
                           <div class="grid space-y-0.5">
-                            <span class="text-foreground font-semibold">
+                            <span class="font-semibold text-foreground">
                               {{ role.name }}
                             </span>
-                            <span class="text-muted-foreground text-sm">
+                            <span class="text-sm text-muted-foreground">
                               {{ role.description }}
                             </span>
                           </div>
@@ -215,11 +239,11 @@ const range = ref({
               </CardHeader>
               <CardContent>
                 <div class="grid grid-rows-3 gap-y-5">
-                  <div class="flex justify-between items-center space-x-2">
+                  <div class="flex items-center justify-between space-x-2">
                     <Label for="strictly_necessary" class="flex flex-col">
                       Strictly Necessary
                       <span
-                        class="text-muted-foreground mt-1 text-xs max-w-[18rem]"
+                        class="mt-1 max-w-[18rem] text-xs text-muted-foreground"
                       >
                         These cookies are essential in order to use the website
                         and use its features.
@@ -230,11 +254,11 @@ const range = ref({
                       v-model:checked="strictlyNecessarySwitch"
                     />
                   </div>
-                  <div class="flex justify-between items-center space-x-2">
+                  <div class="flex items-center justify-between space-x-2">
                     <Label for="functional_cookies" class="flex flex-col">
                       Functional Cookies
                       <span
-                        class="text-muted-foreground text-xs mt-1 max-w-[18rem]"
+                        class="mt-1 max-w-[18rem] text-xs text-muted-foreground"
                       >
                         These cookies enable the website to provide enhanced
                         functionality and personalization.
@@ -245,11 +269,11 @@ const range = ref({
                       v-model:checked="functionalCookiesSwitch"
                     />
                   </div>
-                  <div class="flex justify-between items-center space-x-2">
+                  <div class="flex items-center justify-between space-x-2">
                     <Label for="performance_cookies" class="flex flex-col">
                       Performance Cookies
                       <span
-                        class="text-muted-foreground text-xs mt-1 max-w-[18rem]"
+                        class="mt-1 max-w-[18rem] text-xs text-muted-foreground"
                       >
                         These cookies are used to collect information about how
                         you use our website.
@@ -281,7 +305,7 @@ const range = ref({
               <CardContent>
                 <div class="grid grid-cols-3 gap-x-4">
                   <div
-                    class="flex flex-col justify-center items-center p-4 rounded-lg cursor-pointer transition-colors ease-in-out duration-200"
+                    class="flex cursor-pointer flex-col items-center justify-center rounded-lg p-4 transition-colors duration-200 ease-in-out"
                     v-for="payment in payments"
                     :key="payment.name"
                     :class="[
@@ -291,8 +315,8 @@ const range = ref({
                     ]"
                     @click="switchPayment(payment)"
                   >
-                    <component :is="payment.icon" class="w-6 h-6" />
-                    <span class="text-foreground text-sm font-medium mt-1.5">
+                    <component :is="payment.icon" class="h-6 w-6" />
+                    <span class="mt-1.5 text-sm font-medium text-foreground">
                       {{ payment.name }}
                     </span>
                   </div>
@@ -360,7 +384,7 @@ const range = ref({
           <div class="space-y-4">
             <Card>
               <CardHeader class="flex flex-row items-center justify-between">
-                <div class="flex items-center space-x-3 my-2">
+                <div class="my-2 flex items-center space-x-3">
                   <Avatar size="sm">
                     <AvatarImage
                       src="https://api.dicebear.com/6.x/lorelei/svg?seed=Bear"
@@ -369,10 +393,10 @@ const range = ref({
                   </Avatar>
 
                   <div class="flex flex-col">
-                    <p class="text-foreground text-sm font-semibold">
+                    <p class="text-sm font-semibold text-foreground">
                       Bear Brown
                     </p>
-                    <p class="text-muted-foreground text-sm">
+                    <p class="text-sm text-muted-foreground">
                       bear@example.com
                     </p>
                   </div>
@@ -382,9 +406,10 @@ const range = ref({
                     <TooltipTrigger asChild>
                       <Button
                         variant="outline"
-                        class="rounded-full p-2.5 flex items-center justify-center"
+                        class="flex items-center justify-center rounded-full p-2.5"
+                        @click="isOpen = true"
                       >
-                        <Plus class="w-4 h-4" />
+                        <Plus class="h-4 w-4" />
                       </Button>
                     </TooltipTrigger>
                     <TooltipContent :side-offset="10">
@@ -396,7 +421,7 @@ const range = ref({
               <CardContent>
                 <div class="space-y-4">
                   <div
-                    class="flex w-max max-w-[75%] flex-col gap-2 rounded-lg px-3 py-2 text-sm bg-secondary"
+                    class="flex w-max max-w-[75%] flex-col gap-2 rounded-lg bg-secondary px-3 py-2 text-sm"
                   >
                     <p class="text-foreground">
                       Hi There!, I'm Bear, the founder of Bear Studios. I'm here
@@ -404,12 +429,12 @@ const range = ref({
                     </p>
                   </div>
                   <div
-                    class="flex w-max max-w-[75%] flex-col gap-2 rounded-lg px-3 py-2 text-sm ml-auto bg-primary text-primary-foreground"
+                    class="ml-auto flex w-max max-w-[75%] flex-col gap-2 rounded-lg bg-primary px-3 py-2 text-sm text-primary-foreground"
                   >
                     <p>Hey, I'm having trouble with my account.</p>
                   </div>
                   <div
-                    class="flex w-max max-w-[75%] flex-col gap-2 rounded-lg px-3 py-2 text-sm bg-secondary"
+                    class="flex w-max max-w-[75%] flex-col gap-2 rounded-lg bg-secondary px-3 py-2 text-sm"
                   >
                     <p class="text-foreground">
                       Sure, I can help you with that. What seems to be the
@@ -417,21 +442,21 @@ const range = ref({
                     </p>
                   </div>
                   <div
-                    class="flex w-max max-w-[75%] flex-col gap-2 rounded-lg px-3 py-2 text-sm ml-auto bg-primary text-primary-foreground"
+                    class="ml-auto flex w-max max-w-[75%] flex-col gap-2 rounded-lg bg-primary px-3 py-2 text-sm text-primary-foreground"
                   >
                     <p>I can't log in.</p>
                   </div>
                 </div>
               </CardContent>
               <CardFooter>
-                <div class="flex w-full space-x-2 items-center">
+                <div class="flex w-full items-center space-x-2">
                   <Input
                     placeholder="Type a message..."
                     class="flex-1"
                     id="message"
                   />
-                  <Button class="p-2.5 flex items-center justify-center">
-                    <Send class="w-4 h-4" />
+                  <Button class="flex items-center justify-center p-2.5">
+                    <Send class="h-4 w-4" />
                   </Button>
                 </div>
               </CardFooter>
@@ -447,11 +472,11 @@ const range = ref({
               <CardContent>
                 <div class="grid grid-cols-2 gap-6">
                   <Button variant="outline">
-                    <RiGoogleLine class="w-4 h-4 mr-2" />
+                    <RiGoogleLine class="mr-2 h-4 w-4" />
                     Google
                   </Button>
                   <Button variant="outline">
-                    <RadixIconsGithubLogo class="w-4 h-4 mr-2" />
+                    <RadixIconsGithubLogo class="mr-2 h-4 w-4" />
                     Github
                   </Button>
                 </div>
@@ -460,7 +485,7 @@ const range = ref({
                     <span class="w-full border-t border-border"></span>
                   </div>
                   <div class="relative flex justify-center text-xs uppercase">
-                    <span class="bg-card text-muted-foreground px-2"> Or </span>
+                    <span class="bg-card px-2 text-muted-foreground"> Or </span>
                   </div>
                 </div>
                 <div class="grid gap-2 pt-4">
@@ -541,7 +566,7 @@ const range = ref({
                 </div>
               </CardContent>
 
-              <CardFooter class="flex justify-between items-center">
+              <CardFooter class="flex items-center justify-between">
                 <Button variant="outline"> Cancel </Button>
                 <Button> Submit </Button>
               </CardFooter>
@@ -567,29 +592,29 @@ const range = ref({
                 <div class="flex items-center justify-center space-x-2">
                   <Button
                     variant="outline"
-                    class="w-8 h-8 rounded-full p-0"
+                    class="h-8 w-8 rounded-full p-0"
                     @click="goal -= 10"
                     :disabled="goal <= 200"
                   >
-                    <Minus class="w-4 h-4" />
+                    <Minus class="h-4 w-4" />
                   </Button>
                   <div class="flex-1 text-center">
                     <p
-                      class="text-foreground text-5xl font-bold tracking-tight"
+                      class="text-5xl font-bold tracking-tight text-foreground"
                     >
                       {{ goal }}
                     </p>
-                    <span class="text-muted-foreground text-[11px] uppercase">
+                    <span class="text-[11px] uppercase text-muted-foreground">
                       Calories/day
                     </span>
                   </div>
                   <Button
                     variant="outline"
-                    class="w-8 h-8 rounded-full p-0"
+                    class="h-8 w-8 rounded-full p-0"
                     @click="goal += 10"
                     :disabled="goal >= 500"
                   >
-                    <Plus class="w-4 h-4" />
+                    <Plus class="h-4 w-4" />
                   </Button>
                 </div>
 
@@ -624,7 +649,7 @@ const range = ref({
               <CardContent>
                 <apexchart
                   height="120%"
-                  class="mt-8 mb-0 pb-0"
+                  class="mb-0 mt-8 pb-0"
                   :series="goalsMinutesChartSeries"
                   :options="goalsMinutesChartOptions"
                 />
@@ -653,7 +678,7 @@ const range = ref({
                   Anyone with this link will be able to view this document.
                 </CardDescription>
 
-                <div class="flex space-x-2 items-center pt-2.5">
+                <div class="flex items-center space-x-2 pt-2.5">
                   <Input
                     class="flex-1"
                     placeholder="http://..."
@@ -667,10 +692,10 @@ const range = ref({
                 <Label class="mt-4"> People with access </Label>
 
                 <div
-                  class="flex justify-between items-center"
+                  class="flex items-center justify-between"
                   v-for="teamMember in teamMembers"
                 >
-                  <div class="flex items-center space-x-3 my-4">
+                  <div class="my-4 flex items-center space-x-3">
                     <Avatar size="sm">
                       <AvatarImage :src="teamMember.avatar" />
                       <AvatarFallback>
@@ -679,10 +704,10 @@ const range = ref({
                     </Avatar>
 
                     <div class="flex flex-col">
-                      <p class="text-foreground text-sm font-medium">
+                      <p class="text-sm font-medium text-foreground">
                         {{ teamMember.name }}
                       </p>
-                      <p class="text-muted-foreground text-sm">
+                      <p class="text-sm text-muted-foreground">
                         {{ teamMember.username }}
                       </p>
                     </div>
@@ -706,5 +731,82 @@ const range = ref({
         </div>
       </div>
     </div>
+
+    <Dialog v-model:open="isOpen">
+      <DialogContent class="gap-0 p-0 outline-none">
+        <DialogHeader class="px-4 pb-4 pt-5">
+          <DialogTitle>New message</DialogTitle>
+          <DialogDescription>
+            Invite a user to this thread. This will create a new group message.
+          </DialogDescription>
+        </DialogHeader>
+        <Command class="overflow-hidden rounded-t-none border-t border-border">
+          <CommandInput placeholder="Search users..." />
+          <CommandList>
+            <CommandEmpty> No users found. </CommandEmpty>
+            <CommandGroup v-for="user in users" :key="user.email">
+              <CommandItem
+                :key="user.email"
+                class="flex items-center px-2"
+                :value="user.name"
+                @select="
+                  () => {
+                    if (selectedUsers.includes(user)) {
+                      selectedUsers = selectedUsers.filter(
+                        (selectedUser) => selectedUser !== user,
+                      );
+                    } else {
+                      selectedUsers = [...selectedUsers, user];
+                    }
+                  }
+                "
+              >
+                <Avatar size="sm">
+                  <AvatarImage :src="user.avatar" />
+                  <AvatarFallback>
+                    {{ user.name.slice(0, 2) }}
+                  </AvatarFallback>
+                </Avatar>
+                <div class="ml-2">
+                  <p class="text-sm font-medium leading-none">
+                    {{ user.name }}
+                  </p>
+                  <p class="text-sm text-muted-foreground">
+                    {{ user.email }}
+                  </p>
+                </div>
+                <template v-if="selectedUsers.includes(user)">
+                  <CheckIcon class="ml-auto flex h-5 w-5 text-primary" />
+                </template>
+              </CommandItem>
+            </CommandGroup>
+          </CommandList>
+        </Command>
+        <DialogFooter
+          class="flex items-center border-t border-border p-4 sm:justify-between"
+        >
+          <div
+            v-if="selectedUsers.length > 0"
+            class="flex -space-x-2 overflow-hidden"
+          >
+            <Avatar v-for="user in selectedUsers" :key="user.email" size="sm">
+              <AvatarImage :src="user.avatar" />
+              <AvatarFallback>
+                {{ user.name.slice(0, 2) }}
+              </AvatarFallback>
+            </Avatar>
+          </div>
+          <p
+            class="text-sm text-muted-foreground"
+            v-if="selectedUsers.length === 0"
+          >
+            Select users to add to this thread.
+          </p>
+          <Button :disabled="selectedUsers.length < 2" @click="isOpen = false">
+            Continue
+          </Button>
+        </DialogFooter>
+      </DialogContent>
+    </Dialog>
   </ThemesLayout>
 </template>

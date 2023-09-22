@@ -1,18 +1,14 @@
 <script setup lang="ts">
-import { cn } from '@/lib/utils'
+import { cn } from "@/lib/utils";
+import type { TdHTMLAttributes } from "vue";
 
-const props = defineProps<{ class?: string }>()
+interface Props extends /* @vue-ignore */ TdHTMLAttributes {}
+
+const props = defineProps<Props>();
 </script>
 
 <template>
-  <td
-    :class="
-      cn(
-        'p-2 align-middle [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px]',
-        props.class,
-      )
-    "
-  >
+  <td v-bind="props" :class="cn('p-2 align-middle', $attrs.class)">
     <slot />
   </td>
 </template>

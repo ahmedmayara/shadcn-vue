@@ -16,13 +16,13 @@ import {
   ContextMenuSubContent,
   ContextMenuSubTrigger,
   ContextMenuTrigger,
-} from "src/components/ui/default/context-menu";
+} from "@/components/ui/default/context-menu";
 import components from "@/lib/data/components";
 import DocsLayout from "@/layouts/DocsLayout.vue";
 import { BreadCrumbItem, BreadCrumb } from "@/components/ui/breadcrumb";
-import { Badge } from "src/components/ui/default/badge";
+import { Badge } from "@/components/ui/default/badge";
 import Code from "@/components/Code.vue";
-import { Separator } from "src/components/ui/default/separator";
+import { Separator } from "@/components/ui/default/separator";
 import DocsPagination from "@/components/docs-pagination/DocsPagination.vue";
 import DocsPrevious from "@/components/docs-pagination/DocsPrevious.vue";
 import DocsNext from "@/components/docs-pagination/DocsNext.vue";
@@ -52,10 +52,10 @@ const radioItem = ref("colm");
     </BreadCrumb>
 
     <div class="grid space-y-1 pt-6">
-      <h1 class="text-4xl font-heading text-foreground">
+      <h1 class="font-heading text-4xl text-foreground">
         {{ contextMenu?.attributes.name }}
       </h1>
-      <p class="text-muted-foreground text-lg max-w-xl">
+      <p class="max-w-xl text-lg text-muted-foreground">
         {{ contextMenu?.attributes.description }}
       </p>
     </div>
@@ -68,7 +68,7 @@ const radioItem = ref("colm");
         :href="contextMenu?.attributes.radixUrl"
         target="_blank"
       >
-        <TablerBrandRadixUi class="w-3 h-3 mr-1" />
+        <TablerBrandRadixUi class="mr-1 h-3 w-3" />
         Radix UI
       </Badge>
       <Badge
@@ -86,7 +86,7 @@ const radioItem = ref("colm");
       <Preview>
         <ContextMenu>
           <ContextMenuTrigger
-            class="flex h-[150px] w-[300px] items-center justify-center rounded-md border border-border border-dashed text-sm"
+            class="flex h-[150px] w-[300px] items-center justify-center rounded-md border border-dashed border-border text-sm"
           >
             Right click here
           </ContextMenuTrigger>
@@ -104,10 +104,7 @@ const radioItem = ref("colm");
               <ContextMenuShortcut>⌘R</ContextMenuShortcut>
             </ContextMenuItem>
             <ContextMenuSub>
-              <ContextMenuSubTrigger>
-                More Tools
-                <ChevronRight class="w-4 h-4 ml-auto" />
-              </ContextMenuSubTrigger>
+              <ContextMenuSubTrigger> More Tools </ContextMenuSubTrigger>
               <ContextMenuSubContent class="w-48">
                 <ContextMenuItem>
                   Save Page As...
@@ -147,8 +144,8 @@ const radioItem = ref("colm");
     </Example>
 
     <div class="pt-8">
-      <h1 class="text-2xl font-heading text-foreground">Installation</h1>
-      <Separator class="mt-2 mb-6" />
+      <h1 class="font-heading text-2xl text-foreground">Installation</h1>
+      <Separator class="mb-6 mt-2" />
 
       <Code
         code="npx shadcn-vue add context-menu"
@@ -158,8 +155,8 @@ const radioItem = ref("colm");
     </div>
 
     <div class="pt-8">
-      <h1 class="text-2xl font-heading text-foreground">Usage</h1>
-      <Separator class="mt-2 mb-6" />
+      <h1 class="font-heading text-2xl text-foreground">Usage</h1>
+      <Separator class="mb-6 mt-2" />
 
       <div class="space-y-6">
         <Code

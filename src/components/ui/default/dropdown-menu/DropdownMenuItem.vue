@@ -10,7 +10,7 @@ const props = defineProps<DropdownMenuItemProps & { class?: string }>();
     v-bind="props"
     :class="[
       cn(
-        'flex items-center rounded-md transition-colors data-[disabled]:opacity-50 data-[disabled]:pointer-events-none focus:bg-accent px-2 py-1.5 text-sm outline-none select-none cursor-default',
+        'flex cursor-default select-none items-center rounded-md px-2 py-1.5 text-sm outline-none transition-colors focus:bg-accent data-[disabled]:pointer-events-none data-[disabled]:opacity-50',
         props.class,
       ),
     ]"

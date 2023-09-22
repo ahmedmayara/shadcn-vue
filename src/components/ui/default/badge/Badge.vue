@@ -16,16 +16,14 @@ const props = withDefaults(defineProps<BadgeProps>(), {
 
 const badgeClass = computed(() => {
   return cva(
-    "inline-flex items-center cursor-default text-xs font-semibold px-2.5 py-0.5 rounded-md transition-colors ease-in-out duration-300",
+    "inline-flex items-center cursor-default text-xs font-semibold px-2.5 py-0.5 rounded-full transition-colors ease-in-out duration-300",
     {
       variants: {
         variant: {
-          primary: "bg-primary text-primary-foreground hover:bg-primary/90",
-          secondary: "bg-secondary text-foreground hover:bg-secondary/90",
-          outline:
-            "border border-border text-foreground shadow-sm hover:bg-muted",
-          destructive:
-            "bg-destructive text-destructive-foreground hover:bg-destructive/90",
+          primary: "bg-primary text-primary-foreground",
+          secondary: "bg-secondary text-foreground",
+          outline: "border border-border text-foreground shadow-sm",
+          destructive: "bg-destructive text-destructive-foreground",
         },
       },
     },

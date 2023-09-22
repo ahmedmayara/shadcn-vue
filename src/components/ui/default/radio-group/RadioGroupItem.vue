@@ -15,7 +15,7 @@ const props = defineProps<RadioGroupItemProps & { class?: string }>();
     v-bind="props"
     :class="
       cn(
-        'aspect-square h-4 w-4 rounded-full cursor-pointer flex justify-center items-center border border-primary disabled:cursor-not-allowed disabled:opacity-50',
+        'flex aspect-square h-4 w-4 cursor-pointer items-center justify-center rounded-full border border-primary disabled:cursor-not-allowed disabled:opacity-50',
         props.class,
       )
     "
@@ -23,7 +23,7 @@ const props = defineProps<RadioGroupItemProps & { class?: string }>();
     <RadioGroupIndicator
       :class="cn('flex items-center justify-center', props.class)"
     >
-      <RiCheckboxBlankCircleFill class="w-2.5 h-2.5 text-foreground" />
+      <RiCheckboxBlankCircleFill class="h-2.5 w-2.5 text-foreground" />
     </RadioGroupIndicator>
   </RadioGroupItem>
 </template>

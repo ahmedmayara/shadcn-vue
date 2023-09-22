@@ -20,7 +20,7 @@ export const buttonVariants = cva(
         neutral: "",
       },
       disabled: {
-        true: "!opacity-50 !cursor-not-allowed",
+        true: "!opacity-50 !cursor-not-allowed !pointer-events-none",
       },
     },
     defaultVariants: {

@@ -8,7 +8,8 @@
     "src/components/ui/**/*",
     "src/types/**/*",
     "src/lib/data/**/*",
-    "externals.d.ts"
+    "externals.d.ts",
+    "**/*.ts"
   ],
   "exclude": ["src/**/__tests__/*"],
   "compilerOptions": {

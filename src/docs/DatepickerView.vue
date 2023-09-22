@@ -1,22 +1,22 @@
 <script setup lang="ts">
 import { computed, ref } from "vue";
 import { format } from "date-fns";
-import { Calendar } from "src/components/ui/default/calendar";
+import { Calendar } from "@/components/ui/new-york/calendar";
 import RadixIconsCalendar from "~icons/radix-icons/calendar";
 import components from "@/lib/data/components";
 import DocsLayout from "@/layouts/DocsLayout.vue";
 import { BreadCrumbItem, BreadCrumb } from "@/components/ui/breadcrumb";
 import Code from "@/components/Code.vue";
-import { Separator } from "src/components/ui/default/separator";
+import { Separator } from "@/components/ui/new-york/separator";
 import DocsPagination from "@/components/docs-pagination/DocsPagination.vue";
 import DocsPrevious from "@/components/docs-pagination/DocsPrevious.vue";
 import DocsNext from "@/components/docs-pagination/DocsNext.vue";
-import { Button } from "src/components/ui/default/button";
+import { Button } from "@/components/ui/new-york/button";
 import {
   Popover,
   PopoverTrigger,
   PopoverContent,
-} from "src/components/ui/default/popover";
+} from "@/components/ui/default/popover";
 import Example from "@/components/example/Example.vue";
 import Preview from "@/components/example/Preview.vue";
 import Source from "@/components/example/Source.vue";
@@ -97,10 +97,10 @@ const steps = [
     </BreadCrumb>
 
     <div class="grid space-y-1 pt-6">
-      <h1 class="text-4xl font-heading text-foreground">
+      <h1 class="font-heading text-4xl text-foreground">
         {{ datePicker?.attributes.name }}
       </h1>
-      <p class="text-muted-foreground text-lg max-w-xl">
+      <p class="max-w-xl text-lg text-muted-foreground">
         {{ datePicker?.attributes.description }}
       </p>
     </div>
@@ -111,9 +111,9 @@ const steps = [
           <PopoverTrigger class="w-72">
             <Button
               variant="outline"
-              class="w-full h-9 text-left flex justify-start items-center space-x-2"
+              class="flex w-full items-center justify-start space-x-2 text-left"
             >
-              <RadixIconsCalendar class="w-4 h-4 opacity-60" />
+              <RadixIconsCalendar class="h-4 w-4 opacity-60" />
               <p class="text-muted-foreground" v-if="!date">Pick a date</p>
 
               <span class="text-foreground" v-if="date">
@@ -136,20 +136,20 @@ const steps = [
     </Example>
 
     <div class="pt-8">
-      <h1 class="text-2xl font-heading text-foreground">Installation</h1>
+      <h1 class="font-heading text-2xl text-foreground">Installation</h1>
       <Separator class="mt-2" />
 
-      <p class="text-foreground leading-8 mt-4">
+      <p class="mt-4 leading-8 text-foreground">
         The Date Picker is built using a composition of the
         <a
           href="https://vcalendar.io/"
           target="_blank"
-          class="underline font-bold"
+          class="font-bold underline"
         >
           VCalendar
         </a>
         library and the
-        <code class="text-sm bg-secondary rounded-md inline-flex px-1.5 py-0.5">
+        <code class="inline-flex rounded-md bg-secondary px-1.5 py-0.5 text-sm">
           Popover
         </code>
         component. Here are the steps to install the Date Picker component:
@@ -159,13 +159,13 @@ const steps = [
         <ol class="relative border-l border-border">
           <li class="mb-10 ml-8" v-for="(step, index) in steps" :key="index">
             <span
-              class="absolute flex text-sm items-center justify-center w-7 h-7 rounded-full -left-3.5 bg-accent"
+              class="absolute -left-3.5 flex h-7 w-7 items-center justify-center rounded-full bg-accent text-sm"
             >
               {{ index + 1 }}
             </span>
             <div class="space-y-2">
               <h3
-                class="font-semibold text-xl leading-tight text-foreground"
+                class="text-xl font-semibold leading-tight text-foreground"
                 v-html="step.title"
               ></h3>
               <p class="text-sm text-foreground">
@@ -187,8 +187,8 @@ const steps = [
     </div>
 
     <div class="pt-8">
-      <h1 class="text-2xl font-heading text-foreground">Usage</h1>
-      <Separator class="mt-2 mb-6" />
+      <h1 class="font-heading text-2xl text-foreground">Usage</h1>
+      <Separator class="mb-6 mt-2" />
 
       <div class="space-y-6">
         <Code

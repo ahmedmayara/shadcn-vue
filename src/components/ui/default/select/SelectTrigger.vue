@@ -17,15 +17,15 @@ const props = withDefaults(
     v-bind="props"
     :class="[
       cn(
-        'flex h-9 w-full text-foreground hover:bg-accent transition-colors ease-in-out duration-300 items-center justify-between rounded-md border shadow-sm border-border bg-transparent px-3 py-2 text-sm placeholder:text-muted focus:outline-none disabled:cursor-not-allowed disabled:opacity-50',
+        'flex h-10 w-full items-center justify-between rounded-md border border-border bg-transparent px-3 py-2 text-sm text-foreground shadow-sm transition-colors duration-300 ease-in-out placeholder:text-muted hover:bg-accent focus:outline-none disabled:cursor-not-allowed disabled:opacity-50',
         props.class,
       ),
       props.invalid
-        ? '!ring-destructive ring-2 placeholder:!text-destructive'
+        ? 'ring-2 !ring-destructive placeholder:!text-destructive'
         : '',
     ]"
   >
     <slot />
-    <ChevronDown class="w-4 h-4 opacity-50" />
+    <ChevronDown class="h-4 w-4 opacity-50" />
   </SelectTrigger>
 </template>

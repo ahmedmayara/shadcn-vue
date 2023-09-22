@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { FormHTMLAttributes } from "vue";
+import { Form } from "vee-validate";
 import * as z from "zod";
 import { cn } from "@/lib/utils";
 

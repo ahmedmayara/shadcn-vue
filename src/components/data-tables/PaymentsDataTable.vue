@@ -10,11 +10,7 @@ import {
   type ColumnDef,
 } from "@tanstack/vue-table";
 import { ref } from "vue";
-import {
-  ArrowUpDown,
-  ArrowUpNarrowWide,
-  ArrowDownNarrowWide,
-} from "lucide-vue-next";
+
 import {
   Table,
   TableBody,
@@ -30,10 +26,14 @@ import {
   DropdownMenuContent,
   DropdownMenuGroup,
   DropdownMenuCheckboxItem,
-} from "@/components/ui/default/dropdown-menu";
+} from "@/components/ui/new-york/dropdown-menu";
 import { Input } from "@/components/ui/new-york/input";
 import { Button } from "@/components/ui/new-york/button";
-import { ChevronDown } from "lucide-vue-next";
+
+import ChevronDownIcon from "~icons/radix-icons/chevron-down";
+import CaretSortIcon from "~icons/radix-icons/caret-sort";
+import CaretUpIcon from "~icons/radix-icons/caret-up";
+import CaretDownIcon from "~icons/radix-icons/caret-down";
 
 interface tableProps {
   data: any[];
@@ -111,7 +111,7 @@ function toggleColumnVisibility(column: any) {
       <DropdownMenuTrigger>
         <Button variant="outline">
           <span class="text-sm">Columns</span>
-          <ChevronDown class="w-4 h-4 ml-1.5 text-muted-foreground" />
+          <ChevronDownIcon class="ml-1.5 h-4 w-4 text-muted-foreground" />
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" class="w-40">
@@ -155,24 +155,24 @@ function toggleColumnVisibility(column: any) {
                   :render="header.column.columnDef.header"
                   :props="header.getContext()"
                 />
-                <ArrowUpDown
+                <CaretSortIcon
                   v-if="
                     header.column.getCanSort() && !header.column.getIsSorted()
                   "
-                  class="w-3.5 h-3.5 ml-1.5 text-muted-foreground"
+                  class="ml-1.5 h-3.5 w-3.5 text-muted-foreground"
                 />
-                <ArrowUpNarrowWide
-                  class="w-3.5 h-3.5 ml-1.5 text-muted-foreground"
+                <CaretUpIcon
+                  class="ml-1.5 h-3.5 w-3.5 text-muted-foreground"
                   v-if="header.column.getIsSorted() === 'asc'"
                 />
-                <ArrowDownNarrowWide
-                  class="w-3.5 h-3.5 ml-1.5 text-muted-foreground"
+                <CaretDownIcon
+                  class="ml-1.5 h-3.5 w-3.5 text-muted-foreground"
                   v-if="header.column.getIsSorted() === 'desc'"
                 />
               </Button>
               <span
                 v-else
-                class="flex items-center justify-center h-8 text-muted-foreground"
+                class="flex h-8 items-center justify-center text-muted-foreground"
               >
                 <FlexRender
                   :render="header.column.columnDef.header"
@@ -212,7 +212,7 @@ function toggleColumnVisibility(column: any) {
     </TableBody>
   </Table>
 
-  <div class="flex items-center justify-end px-2 my-6">
+  <div class="my-6 flex items-center justify-end px-2">
     <div class="flex-1 text-sm text-muted-foreground">
       <span>
         {{ table.getFilteredSelectedRowModel().rows.length }} of {{ " " }}

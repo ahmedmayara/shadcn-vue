@@ -7,7 +7,7 @@ import {
   CardDescription,
   CardContent,
   CardFooter,
-} from "src/components/ui/default/card";
+} from "@/components/ui/default/card";
 import {
   Select,
   SelectTrigger,
@@ -16,18 +16,19 @@ import {
   SelectLabel,
   SelectItem,
   SelectValue,
-} from "src/components/ui/default/select";
+  SelectItemText,
+} from "@/components/ui/default/select";
 import components from "@/lib/data/components";
 import DocsLayout from "@/layouts/DocsLayout.vue";
 import { BreadCrumbItem, BreadCrumb } from "@/components/ui/breadcrumb";
 import Code from "@/components/Code.vue";
-import { Separator } from "src/components/ui/default/separator";
+import { Separator } from "@/components/ui/default/separator";
 import DocsPagination from "@/components/docs-pagination/DocsPagination.vue";
 import DocsPrevious from "@/components/docs-pagination/DocsPrevious.vue";
 import DocsNext from "@/components/docs-pagination/DocsNext.vue";
-import { Button } from "src/components/ui/default/button";
-import { Input } from "src/components/ui/default/input";
-import { Label } from "src/components/ui/default/label";
+import { Button } from "@/components/ui/default/button";
+import { Input } from "@/components/ui/default/input";
+import { Label } from "@/components/ui/default/label";
 import Example from "@/components/example/Example.vue";
 import Preview from "@/components/example/Preview.vue";
 import Source from "@/components/example/Source.vue";
@@ -76,14 +77,22 @@ const selectedFramework = ref<string>("");
               <Label for="framework"> Framework </Label>
               <Select v-model="selectedFramework">
                 <SelectTrigger>
-                  <SelectValue placeholder="Select a framework" />
+                  <SelectValue placeholder="Select a framework..." />
                 </SelectTrigger>
-                <SelectContent class="w-[335px]">
+                <SelectContent>
                   <SelectGroup>
-                    <SelectLabel> Frameworks </SelectLabel>
-                    <SelectItem value="Nuxt"> Nuxt </SelectItem>
-                    <SelectItem value="Next.js"> Next.js </SelectItem>
-                    <SelectItem value="Svelte Kit"> Svelte Kit </SelectItem>
+                    <SelectItem value="nuxt">
+                      <SelectItemText>Nuxt.js</SelectItemText>
+                    </SelectItem>
+                    <SelectItem value="astro">
+                      <SelectItemText>Astro</SelectItemText>
+                    </SelectItem>
+                    <SelectItem value="next.js">
+                      <SelectItemText>Next.js</SelectItemText>
+                    </SelectItem>
+                    <SelectItem value="svelte-kit">
+                      <SelectItemText>SvelteKit</SelectItemText>
+                    </SelectItem>
                   </SelectGroup>
                 </SelectContent>
               </Select>

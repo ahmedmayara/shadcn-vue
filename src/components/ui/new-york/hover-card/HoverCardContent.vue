@@ -3,15 +3,15 @@ import {
   HoverCardContent,
   type HoverCardContentProps,
   HoverCardPortal,
-} from 'radix-vue'
-import { cn } from '@/lib/utils'
+} from "radix-vue";
+import { cn } from "@/lib/utils";
 
 const props = withDefaults(
   defineProps<HoverCardContentProps & { class?: string }>(),
   {
     sideOffset: 4,
   },
-)
+);
 </script>
 
 <template>

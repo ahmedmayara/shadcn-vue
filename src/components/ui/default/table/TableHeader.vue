@@ -1,13 +1,9 @@
 <script setup lang="ts">
 import { cn } from "@/lib/utils";
-
-const props = defineProps({
-  class: String,
-});
 </script>
 
 <template>
-  <thead :class="cn('border-b border-border', props.class)">
+  <thead :class="cn('border-b border-border', $attrs.class)">
     <slot />
   </thead>
 </template>

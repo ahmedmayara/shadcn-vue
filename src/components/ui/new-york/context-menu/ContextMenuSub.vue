@@ -3,11 +3,11 @@ import {
   ContextMenuSub,
   type ContextMenuSubEmits,
   type ContextMenuSubProps,
-} from 'radix-vue'
+} from "radix-vue";
 
-const props = defineProps<ContextMenuSubProps>()
+const props = defineProps<ContextMenuSubProps>();
 
-const emits = defineEmits<ContextMenuSubEmits>()
+const emits = defineEmits<ContextMenuSubEmits>();
 </script>
 
 <template>

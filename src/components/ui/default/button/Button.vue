@@ -13,6 +13,11 @@ interface Props {
    @default "button"
    */
   as?: string;
+  /**
+   * Whether the button is disabled.
+   @default false
+   */
+  disabled?: boolean;
 }
 
 withDefaults(defineProps<Props>(), {
@@ -23,7 +28,7 @@ withDefaults(defineProps<Props>(), {
 <template>
   <component
     :is="as"
-    :class="cn(buttonVariants({ variant }), $attrs.class ?? '')"
+    :class="cn(buttonVariants({ variant, disabled }), $attrs.class ?? '')"
   >
     <slot />
   </component>

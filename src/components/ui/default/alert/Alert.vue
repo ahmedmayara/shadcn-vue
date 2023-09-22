@@ -65,11 +65,11 @@ const show = computed({
       <Button
         variant="neutral"
         v-if="props.dismissible"
-        class="absolute top-1.5 -right-0.5"
+        class="absolute -right-0.5 top-1.5"
         @click="emits('close')"
       >
         <X
-          class="w-4 h-4 text-muted transition-colors ease-in-out duration-300"
+          class="h-4 w-4 text-muted transition-colors duration-300 ease-in-out"
         />
       </Button>
       <slot />

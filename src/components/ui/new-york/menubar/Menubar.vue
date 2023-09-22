@@ -3,12 +3,12 @@ import {
   MenubarRoot,
   type MenubarRootEmits,
   type MenubarRootProps,
-} from 'radix-vue'
-import { cn } from '@/lib/utils'
+} from "radix-vue";
+import { cn } from "@/lib/utils";
 
-const props = defineProps<MenubarRootProps & { class?: string }>()
+const props = defineProps<MenubarRootProps & { class?: string }>();
 
-const emits = defineEmits<MenubarRootEmits>()
+const emits = defineEmits<MenubarRootEmits>();
 </script>
 
 <template>
@@ -16,7 +16,7 @@ const emits = defineEmits<MenubarRootEmits>()
     v-bind="props"
     :class="
       cn(
-        'flex h-9 items-center space-x-1 rounded-md border bg-background p-1 shadow-sm',
+        'flex h-9 items-center space-x-1 rounded-md border border-border bg-background p-1 shadow-sm',
         props.class,
       )
     "

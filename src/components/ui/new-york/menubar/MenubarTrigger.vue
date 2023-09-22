@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { MenubarTrigger, type MenubarTriggerProps } from 'radix-vue'
-import { cn } from '@/lib/utils'
+import { MenubarTrigger, type MenubarTriggerProps } from "radix-vue";
+import { cn } from "@/lib/utils";
 
-const props = defineProps<MenubarTriggerProps & { class?: string }>()
+const props = defineProps<MenubarTriggerProps & { class?: string }>();
 </script>
 
 <template>

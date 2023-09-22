@@ -44,7 +44,7 @@ function handleInput(event: Event) {
       @input="handleInput"
       :class="[
         props.invalid
-          ? '!ring-destructive ring-2 placeholder:!text-destructive'
+          ? 'ring-2 !ring-destructive placeholder:!text-destructive'
           : '',
         cn(
           'w-full rounded-md border border-input bg-background p-4 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50',
@@ -52,13 +52,13 @@ function handleInput(event: Event) {
         ),
       ]"
     />
-    <div class="absolute top-4 right-4 flex items-center pointer-events-none">
-      <AlertTriangle class="w-4 h-4 text-destructive" v-if="props.invalid" />
+    <div class="pointer-events-none absolute right-4 top-4 flex items-center">
+      <AlertTriangle class="h-4 w-4 text-destructive" v-if="props.invalid" />
     </div>
   </div>
   <p
     v-if="props.helperText && !props.invalid"
-    class="gap-1 leading-5 text-[13px] text-muted"
+    class="gap-1 text-[13px] leading-5 text-muted"
   >
     {{ props.helperText }}
   </p>

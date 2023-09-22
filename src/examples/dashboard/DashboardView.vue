@@ -1,20 +1,20 @@
 <script setup lang="ts">
-import { ref } from "vue";
-import { format } from "date-fns";
 import ExamplesLayout from "@/layouts/ExamplesLayout.vue";
 import { series, options, customers } from "./utils/data";
-import RadixIconsCalendar from "~icons/radix-icons/calendar";
+
+import TeamSwitcher from "./components/TeamSwitcher.vue";
+import MainNav from "./components/MainNav.vue";
+import UserNav from "./components/UserNav.vue";
+import Search from "./components/Search.vue";
+import DateRangePicker from "./components/DateRangePicker.vue";
+
 import { DollarSign, Package, CreditCard, Users } from "lucide-vue-next";
+
 import {
   Avatar,
   AvatarFallback,
   AvatarImage,
 } from "@/components/ui/default/avatar";
-import {
-  Popover,
-  PopoverTrigger,
-  PopoverContent,
-} from "@/components/ui/default/popover";
 import {
   Card,
   CardHeader,
@@ -29,21 +29,11 @@ import {
   TabsContent,
 } from "@/components/ui/new-york/tabs";
 import { Button } from "@/components/ui/new-york/button";
-import TeamSwitcher from "./components/TeamSwitcher.vue";
-import MainNav from "./components/MainNav.vue";
-import UserNav from "./components/UserNav.vue";
-import Search from "./components/Search.vue";
-import DateRangePicker from "./components/DateRangePicker.vue";
-
-const range = ref({
-  start: new Date(2023, 0, 20),
-  end: new Date(2023, 1, 9),
-});
 </script>
 
 <template>
   <ExamplesLayout>
-    <div class="flex justify-center flex-col border border-border rounded-xl">
+    <div class="flex flex-col justify-center rounded-xl border border-border">
       <div class="border-b border-border">
         <div class="flex h-16 items-center px-4">
           <TeamSwitcher />
@@ -74,13 +64,13 @@ const range = ref({
             <TabsTrigger disabled value="tasks"> Notifications </TabsTrigger>
           </TabsList>
           <TabsContent value="overview">
-            <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-4 mt-4">
+            <div class="mt-4 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
               <Card>
                 <CardHeader
-                  class="p-6 flex flex-row items-center justify-between space-y-0 pb-2"
+                  class="flex flex-row items-center justify-between space-y-0 p-6 pb-2"
                 >
                   <CardTitle class="text-sm"> Total Revenue </CardTitle>
-                  <DollarSign class="w-4 h-4 text-muted-foreground" />
+                  <DollarSign class="h-4 w-4 text-muted-foreground" />
                 </CardHeader>
                 <CardContent>
                   <p class="text-2xl font-bold tracking-tight text-foreground">
@@ -94,10 +84,10 @@ const range = ref({
 
               <Card>
                 <CardHeader
-                  class="p-6 flex flex-row items-center justify-between space-y-0 pb-2"
+                  class="flex flex-row items-center justify-between space-y-0 p-6 pb-2"
                 >
                   <CardTitle class="text-sm"> Sales </CardTitle>
-                  <CreditCard class="w-4 h-4 text-muted-foreground" />
+                  <CreditCard class="h-4 w-4 text-muted-foreground" />
                 </CardHeader>
                 <CardContent>
                   <p class="text-2xl font-bold tracking-tight text-foreground">
@@ -111,10 +101,10 @@ const range = ref({
 
               <Card>
                 <CardHeader
-                  class="p-6 flex flex-row items-center justify-between space-y-0 pb-2"
+                  class="flex flex-row items-center justify-between space-y-0 p-6 pb-2"
                 >
                   <CardTitle class="text-sm"> Customers </CardTitle>
-                  <Users class="w-4 h-4 text-muted-foreground" />
+                  <Users class="h-4 w-4 text-muted-foreground" />
                 </CardHeader>
                 <CardContent>
                   <p class="text-2xl font-bold tracking-tight text-foreground">
@@ -128,10 +118,10 @@ const range = ref({
 
               <Card>
                 <CardHeader
-                  class="p-6 flex flex-row items-center justify-between space-y-0 pb-2"
+                  class="flex flex-row items-center justify-between space-y-0 p-6 pb-2"
                 >
                   <CardTitle class="text-sm"> Orders </CardTitle>
-                  <Package class="w-4 h-4 text-muted-foreground" />
+                  <Package class="h-4 w-4 text-muted-foreground" />
                 </CardHeader>
                 <CardContent>
                   <p class="text-2xl font-bold tracking-tight text-foreground">
@@ -144,10 +134,10 @@ const range = ref({
               </Card>
             </div>
 
-            <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-7 pt-6">
+            <div class="grid gap-4 pt-6 md:grid-cols-2 lg:grid-cols-7">
               <Card class="col-span-4">
                 <CardHeader>
-                  <CardTitle class="text-lg">Overview</CardTitle>
+                  <CardTitle>Overview</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <apexchart type="bar" :options="options" :series="series" />
@@ -156,9 +146,9 @@ const range = ref({
 
               <Card class="col-span-4 lg:col-span-3">
                 <CardHeader>
-                  <CardTitle class="text-lg"> Top Customers </CardTitle>
+                  <CardTitle> Recent Sales </CardTitle>
                   <CardDescription>
-                    Here is the list of top customers for this month.
+                    You made 265 sales this month.
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
@@ -177,9 +167,9 @@ const range = ref({
                             </AvatarFallback>
                           </Avatar>
                         </div>
-                        <div class="flex-1 min-w-0">
+                        <div class="min-w-0 flex-1">
                           <p
-                            class="text-sm font-medium text-foreground truncate"
+                            class="truncate text-sm font-medium text-foreground"
                           >
                             {{ customer.name }}
                           </p>

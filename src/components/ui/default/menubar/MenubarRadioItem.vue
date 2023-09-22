@@ -18,7 +18,7 @@ const emits = defineEmits<MenubarRadioItemEmits>();
     v-bind="props"
     :class="[
       cn(
-        'flex relative items-center rounded-md transition-colors data-[disabled]:opacity-50 data-[disabled]:pointer-events-none data-[highlighted]:bg-accent pl-7 py-1.5 text-sm outline-none select-none cursor-default',
+        'relative flex cursor-default select-none items-center rounded-md py-1.5 pl-7 text-sm outline-none transition-colors data-[disabled]:pointer-events-none data-[highlighted]:bg-accent data-[disabled]:opacity-50',
         props.class,
       ),
     ]"

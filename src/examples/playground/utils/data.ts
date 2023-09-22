@@ -46,82 +46,65 @@ export const presets: Preset[] = [
   },
 ];
 
-const models = [
-  {
-    id: "gpt-3.5-turbo",
-    name: "gpt-3.5-turbo",
-    description:
-      "Most capable GPT-3.5 model and optimized for chat at 1/10th the cost of text-davinci-003. Will be updated with our latest model iteration 2 weeks after it is released.",
-    maxTokens: "4,096 tokens",
-    trainingData: "Up to Sep 2021",
-  },
-  {
-    id: "gpt-3.5-turbo-16k",
-    name: "gpt-3.5-turbo-16k",
-    description:
-      "Same capabilities as the standard gpt-3.5-turbo model but with 4 times the context.	",
-    maxTokens: "16,384 tokens",
-    trainingData: "Up to Sep 2021",
-  },
-  {
-    id: "gpt-3.5-turbo-0613",
-    name: "gpt-3.5-turbo-0613",
-    description:
-      "Snapshot of gpt-3.5-turbo from June 13th 2023 with function calling data. Unlike gpt-3.5-turbo, this model will not receive updates, and will be deprecated 3 months after a new version is released.",
-    maxTokens: "4,096 tokens",
-    trainingData: "Up to Sep 2021",
-  },
-  {
-    id: "gpt-3.5-turbo-16k-06",
-    name: "gpt-3.5-turbo-16k-06",
-    description:
-      "Snapshot of gpt-3.5-turbo-16k from June 13th 2023. Unlike gpt-3.5-turbo-16k, this model will not receive updates, and will be deprecated 3 months after a new version is released.",
-    maxTokens: "16,384 tokens",
-    trainingData: "Up to Sep 2021",
-  },
-];
+export const types = ["GPT-3", "Codex"] as const;
 
-const textModels = [
+export type ModelType = (typeof types)[number];
+
+export interface Model<Type = string> {
+  id: string;
+  name: string;
+  description: string;
+  strengths?: string;
+  type: Type;
+}
+
+export const models: Model<ModelType>[] = [
   {
-    id: "text-davinci-001",
-    name: "text-davinci-001",
+    id: "c305f976-8e38-42b1-9fb7-d21b2e34f0da",
+    name: "text-davinci-003",
     description:
-      "The most capable model. Completions generally make sense and are grammatically correct, but there can sometimes be issues with word repetition, sentence structure, and factual accuracy.",
-    maxTokens: "2048 tokens",
-    trainingData: "Up to Sep 2021",
+      "Most capable GPT-3 model. Can do any task the other models can do, often with higher quality, longer output and better instruction-following. Also supports inserting completions within text.",
+    type: "GPT-3",
+    strengths:
+      "Complex intent, cause and effect, creative generation, search, summarization for audience",
   },
   {
-    id: "text-curie-002",
-    name: "text-curie-002",
-    description:
-      "A versatile, general-purpose language model. Good at making simple language translations, performing rudimentary reading comprehension, and answering simple questions.",
-    maxTokens: "2048 tokens",
-    trainingData: "Up to Sep 2021",
+    id: "464a47c3-7ab5-44d7-b669-f9cb5a9e8465",
+    name: "text-curie-001",
+    description: "Very capable, but faster and lower cost than Davinci.",
+    type: "GPT-3",
+    strengths:
+      "Language translation, complex classification, sentiment, summarization",
   },
   {
-    id: "text-babbage-001",
+    id: "ac0797b0-7e31-43b6-a494-da7e2ab43445",
     name: "text-babbage-001",
-    description:
-      "A language model trained on Wikipedia and a large-scale reddit dataset. Good for answering fact-based questions and summarizing long text.",
-    maxTokens: "2048 tokens",
-    trainingData: "Up to Sep 2021",
+    description: "Capable of straightforward tasks, very fast, and lower cost.",
+    type: "GPT-3",
+    strengths: "Moderate classification, semantic search",
   },
   {
-    id: "text-ada-003",
-    name: "text-ada-003",
+    id: "be638fb1-973b-4471-a49c-290325085802",
+    name: "text-ada-001",
     description:
-      "A scaled-down version of the davinci model. The ada model is slightly worse at generating text than other models but is much cheaper to use.",
-    maxTokens: "1024 tokens",
-    trainingData: "Up to Sep 2021",
+      "Capable of very simple tasks, usually the fastest model in the GPT-3 series, and lowest cost.",
+    type: "GPT-3",
+    strengths:
+      "Parsing text, simple classification, address correction, keywords",
   },
   {
-    id: "text-curie-instruct",
-    name: "text-curie-instruct",
+    id: "b43c0ea9-5ad4-456a-ae29-26cd77b6d0fb",
+    name: "code-davinci-002",
     description:
-      "A version of the curie model fine-tuned on a variety of tasks. This model is less coherent but more capable of following instructions than the base curie model.",
-    maxTokens: "2048 tokens",
-    trainingData: "Up to Sep 2021",
+      "Most capable Codex model. Particularly good at translating natural language to code. In addition to completing code, also supports inserting completions within code.",
+    type: "Codex",
+  },
+  {
+    id: "bbd57291-4622-4a21-9eed-dd6bd786fdd1",
+    name: "code-cushman-001",
+    description:
+      "Almost as capable as Davinci Codex, but slightly faster. This speed advantage may make it preferable for real-time applications.",
+    type: "Codex",
+    strengths: "Real-time application where low-latency is preferable",
   },
 ];
-
-export { models, textModels };

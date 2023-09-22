@@ -1,17 +1,14 @@
 <script setup lang="ts">
-import {
-  MenubarSub,
-  type MenubarSubEmits,
-} from 'radix-vue'
+import { MenubarSub, type MenubarSubEmits } from "radix-vue";
 
 interface MenubarSubRootProps {
-  defaultOpen?: boolean
-  open?: boolean
+  defaultOpen?: boolean;
+  open?: boolean;
 }
 
-const props = defineProps<MenubarSubRootProps>()
+const props = defineProps<MenubarSubRootProps>();
 
-const emits = defineEmits<MenubarSubEmits>()
+const emits = defineEmits<MenubarSubEmits>();
 </script>
 
 <template>

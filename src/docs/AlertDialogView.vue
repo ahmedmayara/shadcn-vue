@@ -13,12 +13,12 @@ import {
   AlertDialogFooter,
   AlertDialogCancel,
   AlertDialogAction,
-} from "src/components/ui/default/alert-dialog";
-import { Button } from "src/components/ui/default/button";
+} from "@/components/ui/default/alert-dialog";
+import { Button } from "@/components/ui/default/button";
 import { BreadCrumbItem, BreadCrumb } from "@/components/ui/breadcrumb";
 import Code from "@/components/Code.vue";
-import { Separator } from "src/components/ui/default/separator";
-import { Badge } from "src/components/ui/default/badge";
+import { Separator } from "@/components/ui/default/separator";
+import { Badge } from "@/components/ui/default/badge";
 import DocsPagination from "@/components/docs-pagination/DocsPagination.vue";
 import DocsPrevious from "@/components/docs-pagination/DocsPrevious.vue";
 import DocsNext from "@/components/docs-pagination/DocsNext.vue";

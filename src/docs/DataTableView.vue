@@ -1,10 +1,8 @@
 <script setup lang="ts">
 import { computed } from "vue";
-import TablerBrandRadixUi from "~icons/tabler/brand-radix-ui";
 import components from "@/lib/data/components";
 import DocsLayout from "@/layouts/DocsLayout.vue";
 import { BreadCrumbItem, BreadCrumb } from "@/components/ui/breadcrumb";
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "src/components/ui/default/tabs";
 
 const datatable = computed(() => {
   return components.find(

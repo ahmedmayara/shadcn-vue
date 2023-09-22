@@ -4,19 +4,23 @@ import {
   HoverCard,
   HoverCardTrigger,
   HoverCardContent,
-} from "src/components/ui/default/hover-card";
+} from "@/components/ui/default/hover-card";
 import components from "@/lib/data/components";
 import DocsLayout from "@/layouts/DocsLayout.vue";
 import TablerBrandRadixUi from "~icons/tabler/brand-radix-ui";
-import { Badge } from "src/components/ui/default/badge";
+import { Badge } from "@/components/ui/default/badge";
 import { BreadCrumbItem, BreadCrumb } from "@/components/ui/breadcrumb";
 import Code from "@/components/Code.vue";
-import { Separator } from "src/components/ui/default/separator";
+import { Separator } from "@/components/ui/default/separator";
 import DocsPagination from "@/components/docs-pagination/DocsPagination.vue";
 import DocsPrevious from "@/components/docs-pagination/DocsPrevious.vue";
 import DocsNext from "@/components/docs-pagination/DocsNext.vue";
-import { Avatar, AvatarFallback, AvatarImage } from "src/components/ui/default/avatar";
-import { Button } from "src/components/ui/default/button";
+import {
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+} from "@/components/ui/default/avatar";
+import { Button } from "@/components/ui/default/button";
 import { CalendarDays } from "lucide-vue-next";
 import Example from "@/components/example/Example.vue";
 import Preview from "@/components/example/Preview.vue";
@@ -40,10 +44,10 @@ const hoverCard = computed(() => {
     </BreadCrumb>
 
     <div class="grid space-y-1 pt-6">
-      <h1 class="text-4xl font-heading text-foreground">
+      <h1 class="font-heading text-4xl text-foreground">
         {{ hoverCard?.attributes.name }}
       </h1>
-      <p class="text-muted-foreground text-lg max-w-xl">
+      <p class="max-w-xl text-lg text-muted-foreground">
         {{ hoverCard?.attributes.description }}
       </p>
     </div>
@@ -56,7 +60,7 @@ const hoverCard = computed(() => {
         :href="hoverCard?.attributes.radixUrl"
         target="_blank"
       >
-        <TablerBrandRadixUi class="w-3 h-3 mr-1" />
+        <TablerBrandRadixUi class="mr-1 h-3 w-3" />
         Radix UI
       </Badge>
       <Badge
@@ -88,8 +92,8 @@ const hoverCard = computed(() => {
                   The Progressive JavaScript Framework.
                 </p>
                 <div class="flex items-center pt-1">
-                  <CalendarDays class="w-4 h-4 mr-2 opacity-70" />
-                  <span class="text-muted-foreground text-xs">
+                  <CalendarDays class="mr-2 h-4 w-4 opacity-70" />
+                  <span class="text-xs text-muted-foreground">
                     Joined January 2014
                   </span>
                 </div>
@@ -104,8 +108,8 @@ const hoverCard = computed(() => {
     </Example>
 
     <div class="pt-8">
-      <h1 class="text-2xl font-heading text-foreground">Installation</h1>
-      <Separator class="mt-2 mb-6" />
+      <h1 class="font-heading text-2xl text-foreground">Installation</h1>
+      <Separator class="mb-6 mt-2" />
 
       <Code
         code="npx shadcn-vue add hover-card"
@@ -115,8 +119,8 @@ const hoverCard = computed(() => {
     </div>
 
     <div class="pt-8">
-      <h1 class="text-2xl font-heading text-foreground">Usage</h1>
-      <Separator class="mt-2 mb-6" />
+      <h1 class="font-heading text-2xl text-foreground">Usage</h1>
+      <Separator class="mb-6 mt-2" />
 
       <div class="space-y-6">
         <Code

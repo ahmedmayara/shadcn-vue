@@ -6,7 +6,7 @@ import {
   ContextMenuItemIndicator,
 } from "radix-vue";
 import { cn } from "@/lib/utils";
-import RadixIconsCheck from "~icons/radix-icons/check";
+import { CheckIcon } from "lucide-vue-next";
 
 const props = defineProps<ContextMenuCheckboxItemProps & { class?: string }>();
 
@@ -19,15 +19,15 @@ const emits = defineEmits<ContextMenuCheckboxItemEmits>();
     v-bind="props"
     :class="[
       cn(
-        'flex relative items-center rounded-md transition-colors data-[disabled]:opacity-50 data-[disabled]:pointer-events-none data-[highlighted]:bg-accent pl-7 py-1.5 text-sm outline-none select-none cursor-default',
+        'relative flex cursor-default select-none items-center rounded-md py-1.5 pl-7 pr-2 text-sm outline-none transition-colors data-[disabled]:pointer-events-none data-[highlighted]:bg-accent data-[disabled]:opacity-50',
         props.class,
       ),
     ]"
   >
     <ContextMenuItemIndicator
-      class="absolute left-1.5 inline-flex w-4 h-4 items-center justify-center"
+      class="absolute left-2 inline-flex h-3.5 w-3.5 items-center justify-center"
     >
-      <RadixIconsCheck />
+      <CheckIcon />
     </ContextMenuItemIndicator>
     <slot />
   </ContextMenuCheckboxItem>

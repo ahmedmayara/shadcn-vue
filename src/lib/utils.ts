@@ -1,5 +1,6 @@
-import { camelize, getCurrentInstance, toHandlerKey } from "vue";
+import { camelize, getCurrentInstance, toHandlerKey, type Ref } from "vue";
 import { twMerge } from "tailwind-merge";
+import type { Updater } from "@tanstack/vue-table";
 
 export function cn(...args: any[]) {
   return twMerge(...args);
@@ -28,4 +29,14 @@ export function useEmitAsProps<Name extends string>(
     result[toHandlerKey(camelize(ev))] = (...arg: any) => emit(ev, ...arg);
   });
   return result;
+}
+
+export function valueUpdater<T extends Updater<any>>(
+  updaterOrValue: T,
+  ref: Ref,
+) {
+  ref.value =
+    typeof updaterOrValue === "function"
+      ? updaterOrValue(ref.value)
+      : updaterOrValue;
 }

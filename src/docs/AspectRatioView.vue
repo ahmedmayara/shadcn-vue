@@ -1,16 +1,19 @@
 <script setup lang="ts">
 import { computed } from "vue";
-import { ArrowLeft, ArrowRight } from "lucide-vue-next";
 import TablerBrandRadixUi from "~icons/tabler/brand-radix-ui";
 import components from "@/lib/data/components";
 import DocsLayout from "@/layouts/DocsLayout.vue";
-import { Button } from "src/components/ui/default/button";
 import { BreadCrumbItem, BreadCrumb } from "@/components/ui/breadcrumb";
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "src/components/ui/default/tabs";
+import {
+  Tabs,
+  TabsList,
+  TabsTrigger,
+  TabsContent,
+} from "@/components/ui/default/tabs";
 import Code from "@/components/Code.vue";
-import { Separator } from "src/components/ui/default/separator";
-import { Badge } from "src/components/ui/default/badge";
-import { AspectRatio } from "src/components/ui/default/aspect-ratio";
+import { Separator } from "@/components/ui/default/separator";
+import { Badge } from "@/components/ui/default/badge";
+import { AspectRatio } from "@/components/ui/default/aspect-ratio";
 import DocsPagination from "@/components/docs-pagination/DocsPagination.vue";
 import DocsPrevious from "@/components/docs-pagination/DocsPrevious.vue";
 import DocsNext from "@/components/docs-pagination/DocsNext.vue";

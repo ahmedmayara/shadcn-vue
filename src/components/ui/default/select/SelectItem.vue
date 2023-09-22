@@ -5,27 +5,27 @@ import {
   SelectItemIndicator,
 } from "radix-vue";
 import { cn } from "@/lib/utils";
-import RadixIconsCheck from "~icons/radix-icons/check";
+import { CheckIcon } from "lucide-vue-next";
 
 const props = defineProps<SelectItemProps & { class?: string }>();
 </script>
 
 <template>
-  <div class="flex justify-between items-center">
+  <div class="flex items-center justify-between">
     <SelectItem
       v-bind="props"
       :class="
         cn(
-          'flex w-full relative cursor-default select-none items-center rounded-sm py-1.5 px-2 text-sm outline-none focus:bg-accent focus:text-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50',
+          'relative flex w-full cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none focus:bg-accent focus:text-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50',
           props.class,
         )
       "
     >
-      <div class="h-4 absolute right-2 w-4 items-center justify-center">
-        <SelectItemIndicator>
-          <RadixIconsCheck />
-        </SelectItemIndicator>
-      </div>
+      <SelectItemIndicator>
+        <CheckIcon
+          class="absolute right-2 top-2 h-4 w-4 items-center justify-center"
+        />
+      </SelectItemIndicator>
       <slot />
     </SelectItem>
   </div>

@@ -28,7 +28,7 @@ const props = withDefaults(
     <ProgressIndicator
       :class="
         cn(
-          'h-full w-full flex-1 duration-300 bg-foreground transition-all',
+          'h-full w-full flex-1 bg-foreground transition-all duration-300',
           props.class,
         )
       "

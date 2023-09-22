@@ -3,11 +3,16 @@ import { computed, ref } from "vue";
 import TablerBrandRadixUi from "~icons/tabler/brand-radix-ui";
 import components from "@/lib/data/components";
 import DocsLayout from "@/layouts/DocsLayout.vue";
-import { Badge } from "src/components/ui/default/badge";
+import { Badge } from "@/components/ui/default/badge";
 import { BreadCrumbItem, BreadCrumb } from "@/components/ui/breadcrumb";
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "src/components/ui/default/tabs";
+import {
+  Tabs,
+  TabsList,
+  TabsTrigger,
+  TabsContent,
+} from "@/components/ui/default/tabs";
 import Code from "@/components/Code.vue";
-import { Separator } from "src/components/ui/default/separator";
+import { Separator } from "@/components/ui/default/separator";
 import DocsPagination from "@/components/docs-pagination/DocsPagination.vue";
 import DocsPrevious from "@/components/docs-pagination/DocsPrevious.vue";
 import {
@@ -25,10 +30,9 @@ import {
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
-} from "src/components/ui/default/dropdown-menu";
-import { Button } from "src/components/ui/default/button";
+} from "@/components/ui/default/dropdown-menu";
+import { Button } from "@/components/ui/default/button";
 import {
-  ChevronRight,
   User,
   Users,
   CreditCard,
@@ -74,10 +78,10 @@ const position = ref("bottom");
     </BreadCrumb>
 
     <div class="grid space-y-1 pt-6">
-      <h1 class="text-4xl font-heading text-foreground">
+      <h1 class="font-heading text-4xl text-foreground">
         {{ dropdownMenu?.attributes.name }}
       </h1>
-      <p class="text-muted-foreground text-lg max-w-xl">
+      <p class="max-w-xl text-lg text-muted-foreground">
         {{ dropdownMenu?.attributes.description }}
       </p>
     </div>
@@ -90,7 +94,7 @@ const position = ref("bottom");
         :href="dropdownMenu?.attributes.radixUrl"
         target="_blank"
       >
-        <TablerBrandRadixUi class="w-3 h-3 mr-1" />
+        <TablerBrandRadixUi class="mr-1 h-3 w-3" />
         Radix UI
       </Badge>
       <Badge
@@ -115,22 +119,22 @@ const position = ref("bottom");
             <DropdownMenuSeparator />
             <DropdownMenuGroup>
               <DropdownMenuItem>
-                <User class="w-4 h-4 mr-2" />
+                <User class="mr-2 h-4 w-4" />
                 Profile
                 <DropdownMenuShortcut> ⇧⌘P</DropdownMenuShortcut>
               </DropdownMenuItem>
               <DropdownMenuItem>
-                <CreditCard class="w-4 h-4 mr-2" />
+                <CreditCard class="mr-2 h-4 w-4" />
                 Billing
                 <DropdownMenuShortcut> ⌘B</DropdownMenuShortcut>
               </DropdownMenuItem>
               <DropdownMenuItem>
-                <Settings class="w-4 h-4 mr-2" />
+                <Settings class="mr-2 h-4 w-4" />
                 Settings
                 <DropdownMenuShortcut> ⌘S</DropdownMenuShortcut>
               </DropdownMenuItem>
               <DropdownMenuItem>
-                <Keyboard class="w-4 h-4 mr-2" />
+                <Keyboard class="mr-2 h-4 w-4" />
                 Shortcuts
                 <DropdownMenuShortcut> ⇧⌘K</DropdownMenuShortcut>
               </DropdownMenuItem>
@@ -138,36 +142,35 @@ const position = ref("bottom");
             <DropdownMenuSeparator />
             <DropdownMenuGroup>
               <DropdownMenuItem>
-                <Users class="w-4 h-4 mr-2" />
+                <Users class="mr-2 h-4 w-4" />
                 Team
                 <DropdownMenuShortcut>⌘T</DropdownMenuShortcut>
               </DropdownMenuItem>
               <DropdownMenuSub>
                 <DropdownMenuSubTrigger>
-                  <UserPlus class="w-4 h-4 mr-2" />
+                  <UserPlus class="mr-2 h-4 w-4" />
                   Invite users
-                  <ChevronRight class="w-4 h-4 ml-auto" />
                 </DropdownMenuSubTrigger>
                 <DropdownMenuSubContent>
                   <DropdownMenuGroup>
                     <DropdownMenuItem>
-                      <Mail class="w-4 h-4 mr-2" />
+                      <Mail class="mr-2 h-4 w-4" />
                       Mail
                     </DropdownMenuItem>
                     <DropdownMenuItem>
-                      <MessageSquare class="w-4 h-4 mr-2" />
+                      <MessageSquare class="mr-2 h-4 w-4" />
                       Message
                     </DropdownMenuItem>
                   </DropdownMenuGroup>
                   <DropdownMenuSeparator />
                   <DropdownMenuItem>
-                    <PlusCircle class="w-4 h-4 mr-2" />
+                    <PlusCircle class="mr-2 h-4 w-4" />
                     More...
                   </DropdownMenuItem>
                 </DropdownMenuSubContent>
               </DropdownMenuSub>
               <DropdownMenuItem>
-                <Plus class="w-4 h-4 mr-2" />
+                <Plus class="mr-2 h-4 w-4" />
                 New Team
                 <DropdownMenuShortcut>⌘+T</DropdownMenuShortcut>
               </DropdownMenuItem>
@@ -175,21 +178,21 @@ const position = ref("bottom");
             <DropdownMenuSeparator />
             <DropdownMenuGroup>
               <DropdownMenuItem>
-                <Github class="w-4 h-4 mr-2" />
+                <Github class="mr-2 h-4 w-4" />
                 GitHub
               </DropdownMenuItem>
               <DropdownMenuItem>
-                <LifeBuoy class="w-4 h-4 mr-2" />
+                <LifeBuoy class="mr-2 h-4 w-4" />
                 Support
               </DropdownMenuItem>
               <DropdownMenuItem disabled>
-                <Cloud class="w-4 h-4 mr-2" />
+                <Cloud class="mr-2 h-4 w-4" />
                 API
               </DropdownMenuItem>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
             <DropdownMenuItem>
-              <LogOut class="w-4 h-4 mr-2" />
+              <LogOut class="mr-2 h-4 w-4" />
               Log out
               <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
             </DropdownMenuItem>
@@ -203,8 +206,8 @@ const position = ref("bottom");
     </Example>
 
     <div class="pt-8">
-      <h1 class="text-2xl font-heading text-foreground">Installation</h1>
-      <Separator class="mt-2 mb-6" />
+      <h1 class="font-heading text-2xl text-foreground">Installation</h1>
+      <Separator class="mb-6 mt-2" />
 
       <Code
         code="npx shadcn-vue add dropdown-menu"
@@ -214,8 +217,8 @@ const position = ref("bottom");
     </div>
 
     <div class="pt-8">
-      <h1 class="text-2xl font-heading text-foreground">Usage</h1>
-      <Separator class="mt-2 mb-6" />
+      <h1 class="font-heading text-2xl text-foreground">Usage</h1>
+      <Separator class="mb-6 mt-2" />
 
       <div class="space-y-6">
         <Code
@@ -233,7 +236,7 @@ const position = ref("bottom");
     </div>
 
     <div class="pt-8">
-      <h1 class="text-2xl font-heading text-foreground">Examples</h1>
+      <h1 class="font-heading text-2xl text-foreground">Examples</h1>
       <Separator class="mt-2" />
 
       <div
@@ -246,16 +249,16 @@ const position = ref("bottom");
         </h2>
         <Tabs class="pt-4" :default-value="`preview-${example.name}`">
           <TabsList
-            class="inline-flex h-9 items-center w-full justify-start rounded-none border-b border-border dark:bg-transparent bg-transparent p-0"
+            class="inline-flex h-9 w-full items-center justify-start rounded-none border-b border-border bg-transparent p-0 dark:bg-transparent"
           >
             <TabsTrigger
-              class="inline-flex items-center justify-center whitespace-nowrap py-1 text-sm focus-visible:outline-none data-[state=active]:border-b-primary data-[state=active]:bg-transparent data-[state=active]:text-foreground relative h-9 rounded-none border-b-2 border-b-transparent bg-transparent px-4 pb-3 pt-2 font-semibold shadow-none transition-none data-[state=active]:shadow-none"
+              class="relative inline-flex h-9 items-center justify-center whitespace-nowrap rounded-none border-b-2 border-b-transparent bg-transparent px-4 py-1 pb-3 pt-2 text-sm font-semibold shadow-none transition-none focus-visible:outline-none data-[state=active]:border-b-primary data-[state=active]:bg-transparent data-[state=active]:text-foreground data-[state=active]:shadow-none"
               :value="`preview-${example.name}`"
             >
               Preview
             </TabsTrigger>
             <TabsTrigger
-              class="inline-flex items-center justify-center whitespace-nowrap py-1 text-sm focus-visible:outline-none data-[state=active]:border-b-primary data-[state=active]:bg-transparent data-[state=active]:text-foreground relative h-9 rounded-none border-b-2 border-b-transparent bg-transparent px-4 pb-3 pt-2 font-semibold shadow-none transition-none data-[state=active]:shadow-none"
+              class="relative inline-flex h-9 items-center justify-center whitespace-nowrap rounded-none border-b-2 border-b-transparent bg-transparent px-4 py-1 pb-3 pt-2 text-sm font-semibold shadow-none transition-none focus-visible:outline-none data-[state=active]:border-b-primary data-[state=active]:bg-transparent data-[state=active]:text-foreground data-[state=active]:shadow-none"
               :value="`code-${example.name}`"
             >
               Code
@@ -264,7 +267,7 @@ const position = ref("bottom");
 
           <TabsContent :value="`preview-${example.name}`">
             <div
-              class="flex mt-8 w-full min-h-[450px] justify-center items-center flex-col rounded-lg p-8 border border-border"
+              class="mt-8 flex min-h-[450px] w-full flex-col items-center justify-center rounded-lg border border-border p-8"
             >
               <div v-if="example.name === 'Checkboxes'">
                 <DropdownMenu>

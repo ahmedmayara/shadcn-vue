@@ -3,11 +3,11 @@ import {
   DropdownMenuSub,
   type DropdownMenuSubEmits,
   type DropdownMenuSubProps,
-} from 'radix-vue'
+} from "radix-vue";
 
-const props = defineProps<DropdownMenuSubProps>()
+const props = defineProps<DropdownMenuSubProps>();
 
-const emits = defineEmits<DropdownMenuSubEmits>()
+const emits = defineEmits<DropdownMenuSubEmits>();
 </script>
 
 <template>

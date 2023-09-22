@@ -1,12 +1,15 @@
 <script setup lang="ts">
-import { cn } from '@/lib/utils'
+import { cn } from "@/lib/utils";
+import { type TableHTMLAttributes } from "vue";
 
-const props = defineProps<{ class?: string }>()
+interface Props extends /* @vue-ignore */ TableHTMLAttributes {}
+
+const props = defineProps<Props>();
 </script>
 
 <template>
-  <div class="w-full overflow-auto">
-    <table :class="cn('w-full caption-bottom text-sm', props.class)">
+  <div :class="cn('w-full overflow-auto', $attrs.class)">
+    <table class="w-full caption-bottom text-sm" v-bind="props">
       <slot />
     </table>
   </div>

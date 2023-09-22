@@ -4,27 +4,30 @@ import {
   DropdownMenuRadioItem,
   type DropdownMenuRadioItemEmits,
   type DropdownMenuRadioItemProps,
-} from 'radix-vue'
-import RadixIconsDotFilled from '~icons/radix-icons/dot-filled'
-import { cn, useEmitAsProps } from '@/lib/utils'
+} from "radix-vue";
+import DotFilledIcon from "~icons/radix-icons/dot-filled";
+import { cn, useEmitAsProps } from "@/lib/utils";
 
-const props = defineProps<DropdownMenuRadioItemProps & { class?: string }>()
+const props = defineProps<DropdownMenuRadioItemProps & { class?: string }>();
 
-const emits = defineEmits<DropdownMenuRadioItemEmits>()
+const emits = defineEmits<DropdownMenuRadioItemEmits>();
 </script>
 
 <template>
   <DropdownMenuRadioItem
     v-bind="{ ...props, ...useEmitAsProps(emits) }"
-    :class="cn(
-      'flex relative items-center rounded-md transition-colors data-[disabled]:opacity-50 data-[disabled]:pointer-events-none data-[highlighted]:bg-outline-hover pl-7 py-1.5 text-sm outline-none select-none cursor-default',
-      props.class,
-    )"
+    :class="
+      cn(
+        'relative flex cursor-default select-none items-center rounded-md py-1.5 pl-7 text-sm outline-none transition-colors data-[disabled]:pointer-events-none data-[highlighted]:bg-accent data-[disabled]:opacity-50',
+        props.class,
+      )
+    "
   >
-    <span className="absolute left-2 flex h-3.5 w-3.5 items-center justify-center">
-
+    <span
+      className="absolute left-2 flex h-3.5 w-3.5 items-center justify-center"
+    >
       <DropdownMenuItemIndicator>
-        <RadixIconsDotFilled class="h-4 w-4 fill-current" />
+        <DotFilledIcon class="h-4 w-4 fill-current" />
       </DropdownMenuItemIndicator>
     </span>
     <slot />

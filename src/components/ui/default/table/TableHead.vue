@@ -1,17 +1,13 @@
 <script setup lang="ts">
 import { cn } from "@/lib/utils";
-
-const props = defineProps({
-  class: String,
-});
 </script>
 
 <template>
   <th
     :class="
       cn(
-        'h-12 px-4 text-left align-middle font-medium whitespace-nowrap text-sm text-muted-foreground',
-        props.class,
+        'h-12 whitespace-nowrap px-4 text-left align-middle text-sm font-medium text-muted-foreground',
+        $attrs.class,
       )
     "
   >

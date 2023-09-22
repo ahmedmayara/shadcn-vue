@@ -57,11 +57,11 @@ const emit = defineEmits(["update:modelValue"]);
         '!cursor-not-allowed opacity-50': props.disabled,
       }"
       :checked="props.checked"
-      class="w-4 h-4 peer cursor-pointer shrink-0 relative checked:bg-primary appearance-none text-foreground border border-primary rounded"
+      class="peer relative h-4 w-4 shrink-0 cursor-pointer appearance-none rounded border border-primary text-foreground transition-all checked:bg-primary"
     />
 
     <RadixIconsCheck
-      class="absolute pointer-events-none hidden peer-checked:block w-4 h-3 text-background"
+      class="pointer-events-none absolute hidden h-3 w-4 text-background transition-all peer-checked:block"
     />
   </div>
 </template>

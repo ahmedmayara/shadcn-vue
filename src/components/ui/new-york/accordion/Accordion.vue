@@ -3,15 +3,18 @@ import {
   AccordionRoot,
   type AccordionRootEmits,
   type AccordionRootProps,
-} from 'radix-vue'
-import { useEmitAsProps } from '@/lib/utils'
+} from "radix-vue";
+import { useEmitAsProps } from "@/lib/utils";
 
-const props = defineProps<AccordionRootProps>()
-const emits = defineEmits<AccordionRootEmits>()
+const props = defineProps<AccordionRootProps>();
+const emits = defineEmits<AccordionRootEmits>();
 </script>
 
 <template>
-  <AccordionRoot v-bind="{ ...props, ...useEmitAsProps(emits) }" class="accordion">
+  <AccordionRoot
+    v-bind="{ ...props, ...useEmitAsProps(emits) }"
+    class="accordion"
+  >
     <slot />
   </AccordionRoot>
 </template>

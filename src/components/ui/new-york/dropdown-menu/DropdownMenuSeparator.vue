@@ -2,9 +2,9 @@
 import {
   DropdownMenuSeparator,
   type DropdownMenuSeparatorProps,
-} from 'radix-vue'
+} from "radix-vue";
 
-const props = defineProps<DropdownMenuSeparatorProps>()
+const props = defineProps<DropdownMenuSeparatorProps>();
 </script>
 
 <template>

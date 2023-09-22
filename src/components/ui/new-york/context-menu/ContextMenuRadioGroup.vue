@@ -3,11 +3,11 @@ import {
   ContextMenuRadioGroup,
   type ContextMenuRadioGroupEmits,
   type ContextMenuRadioGroupProps,
-} from 'radix-vue'
+} from "radix-vue";
 
-const props = defineProps<ContextMenuRadioGroupProps>()
+const props = defineProps<ContextMenuRadioGroupProps>();
 
-const emits = defineEmits<ContextMenuRadioGroupEmits>()
+const emits = defineEmits<ContextMenuRadioGroupEmits>();
 </script>
 
 <template>

@@ -2,6 +2,7 @@
 import { ref } from "vue";
 import CaretSortIcon from "~icons/radix-icons/caret-sort";
 import PlusCircledIcon from "~icons/radix-icons/plus-circled";
+import CheckIcon from "~icons/radix-icons/check";
 
 import { cn } from "@/lib/utils";
 import {
@@ -97,6 +98,7 @@ const showNewTeamAndClose = () => {
             <AvatarImage
               :src="`https://avatar.vercel.sh/${selectedTeam.value}.png`"
               :alt="selectedTeam.label"
+              class="grayscale"
             />
             <AvatarFallback>SC</AvatarFallback>
           </Avatar>
@@ -118,17 +120,27 @@ const showNewTeamAndClose = () => {
               <CommandItem
                 v-for="team in group.teams"
                 :key="team.value"
-                :value="team.value"
-                @select="selectedTeam = team"
+                :value="team.label.toLowerCase()"
+                @select="
+                  () => {
+                    selectedTeam = team;
+                    open = false;
+                  }
+                "
               >
                 <Avatar class="mr-2 h-5 w-5">
                   <AvatarImage
                     :src="`https://avatar.vercel.sh/${team.value}.png`"
                     :alt="team.label"
+                    class="grayscale"
                   />
                   <AvatarFallback>SC</AvatarFallback>
                 </Avatar>
                 <span>{{ team.label }}</span>
+                <CheckIcon
+                  class="ml-auto h-4 w-4 shrink-0 text-foreground"
+                  v-if="team.label === selectedTeam.label"
+                />
               </CommandItem>
             </CommandGroup>
 

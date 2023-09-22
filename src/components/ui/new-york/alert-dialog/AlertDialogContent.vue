@@ -5,14 +5,14 @@ import {
   type AlertDialogContentProps,
   AlertDialogOverlay,
   AlertDialogPortal,
-} from 'radix-vue'
-import { cn, useEmitAsProps } from '@/lib/utils'
+} from "radix-vue";
+import { cn, useEmitAsProps } from "@/lib/utils";
 
-const props = defineProps<AlertDialogContentProps & { class?: string }>()
+const props = defineProps<AlertDialogContentProps & { class?: string }>();
 
-const emits = defineEmits<AlertDialogContentEmits>()
+const emits = defineEmits<AlertDialogContentEmits>();
 
-const emitsAsProps = useEmitAsProps(emits)
+const emitsAsProps = useEmitAsProps(emits);
 </script>
 
 <template>

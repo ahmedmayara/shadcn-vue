@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Badge } from "@/components/ui/default/badge";
+import { Badge } from "@/components/ui/new-york/badge";
 
 interface Props {
   label?: string;

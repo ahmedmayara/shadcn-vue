@@ -100,8 +100,8 @@ const button = computed(() => {
     </BreadCrumb>
 
     <div class="grid space-y-1 pt-6">
-      <h1 class="text-4xl font-heading text-foreground">Installation</h1>
-      <p class="text-muted-foreground text-lg">
+      <h1 class="font-heading text-4xl text-foreground">Installation</h1>
+      <p class="text-lg text-muted-foreground">
         How to install dependencies and setup your project.
       </p>
     </div>
@@ -112,12 +112,12 @@ const button = computed(() => {
       <ol class="relative border-l border-border">
         <li class="mb-10 ml-8" v-for="(step, index) in steps" :key="index">
           <span
-            class="absolute flex text-sm items-center justify-center w-7 h-7 rounded-full -left-3.5 bg-accent"
+            class="absolute -left-3.5 flex h-7 w-7 items-center justify-center rounded-full bg-accent text-sm"
           >
             {{ index + 1 }}
           </span>
           <div class="space-y-2">
-            <h3 class="font-semibold text-xl leading-tight text-foreground">
+            <h3 class="text-xl font-semibold leading-tight text-foreground">
               {{ step.title }}
             </h3>
             <p class="text-sm text-foreground">
@@ -135,11 +135,11 @@ const button = computed(() => {
           </div>
 
           <div v-if="step.title === 'App structure'" class="mt-6">
-            <ul class="list-disc leading-8 list-inside text-md text-foreground">
+            <ul class="text-md list-inside list-disc leading-8 text-foreground">
               <li>
                 I kepp the UI components in the
                 <code
-                  class="text-sm bg-accent rounded-md inline-flex px-1.5 py-0.5"
+                  class="inline-flex rounded-md bg-accent px-1.5 py-0.5 text-sm"
                 >
                   components/ui
                 </code>
@@ -148,30 +148,30 @@ const button = computed(() => {
               <li>
                 The rest of the components such as
                 <code
-                  class="text-sm bg-accent rounded-md inline-flex px-1.5 py-0.5"
+                  class="inline-flex rounded-md bg-accent px-1.5 py-0.5 text-sm"
                   >Navbar</code
                 >,
                 <code
-                  class="text-sm bg-accent rounded-md inline-flex px-1.5 py-0.5"
+                  class="inline-flex rounded-md bg-accent px-1.5 py-0.5 text-sm"
                   >Header</code
                 >, etc. are kept in the root of the components folder.
               </li>
               <li>
                 The
                 <code
-                  class="text-sm bg-accent rounded-md inline-flex px-1.5 py-0.5"
+                  class="inline-flex rounded-md bg-accent px-1.5 py-0.5 text-sm"
                 >
                   lib
                 </code>
                 folder is used for utility functions. There is a file called
                 <code
-                  class="text-sm bg-accent rounded-md inline-flex px-1.5 py-0.5"
+                  class="inline-flex rounded-md bg-accent px-1.5 py-0.5 text-sm"
                 >
                   utils.ts
                 </code>
                 where I keep the
                 <code
-                  class="text-sm bg-accent rounded-md inline-flex px-1.5 py-0.5"
+                  class="inline-flex rounded-md bg-accent px-1.5 py-0.5 text-sm"
                 >
                   cn
                 </code>
@@ -180,13 +180,13 @@ const button = computed(() => {
               <li>
                 The
                 <code
-                  class="text-sm bg-accent rounded-md inline-flex px-1.5 py-0.5"
+                  class="inline-flex rounded-md bg-accent px-1.5 py-0.5 text-sm"
                 >
                   assets
                 </code>
                 folder is used for global styles. I keep the
                 <code
-                  class="text-sm bg-accent rounded-md inline-flex px-1.5 py-0.5"
+                  class="inline-flex rounded-md bg-accent px-1.5 py-0.5 text-sm"
                 >
                   main.css
                 </code>
@@ -199,7 +199,7 @@ const button = computed(() => {
             <p class="text-md text-foreground">
               The command above will add the
               <code
-                class="text-sm bg-accent rounded-md inline-flex px-1.5 py-0.5"
+                class="inline-flex rounded-md bg-accent px-1.5 py-0.5 text-sm"
               >
                 Button
               </code>

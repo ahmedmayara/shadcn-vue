@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { computed } from "vue";
 import type { Row } from "@tanstack/vue-table";
 import { type Payment } from "../data";
 import {
@@ -12,20 +13,26 @@ import {
 } from "@/components/ui/default/dropdown-menu";
 import { Button } from "@/components/ui/default/button";
 
-import { MoreHorizontal } from "lucide-vue-next";
+import DotsHorizontalIcon from "~icons/radix-icons/dots-horizontal";
 
-interface Props {
+interface PaymentsDataTableRowActionsProps {
   row: Row<Payment>;
 }
 
-const props = defineProps<Props>();
+const props = defineProps<PaymentsDataTableRowActionsProps>();
+
+const payment = computed(() => props.row.original);
 </script>
 
 <template>
   <DropdownMenu>
     <DropdownMenuTrigger asChild>
-      <Button variant="ghost" class="p-1.5">
-        <MoreHorizontal class="w-4 h-4 text-muted-foreground" />
+      <Button
+        variant="ghost"
+        class="flex h-8 w-8 p-0 data-[state=open]:bg-muted"
+      >
+        <DotsHorizontalIcon class="h-4 w-4" />
+        <span class="sr-only">Open menu</span>
       </Button>
     </DropdownMenuTrigger>
     <DropdownMenuContent align="end">
